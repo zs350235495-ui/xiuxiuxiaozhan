@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍰【深度评测】2026 一元机场真的能用吗？实测跑分、跑路风险与抗颠簸搭配全指南 ~ 咻咻小站</title>
+  <meta name="description" content="2026一元机场全方位大起底！实测跑分、晚高峰卡顿成因、1元机场跑路风险剖析与老司机双航班搭配避坑指南。对比公网直连与IPLC专线区别，教你用好Shadowrocket小火箭规则分流与高性价比翻墙节点。">
+  <meta name="keywords" content="一元机场推荐, 1元机场测速, 2026便宜机场, 高性价比翻墙节点, 平价梯子推荐, 一元机场会跑路吗, 一元机场晚高峰卡顿, 一元机场节点超时, 便宜机场看奈飞, 一元机场解锁ChatGPT, 公网直连与IPLC专线区别, BGP中转, 超售带宽, 原生落地IP, Shadowrocket小火箭规则分流">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* 萌系手帐专有细节扩展 */
+    .toc-card {
+      background: #FFFDF8;
+      border: 2px dashed #FFB8C6;
+      border-radius: var(--radius-lg);
+      padding: 18px 24px;
+      margin: 24px 0 32px 0;
+      box-shadow: 0 4px 15px rgba(255, 142, 167, 0.08);
+      position: relative;
+    }
+    .toc-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 8px 16px;
+    }
+    .toc-list a {
+      color: var(--text-main);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .toc-list a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+      transform: translateX(4px);
+    }
+    
+    .section-block {
+      margin-bottom: 40px;
+      scroll-margin-top: 80px;
+    }
+    .section-h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+      border-left: 5px solid var(--primary);
+      padding-left: 12px;
+      margin: 28px 0 16px 0;
+      line-height: 1.3;
+    }
+    .section-h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 20px 0 10px 0;
+    }
+    
+    /* 萌系警告框 */
+    .warning-box {
+      background: #FFF5F5;
+      border: 2px dashed #FFB8B8;
+      border-left: 5px solid #FF5252;
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(255, 82, 82, 0.08);
+    }
+    .warning-title {
+      font-weight: 800;
+      color: #D63031;
+      font-size: 1.0rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    /* 手帐卡片对比表格 */
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      border: 2px dashed var(--border-pink);
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #FFFFFF;
+      font-size: 0.9rem;
+      text-align: left;
+    }
+    .comparison-table th {
+      background: linear-gradient(135deg, var(--primary-light), #FFF0F4);
+      color: var(--primary);
+      font-weight: 800;
+      padding: 14px 16px;
+      border-bottom: 2px solid var(--border-pink);
+    }
+    .comparison-table td {
+      padding: 12px 16px;
+      border-bottom: 1px dashed rgba(255, 142, 167, 0.25);
+      color: var(--text-main);
+      vertical-align: middle;
+    }
+    .comparison-table tr:hover {
+      background: #FFFDFB;
+    }
+
+    /* 带货推荐微卡片 */
+    .recommend-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .recommend-mini-card {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      border: 2px solid var(--border-pink);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部公共导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 16px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">一元机场深度大起底与搭配手帐</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 32px 28px; border: 2px solid var(--border-pink); border-radius: var(--radius-xl); background: #FFFFFF;">
+      
+      <!-- 文章头部元数据 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 18px; margin-bottom: 20px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="badge-tag" style="margin-bottom: 0;">#一元机场推荐</span>
+          <span class="badge-tag" style="background: #EBF7FF; color: #2BA0E3; border-color: #B8E4FF; margin-bottom: 0;">#1元机场测速</span>
+          <span class="badge-tag" style="background: #FFF9E0; color: #D4A000; border-color: #FFE066; margin-bottom: 0;">#IPLC专线科普</span>
+          <span class="badge-tag" style="background: #F9F5FF; color: #8241C7; border-color: #D8B4F8; margin-bottom: 0;">#避坑指南</span>
+        </div>
+        <h1 style="font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 10px; line-height: 1.35;">
+          🍰【深度评测】2026 一元机场真的能用吗？实测跑分、跑路风险与抗颠簸搭配全指南
+        </h1>
+        <div style="font-size: 0.86rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+          <span>📅 更新时间：2026-10</span>
+          <span>✍️ 作者：🍰 咻咻站长甜心</span>
+          <span>⏱️ 预计阅读：6 分钟 (深度干货 3800字)</span>
+        </div>
+      </div>
+
+      <!-- 手帐导航小贴纸 (目录 TOC) -->
+      <div class="toc-card">
+        <div class="toc-title">
+          <span>📌 飞行手帐快捷导航 (目录 TOC)</span>
+        </div>
+        <ul class="toc-list">
+          <li><a href="#section-1">🌸 1. 一元机场是什么？为何便宜到“一杯奶茶钱”？</a></li>
+          <li><a href="#section-2">⚠️ 2. 一元机场的 4 大真实痛点与使用瓶颈</a></li>
+          <li><a href="#section-3">📊 3. 科学对比表：一元机场 vs IPLC高端专线</a></li>
+          <li><a href="#section-4">💡 4. 老司机的“双航班搭配法”（把一元机场用到极致）</a></li>
+          <li><a href="#section-5">🏆 5. 站内高性价比抗颠簸航线精选</a></li>
+        </ul>
+      </div>
+
+      <!-- 正文内容 -->
+      <div style="line-height: 1.8; color: var(--text-main); font-size: 0.98rem;">
+
+        <!-- 第一章 -->
+        <section id="section-1" class="section-block">
+          <h2 class="section-h2">1. 一元机场是什么？为什么能便宜到“一杯奶茶钱”？</h2>
+          <p style="margin-bottom: 12px;">
+            在各大贴吧、V2EX 和 Telegram 交流群里，我们经常能看到关于<strong>「一元机场推荐」</strong>与<strong>「1元机场测速」</strong>的热烈讨论。不少刚接触外网的新手萌新会有疑问：<em>一个月只要 ￥1 块钱甚至 ￥2 块钱，居然就能提供上百 G 的流量？这难道是慈善机构吗？</em>
+          </p>
+          <p style="margin-bottom: 12px;">
+            今天咻咻站长就来为大家揭秘 2026 年平价机场圈子的<strong>底层商业运作模式</strong>：
+          </p>
+          
+          <div class="memo-box" style="margin: 16px 0; padding: 16px 20px;">
+            <h3 class="section-h3" style="margin-top: 0;">💡 一元机场能做到超低价的 3 个核心商业秘密：</h3>
+            <ul style="padding-left: 20px; line-height: 1.8;">
+              <li><strong>廉价 VPS 直连架构：</strong> 绝大多数一元机场使用的是月付几块钱的海外廉价公网 VPS（如美西直连、搬瓦工低价机、数据中心机房 IP），不需要租用昂贵的国内中转服务器（BGP）或内网专线。</li>
+              <li><strong>海量用户严重超售（1000 人挤 1Gbps）：</strong> 正常专线会将每位用户的带宽控制在合理区间；而一元机场往往采用<strong>极致超售策略</strong>，将几千名用户挤在同一条普通 1Gbps 公网管道里。只要平时大家不上网，成本就能摊得极低。</li>
+              <li><strong>低成本自动化面板运营：</strong> 使用开源的 V2Board、SSPanel 等管理面板，无人维护工单客服，全靠自动化对接。</li>
+            </ul>
+          </div>
+
+          <p style="margin-bottom: 12px;">
+            <strong>🎯 核心适用人群：</strong> 一元机场并非一无是处！对于<strong>预算有限的学生党</strong>、偶尔需要登录 Google 查阅学术论文文献、或者仅在 Telegram/Twitter 轻量浏览文字讯息的“轻度乘客”来说，一元机场确实是性价比极高的平价选择。
+          </p>
+        </section>
+
+        <!-- 第二章 -->
+        <section id="section-2" class="section-block">
+          <h2 class="section-h2">2. 一元机场的 4 大真实痛点与使用瓶颈（结合实测数据）</h2>
+          <p style="margin-bottom: 12px;">
+            虽然便宜划算，但在实际实测与长期使用中，一元廉价机场也存在着极其明显的物理层硬伤。不少乘客反映遇到<strong>「一元机场晚高峰卡顿」</strong>、<strong>「一元机场节点超时」</strong>以及<strong>「一元机场会跑路吗」</strong>的顾虑。下面是站内实测总结的 4 大核心瓶颈：
+          </p>
+
+          <div class="warning-box">
+            <div class="warning-title">⚠️ 痛点 1：晚高峰严重颠簸断流（丢包率高达 35%~50%）</div>
+            <p style="font-size: 0.92rem; color: var(--text-soft); margin-bottom: 0;">
+              每到晚上 20:00 - 23:00 的晚高峰上网时段，国际出口公网海缆带宽极度拥堵。由于公网直连节点易受 GFW QoS 优先限速排队，一元机场节点超时率飙升，打开 YouTube/Bilibili 视频频繁画圈圈，4K 甚至 1080P 都无法流畅播放。
+            </p>
+          </div>
+
+          <div class="warning-box" style="background: #FFFDF0; border-color: #FFE066; border-left-color: #FFB800;">
+            <div class="warning-title" style="color: #D4A000;">⚠️ 痛点 2：流媒体与 AI 工具频繁被风控（IP 被污染）</div>
+            <p style="font-size: 0.92rem; color: var(--text-soft); margin-bottom: 0;">
+              因成千上万名用户共享同一个数据中心机房 IP，ChatGPT、Claude 等 AI 工具会频繁触发安全防御，提示 <em>"Access Denied (拒绝访问)"</em> 或强跳人机验证；使用便宜机场看奈飞 (Netflix) 时，也经常被识别为 Proxy 代理，只能看 Netflix 自制剧。
+            </p>
+          </div>
+
+          <div class="warning-box" style="background: #FDF5FF; border-color: #D8B4F8; border-left-color: #9B51E0;">
+            <div class="warning-title" style="color: #8241C7;">⚠️ 痛点 3：随时可能失联跑路（利润极薄无抗风险能力）</div>
+            <p style="font-size: 0.92rem; color: var(--text-soft); margin-bottom: 0;">
+              一元机场运营利润极其微薄。一旦节点公网 IP 被墙或者上游 VPS 供应商封号，站长往往无力支付续费与更换 IP 的昂贵成本，直接失联跑路。因此购买一元机场<strong>切记“月付保平安”</strong>，绝不要一次性购买年付！
+            </p>
+          </div>
+
+          <div class="warning-box" style="background: #F5F9FF; border-color: #B8E4FF; border-left-color: #2BA0E3;">
+            <div class="warning-title" style="color: #2BA0E3;">⚠️ 痛点 4：售后客服基本为零（全靠群友自愈）</div>
+            <p style="font-size: 0.92rem; color: var(--text-soft); margin-bottom: 0;">
+              由于售价便宜，运营者无法提供人工工单与专业技术支持。遇到节点全红报错或客户端更新失败时，小白萌新往往求助无门。
+            </p>
+          </div>
+        </section>
+
+        <!-- 第三章 -->
+        <section id="section-3" class="section-block">
+          <h2 class="section-h2">3. 科学对比表：一元廉价机场 vs IPLC 专线高端航班</h2>
+          <p style="margin-bottom: 14px;">
+            为了让大家更清晰地了解<strong>公网直连与 IPLC 专线的区别</strong>，咻咻站长整理了一张美观透彻的对比手帐表格：
+          </p>
+
+          <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th style="width: 22%;">评测维度</th>
+                  <th style="width: 38%;">一元 / 廉价公网机场 🍧</th>
+                  <th style="width: 40%;">高端 IPLC 专线航班 (如环球梯/大佬云) 🚀</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>网络架构</strong></td>
+                  <td>公网直连 / 普通中转（易受海缆气流干扰）</td>
+                  <td>全 IPLC/IEPL 内网专线（不过公网防火墙）</td>
+                </tr>
+                <tr>
+                  <td><strong>晚高峰体验</strong></td>
+                  <td>丢包率 35%+、延迟飘高、看视频画圈</td>
+                  <td>延迟平稳仅 30-40ms、丝滑不限速、4K秒开</td>
+                </tr>
+                <tr>
+                  <td><strong>解锁能力</strong></td>
+                  <td>AI 报 Access Denied、奈飞仅看自制剧</td>
+                  <td>原生 IP 落地，Netflix/ChatGPT/TikTok 全解</td>
+                </tr>
+                <tr>
+                  <td><strong>设备并发限制</strong></td>
+                  <td>通常限制 1~2 台设备同时在线</td>
+                  <td>支持多设备并发、不限设备畅连、支持软路由</td>
+                </tr>
+                <tr>
+                  <td><strong>抗风险与售后</strong></td>
+                  <td>跑路风险较高，必须月付，零客服</td>
+                  <td>运营稳定成熟、口碑佳、Telegram客服实时响应</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 第四章 -->
+        <section id="section-4" class="section-block">
+          <h2 class="section-h2">4. 老司机的“双航班搭配法”（如何把一元机场用到极致）</h2>
+          <p style="margin-bottom: 12px;">
+            那么，有没有一种既省钱、又能获得极致稳定体验的方案呢？老司机最推崇的策略就是<strong>「主力专线 + 备用一元机场」双航班配合机制</strong>！
+          </p>
+          
+          <div class="memo-box" style="background: #FFFBF7; border-color: var(--border-pink); margin: 20px 0;">
+            <h3 class="section-h3" style="margin-top: 0;">✈️ 80% 主用 + 20% 备用的科学配置公式：</h3>
+            <ol style="padding-left: 20px; line-height: 1.8;">
+              <li><strong>主力航线（80% 日常主用）：</strong> 配置一条高质量的 <strong>IPLC 专线航班</strong>（如环球梯或大佬云），用于日常工作中查阅资料、观看 4K 视频、ChatGPT 对话以及远程办公，确保晚高峰绝不上火颠簸。</li>
+              <li><strong>备用副线（20% 紧急兜底）：</strong> 订阅一条几块钱的<strong>一元机场</strong>作为防失联备用。万一主力专线进行机房例行维护时，可以临时切换备用线路充当紧急防空网。</li>
+            </ol>
+          </div>
+
+          <div style="background: #F8F9FA; padding: 16px 20px; border-radius: var(--radius-md); border: 1.5px dashed var(--border-blue); margin-top: 16px;">
+            <h4 style="font-size: 1.0rem; font-weight: 800; color: #2BA0E3; margin-bottom: 6px;">💡 客户端分流小贴士（Shadowrocket / Clash 规则分流）：</h4>
+            <p style="font-size: 0.9rem; color: var(--text-soft); margin-bottom: 0;">
+              在 Shadowrocket（小火箭）或 Clash Verge 中开启<strong>「规则模式 (Rule)」</strong>，将国内流量（淘宝、微信、B站）设为 Direct 直连，海外流量走代理，这样既能节省宝贵专线流量，又能获得最快的网络加载速度！
+            </p>
+          </div>
+        </section>
+
+        <!-- 第五章 -->
+        <section id="section-5" class="section-block">
+          <h2 class="section-h2">5. 站内高性价比抗颠簸航线精选（自然带货）</h2>
+          <p style="margin-bottom: 16px;">
+            如果你正在寻找晚高峰不画圈、解锁稳定、性价比较高的主力专线航班，不妨看看站长亲测推荐的这 3 款旗舰航线：
+          </p>
+
+          <!-- 带货微卡片 Grid -->
+          <div class="recommend-mini-grid">
+            
+            <!-- 🥇 环球梯 -->
+            <div class="recommend-mini-card">
+              <span class="podium-rank rank-gold">🥇 TOP 1 镇站旗舰</span>
+              <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px; margin-top: 4px;">
+                <img src="../images/huanqiuti.png" alt="环球梯 LOGO" style="width: 42px; height: 42px; border-radius: 12px; border: 2px solid #FFD166;">
+                <div>
+                  <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">环球梯 (HuanQiuTi)</h3>
+                  <div style="font-size: 0.75rem; color: var(--primary); font-weight: 700;">✈️ 环球滑行号 · 全 IPLC</div>
+                </div>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-soft); margin-bottom: 10px;">
+                ⚡ 晚高峰 680Mbps | 🌸 解锁 5.0 | 🎬 4K/8K秒开
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 10px;">
+                <div style="font-size: 0.78rem; color: var(--primary); font-weight: 800;">
+                  7折优惠码: <strong>HQ66</strong> (折后￥15.4/月起)
+                </div>
+                <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 5px 14px; font-size: 0.8rem;">
+                  🚀 直达
+                </a>
+              </div>
+            </div>
+
+            <!-- 🥈 大佬云 -->
+            <div class="recommend-mini-card" style="border-color: var(--border-blue);">
+              <span class="podium-rank rank-silver">🥈 TOP 2 IPLC专线</span>
+              <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px; margin-top: 4px;">
+                <img src="../images/dalaoyun.png" alt="大佬云 LOGO" style="width: 42px; height: 42px; border-radius: 12px; border: 2px solid #70CFFF;">
+                <div>
+                  <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">大佬云 (DaLaoYun)</h3>
+                  <div style="font-size: 0.75rem; color: #2BA0E3; font-weight: 700;">✈️ 筋斗云高速号 · 不限设备</div>
+                </div>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-soft); margin-bottom: 10px;">
+                ⚡ 单点 2.5Gbps | 🌸 原生IP | 📱 不限设备在线
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 10px;">
+                <div style="font-size: 0.78rem; color: #2BA0E3; font-weight: 800;">
+                  7折优惠码: <strong>dly88</strong> (折后￥16.1/月起)
+                </div>
+                <a href="https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 5px 14px; font-size: 0.8rem;">
+                  🚀 直达
+                </a>
+              </div>
+            </div>
+
+            <!-- 🥉 云界线 -->
+            <div class="recommend-mini-card" style="border-color: #D8B4F8;">
+              <span class="podium-rank rank-bronze">🥉 TOP 3 极速穿梭</span>
+              <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px; margin-top: 4px;">
+                <img src="../images/yunjiexian.png" alt="云界线 LOGO" style="width: 42px; height: 42px; border-radius: 12px; border: 2px solid #9B51E0;">
+                <div>
+                  <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-main);">云界线 (YunJieXian)</h3>
+                  <div style="font-size: 0.75rem; color: #8241C7; font-weight: 700;">✈️ 破云穿梭号 · 低延迟</div>
+                </div>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-soft); margin-bottom: 10px;">
+                ⚡ 低延迟 35ms | 🌸 流媒体全解 | 🚀 晚高峰不限速
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed rgba(0,0,0,0.08); padding-top: 10px;">
+                <div style="font-size: 0.78rem; color: #8241C7; font-weight: 800;">
+                  7折优惠码: <strong>yjx888</strong> (折后￥15.4/月起)
+                </div>
+                <a href="https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV" target="_blank" rel="noopener" class="btn" style="padding: 5px 14px; font-size: 0.8rem; background: linear-gradient(135deg, #9B51E0, var(--primary)); color: #FFFFFF;">
+                  🚀 直达
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 底部大跳转按钮 -->
+          <div style="text-align: center; margin-top: 32px;">
+            <a href="../reviews.html" class="btn btn-primary" style="padding: 12px 32px; font-size: 1.0rem; border-radius: var(--radius-pill);">
+              👉 点击前往【航线试吃中心】查看完整 15 款评测与优惠码 &gt;
+            </a>
+          </div>
+
+        </section>
+
+      </div>
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      避坑指南手帐，记得月付保平安哦 🌸
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 软萌页脚 -->
+  <footer class="site-footer">
+    <p>咻咻小站 ~ Shiu Shiu Station (๑•̀ㅂ•́)و✧</p>
+    <p style="margin-top: 6px;">Made with <span class="footer-heart">💖</span> for smooth browsing · <a href="../reviews.html">航线试吃</a> | <a href="../guide.html">登机指南</a> | <a href="../blog.html">飞行日记</a> | <a href="../blacklist.html">避坑黑名单</a> | <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

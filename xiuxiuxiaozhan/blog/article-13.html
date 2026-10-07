@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《为什么测试延迟很低，但看视频依旧画圈？揭秘 Ping 延迟与真实带宽测速陷阱》~ 咻咻小站</title>
+  <meta name="description" content="揭秘代理客户端测试 Ping 延迟很低但播放视频依然画圈卡顿的陷阱！深入剖析 TCP/UDP 延迟与真实吞吐量带宽的区别，教你用 YouTube Stats for nerds 进行真实测速。">
+  <meta name="keywords" content="测速真假延迟, Ping延迟原理, 晚高峰丢包率, 真实带宽测速, YouTube真实跑分">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-pink);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-pink">📊 测速陷阱揭秘</span>
+          <span class="tag-badge tag-blue">⚡ TCP 握手 vs 带宽吞吐</span>
+          <span class="tag-badge tag-green">🍿 YouTube 4K 跑分</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.4;">
+          《为什么测试延迟很低，但看视频依旧画圈？揭秘 Ping 延迟与真实带宽测速陷阱》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：✈️ 机长小助手</span>
+          <span>⏱️ 字数：约 1410 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #FFFBF7; border-left: 4px solid var(--primary);">
+          📊 <strong>喵呜导读：</strong> 许多用户在客户端中点击“延迟测试”时，看到列表里全是醒目的绿字 `25ms` 或 `40ms`，心里美滋滋；但一打开 4K 视频，画质却强制降到 360p 甚至不停卡顿画圈。为什么软件测出来的延迟和实际使用感受相差悬殊？本期日记为你拆解测速背后的秘密！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 客户端测出来的“Ping 延迟”究竟是什么？
+        </h2>
+        <p style="margin-bottom: 16px;">
+          在 Clash、v2rayNG 或 Shadowrocket 中，当你按下“测试延迟”按钮时，软件实际上只是向节点入口服务器发送了一个微小的 **HTTP / TCP 握手数据包（仅几十个字节）**，并记录收到回复所需的时间。
+        </p>
+        <p style="margin-bottom: 16px;">
+          <strong>这里的核心陷阱在于：</strong>
+        </p>
+        <ul style="padding-left: 20px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 8px;">
+          <li>1. <strong>只测前段不测后段：</strong> 许多测试仅仅测量了你家到国内中转入口的响应时间，并没有测量海外中转到目标视频服务器（如 YouTube 机房）的全程真实延迟。</li>
+          <li>2. <strong>极小数据包 ≠ 高吞吐带宽：</strong> 发送一个 64 字节的握手包只需几毫秒，但这完全无法体现节点在传输成千上万兆（MB）4K 视频流时的实际数据吞吐吞吐能力！</li>
+        </ul>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 决定视频流畅度的三大真正要素
+        </h2>
+        <p style="margin-bottom: 16px;">
+          比起客户端显示的毫秒数，真正影响看视频和打游戏体验的指标是：
+        </p>
+
+        <div style="background: #FFFDF9; border: 1.5px dashed #FFE066; padding: 18px; border-radius: 14px; margin: 18px 0;">
+          <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.93rem;">
+            <li>
+              ⚡ <strong>1. 持续吞吐带宽（Throughput Bandwidth）：</strong><br>
+              节点服务器能够持续维持的下载传输速率。即使 Ping 有 150ms，只要带宽能跑满 100Mbps，4K 视频依然能秒开。
+            </li>
+            <li>
+              📊 <strong>2. 丢包率（Packet Loss Rate）：</strong><br>
+              如果丢包率达到 10%，数据包频繁丢失触发 TCP 重传机制，播放器就会瞬间停顿等待。
+            </li>
+            <li>
+              🌊 <strong>3. 延迟抖动（Jitter）：</strong><br>
+              延迟波动是否剧烈。如果延迟在一秒内从 30ms 猛升至 400ms，游戏就会出现严重的“回弹拉扯”。
+            </li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 如何进行真正的 4K 视频实际跑分测试？
+        </h2>
+        <p style="margin-bottom: 16px;">
+          最权威、最直观的真实测速方法是使用 <strong>YouTube 的“详细统计信息”功能</strong>：
+        </p>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li>打开 YouTube，播放一段 4K 60帧的高码率演示视频（例如 4K HDR 风景演示片）。</li>
+          <li>在视频画面上点击右键 ➔ 选择最后一个选项 <strong>「详细统计信息 (Stats for nerds)」</strong>。</li>
+          <li>观察弹出面板中的 <strong>Connection Speed（连接速度）</strong> 指标：
+            <ul>
+              <li>低于 `5,000 Kbps`：只能勉强播放 720p/1080p；</li>
+              <li>`15,000 Kbps ~ 30,000 Kbps`：可流畅观看 4K 标清；</li>
+              <li>达到 `50,000 Kbps ~ 100,000+ Kbps`：真正的顶级极速节点，秒开 4K/8K 绝不画圈！</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 总结
+        </h2>
+        <p style="margin-bottom: 16px;">
+          告别“绿字 Ping 延迟盲目崇拜”！在评估网络服务质量时，一定要用实际视频跑分与下载速度说话，才能选到真正不颠簸的优质线路。
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-pink);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-1.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《2026 最新稳定专线选型指南》➔
+          </a>
+          <a href="./article-12.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《节点超时与订阅失败排错》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《TikTok 海外版抖音免拔卡刷视频攻略：多设备原生 IP 分流与环境伪装》~ 咻咻小站</title>
+  <meta name="description" content="TikTok海外版抖音免拔卡刷视频全攻略！详细解说iOS与Android客户端规则分流、语言时区伪装环境搭建，解决打开黑屏与无法点赞关注问题。">
+  <meta name="keywords" content="TikTok免拔卡教程, TikTok黑屏解决, 原生家庭IP, 海外短视频分流, 伪装环境搭建">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-pink);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-pink">🎵 TikTok 免拔卡</span>
+          <span class="tag-badge tag-blue">📱 伪装环境搭建</span>
+          <span class="tag-badge tag-green">🛡️ 解决打开黑屏</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.4;">
+          《TikTok 海外版抖音免拔卡刷视频攻略：多设备原生 IP 分流与环境伪装》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：🍓 试吃甜心</span>
+          <span>⏱️ 字数：约 1340 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #FFFBF7; border-left: 4px solid var(--primary);">
+          🎵 <strong>喵呜导读：</strong> 许多国内用户在安装国际版 TikTok（海外版抖音）后，经常遇到“打开加载黑屏”、“视频无法播放”或“登录后无法点赞评论”的问题。这主要是因为 TikTok 官方对中国大陆 SIM 卡（MCC/MNC 编码）进行了硬件检测。本期手帐将带你完成免拔卡伪装环境搭建！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 为什么直接打开 TikTok 会出现黑屏？
+        </h2>
+        <p style="margin-bottom: 16px;">
+          TikTok 在启动时会读取三项核心数据：
+        </p>
+        <ul style="padding-left: 20px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px;">
+          <li>1. 手机运营商 SIM 卡代码（如 `46000` 中国移动）；</li>
+          <li>2. 系统语言与时区设置（如 `zh-CN` / `GMT+8`）；</li>
+          <li>3. 访问 IP 地址地理位置与其纯净度。</li>
+        </ul>
+        <p style="margin-bottom: 16px;">
+          只要其中一项触发了国内特征拦截，客户端就会屏蔽视频数据流，表现为界面加载黑屏或“无网络连接”。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 iOS 小火箭 (Shadowrocket) 告别拔卡重写规则
+        </h2>
+        <p style="margin-bottom: 16px;">
+          在 iPhone 上，利用 Shadowrocket 的“重写（Rewrite）与 MitM（中间人攻击）”解密功能，可以伪装运营商代码：
+        </p>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li>在小火箭中开启 <strong>HTTPS 解密 (MitM)</strong>，并生成并信任证书。</li>
+          <li>安装并勾选 TikTok 专属模块/重写规则（Rewrite），将 SIM 卡运营商区域代码重写为目标国家代码（如 `US` 或 `JP`）。</li>
+          <li>将系统语言改为“English”，时区改为目标城市时区。</li>
+          <li>选择原生 IP 节点接入，打开 TikTok 即可完美加载视频。</li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 Android 端修改版的免拔卡解决方案
+        </h2>
+        <p style="margin-bottom: 16px;">
+          在 Android 手机上，推荐使用经过修改的 **TikTok Mod 安装包（配合 Plugin 插件）**。
+        </p>
+        <p style="margin-bottom: 16px;">
+          在 TikTok Plugin 插件中，你可以自由切换目标国家/地区（例如设置为 United States 或 Japan），插件会自动屏蔽系统 SIM 卡检测。随后在 v2rayNG 或 Sing-box 中开启代理并分流，即可稳定顺畅观赏短视频。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 总结
+        </h2>
+        <p style="margin-bottom: 16px;">
+          搞定环境伪装与分流规则后，不仅能流畅刷视频，还能稳定注册账号与进行海外短视频运营，轻松拥抱全球创作者社区！
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-pink);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-4.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《iOS 小火箭保姆级教程》➔
+          </a>
+          <a href="./article-8.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《ChatGPT & Claude 风控排查》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

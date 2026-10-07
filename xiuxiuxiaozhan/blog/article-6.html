@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《安卓小白必读：v2rayNG 与 Sing-box 客户端快速导入与后台保活白名单设置》~ 咻咻小站</title>
+  <meta name="description" content="安卓手机科学上网必读！v2rayNG与Sing-box客户端快速导入订阅教程，手把手教你配置小米/华为/OPPO/vivo等系统后台防杀进程保活秘籍。">
+  <meta name="keywords" content="v2rayNG安卓教程, Sing-box安卓导入, 安卓后台防掉线, 电池优化白名单, 国行ROM保活">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-pink);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-pink">🤖 Android 客户端教程</span>
+          <span class="tag-badge tag-blue">📱 后台防杀进程</span>
+          <span class="tag-badge tag-green">💎 Sing-box 极速内核</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.4;">
+          《安卓小白必读：v2rayNG 与 Sing-box 客户端快速导入与后台保活白名单设置》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：🐱 航线运维喵</span>
+          <span>⏱️ 字数：约 1360 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #FFFBF7; border-left: 4px solid var(--primary);">
+          🤖 <strong>喵呜导读：</strong> 许多安卓手机用户在使用网络代理时，经常遇到“刚锁屏手机，后台连接就断开”或者“锁屏几分钟后收不到 Telegram 消息”的问题。这主要是国行 ROM 严格的电池省电策略导致的。本期日记将带你搞定 v2rayNG 与 Sing-box 的配置及后台保活！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 v2rayNG 客户端快速导入订阅
+        </h2>
+        <p style="margin-bottom: 16px;">
+          <strong>v2rayNG</strong> 是 Android 平台极简且兼容性最好的经典客户端：
+        </p>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li>复制你的服务商提供的订阅链接。</li>
+          <li>打开 v2rayNG，点击左上角三道杠图标 ➔ 进入 <strong>「订阅设置」</strong> ➔ 点击右上角 <strong>「+」</strong> 号。</li>
+          <li>在“备注”中随便填写名称，在“地址（URL）”中粘贴订阅链接，点击保存。</li>
+          <li>返回应用主界面，点击右上角三个点 ➔ 选择 <strong>「更新订阅」</strong> 即可拉取所有节点。</li>
+          <li>点击右下角圆形的 V 字图标即可开启连接。</li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 新一代 Sing-box 客户端配置
+        </h2>
+        <p style="margin-bottom: 16px;">
+          <strong>Sing-box</strong> 是新一代通用网络代理内核，具有极低的内存占用与惊人的解析速度：
+        </p>
+        <p style="margin-bottom: 16px;">
+          在 Sing-box Android 应用中，进入 <strong>Profiles（配置文件）</strong> ➔ 点击添加 ➔ 类型选择 `Remote`（远程） ➔ 粘贴 URL 并保存 ➔ 选中该配置文件并启用 ➔ 在 Dashboard 页面开启连接即可。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 安卓各大国行 ROM 后台保活白名单设置（最关键！）
+        </h2>
+        <p style="margin-bottom: 16px;">
+          要解决锁屏掉线问题，必须在系统设置中为客户端开辟“后台保活绿洲”：
+        </p>
+        
+        <div style="background: #FFFDF9; border: 1.5px dashed #FFE066; padding: 18px; border-radius: 14px; margin: 18px 0;">
+          <h4 style="color: #E69500; font-size: 1.05rem; font-weight: 800; margin-bottom: 8px;">📱 各大手机品牌保活设置要点：</h4>
+          <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.93rem;">
+            <li>
+              <strong>1. 小米 (HyperOS / MIUI)：</strong> 进入应用设置 ➔ 应用管理 ➔ 找到 v2rayNG/Sing-box ➔ 省电策略 ➔ 改为 <strong>「无限制」</strong>；同时开启“自启动”。
+            </li>
+            <li>
+              <strong>2. 华为 / 荣耀 (HarmonyOS)：</strong> 进入手机管家 ➔ 应用启动管理 ➔ 找到客户端关闭“自动管理” ➔ 手动勾选 <strong>允许自启动、允许关联启动、允许后台活动</strong>。
+            </li>
+            <li>
+              <strong>3. OPPO / vivo (ColorOS / OriginOS)：</strong> 进入应用信息 ➔ 耗电管理 ➔ 允许完全后台行为；并在多任务卡片视图中向上下拉锁定应用。
+            </li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 总结
+        </h2>
+        <p style="margin-bottom: 16px;">
+          设置好后台白名单与锁定卡片后，即使夜间休眠或长时间锁屏，客户端也不会被系统强行清理掉，保障 Telegram 消息与系统推送随时顺畅接收！
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-pink);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-4.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《iOS 小火箭保姆级教程》➔
+          </a>
+          <a href="./article-5.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《Clash Verge Rev 客户端教程》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

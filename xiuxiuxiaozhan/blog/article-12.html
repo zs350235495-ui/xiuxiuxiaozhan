@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《节点全部超时、订阅更新失败怎么办？3 步排错急救法与系统时间校准》~ 咻咻小站</title>
+  <meta name="description" content="节点全部显示Timeout、订阅更新失败急救指南！手把手带你按“检查本地网络 -> 校准系统时间 -> 强制重拉订阅”3步排查解决故障。">
+  <meta name="keywords" content="节点全部超时, 订阅更新失败, 系统时间校准, TLS握手失败, 节点不可用排查">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-blue);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-blue); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-blue">🚨 节点排错急救</span>
+          <span class="tag-badge tag-pink">⏰ 系统时间校准</span>
+          <span class="tag-badge tag-green">🛠️ 订阅拉取失败</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: #2BA0E3; margin-bottom: 12px; line-height: 1.4;">
+          《节点全部超时、订阅更新失败怎么办？3 步排错急救法与系统时间校准》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：🐱 航线运维喵</span>
+          <span>⏱️ 字数：约 1360 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #EBF7FF; border-left: 4px solid var(--secondary);">
+          🛠️ <strong>喵呜导读：</strong> 某一天的早上，当你打开电脑或手机准备上网时，突然发现客户端里的所有节点全部变成了红色的 `Timeout` 或 `-1ms`，点击更新订阅也弹出了错误？别慌！这往往并不是服务商跑路，按照以下 3 步排查法，90% 的故障都能瞬间解决！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          第一步：排查系统时间误差（最隐蔽也最高频的元凶！）
+        </h2>
+        <p style="margin-bottom: 16px;">
+          你可能不知道，现代网络加密传输协议（如 VMess、VLESS、Trojan、Shadowsocks-2022）都严重依赖于<strong>时间戳加密验证</strong>。
+        </p>
+        <p style="margin-bottom: 16px;">
+          出于防重放攻击（Anti-Replay Attack）的安全机制，如果你的手机或电脑系统时间与标准北京时间误差超过了 <strong>30 秒</strong>，加密客户端在与海外节点握手时，节点服务器就会认为这是一个过期的恶意攻击包，从而直接拒绝连接，导致所有节点全部显示为超时。
+        </p>
+
+        <div style="background: #FFFDF9; border: 1.5px dashed #FFE066; padding: 18px; border-radius: 14px; margin: 18px 0;">
+          <h4 style="color: #E69500; font-size: 1.05rem; font-weight: 800; margin-bottom: 8px;">⏰ 系统时间自动校准方法：</h4>
+          <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.93rem;">
+            <li><strong>Windows 系统：</strong> 进入“设置 ➔ 时间和语言 ➔ 日期和时间”，关闭并重新开启「自动设置时间」，然后点击“立即同步”。</li>
+            <li><strong>Mac 系统：</strong> 进入“系统设置 ➔ 通用 ➔ 日期与时间”，勾选“自动设置日期和时间”。</li>
+            <li><strong>iPhone / Android：</strong> 进入“设置 ➔ 通用 ➔ 日期与时间”，确保开启「自动设置」。</li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          第二步：排查订阅 URL 是否复制异常与网络权限
+        </h2>
+        <p style="margin-bottom: 16px;">
+          如果系统时间正常但订阅更新提示错误，请检查：
+        </p>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li><strong>检查复制完整性：</strong> 确保订阅链接开头为 `https://`，且前后没有包含空格或换行符。</li>
+          <li><strong>检查客户端网络权限：</strong> 如果是 iOS 小火箭或 Android 客户端，检查手机“设置 ➔ 无线局域网与蜂窝网络”中是否为该 App 赋予了联网权限。</li>
+          <li><strong>检查节点入口是否更换：</strong> 有时服务商更换了主站入口，旧的订阅域名可能暂时无法解析，建议前往官网获取最新生成的备用订阅 URL。</li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          第三步：强制清除本地缓存并更新订阅
+        </h2>
+        <p style="margin-bottom: 16px;">
+          排查完以上问题后：
+        </p>
+        <p style="margin-bottom: 16px;">
+          先在客户端中先彻底清空旧节点，重新粘贴最新订阅链接并点击「更新订阅」。拉取成功后，尝试 Ping 测速，节点恢复绿字或数字即代表救急成功！
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-blue);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: #2BA0E3; margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-11.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《微信图片发不出？规则分流避坑》➔
+          </a>
+          <a href="./article-13.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《揭秘 Ping 延迟与真实带宽测速陷阱》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

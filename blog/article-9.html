@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《Netflix 奈飞与 Disney+ 4K 跨区解锁指南：如何告别 Only Self-Made 非自制剧限制》~ 咻咻小站</title>
+  <meta name="description" content="Netflix奈飞与Disney+ 4K跨区解锁指南！详细拆解Only Self-Made非自制剧限制成因，手把手教你看懂原生IP落地与DNS影音解锁原理。">
+  <meta name="keywords" content="Netflix 4K解锁, Disney+跨区, 原生IP落地, 非自制剧限制, 流媒体解锁原理">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-pink);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-pink">🎬 4K 影音解锁</span>
+          <span class="tag-badge tag-blue">🍿 Netflix 跨区</span>
+          <span class="tag-badge tag-green">💎 原生 IP 分流</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.4;">
+          《Netflix 奈飞与 Disney+ 4K 跨区解锁指南：如何告别 Only Self-Made 非自制剧限制》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：🍓 试吃甜心</span>
+          <span>⏱️ 字数：约 1370 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #FFFBF7; border-left: 4px solid var(--primary);">
+          🍿 <strong>喵呜导读：</strong> 许多影音爱好者在登录 Netflix 时，发现只能搜到 Netflix 自制剧（如《怪奇物语》、《鱿鱼游戏》），而搜索不到第三方版权剧集（如《老友记》、《请回答1988》）。这是因为节点 IP 被判定为了非原生 IP。本期日记将为你解密流媒体解封原理！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 什么是“自制剧限制 (Only Self-Made)”？
+        </h2>
+        <p style="margin-bottom: 16px;">
+          Netflix 对全球版权拥有严格的区域划分限制。由于第三方影视公司（如华纳兄弟、迪士尼、索尼）在不同国家的授权费用不同，Netflix 必须防范代理跨区观看。
+        </p>
+        <p style="margin-bottom: 16px;">
+          当 Netflix 检测到某个 IP 属于机房托管 IP 时，并不会直接弹出封锁报错，而是进入<strong>降级模式（Fallback Mode）</strong>——只允许该 IP 播放 Netflix 拥有全球无限制版权的自制剧，而隐藏所有受区域版权约束的优质电影与剧集。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 完美解锁 4K 影音的两大技术路径
+        </h2>
+        
+        <div style="background: #FFFDF9; border: 1.5px dashed #FFE066; padding: 18px; border-radius: 14px; margin: 18px 0;">
+          <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 0.93rem;">
+            <li>
+              🟢 <strong>1. 原生落地 IP (Native Residential IP)：</strong><br>
+              节点落地的出口 IP 属于当地互联网服务提供商（如香港 HKT、日本 NTT、新加坡 Singtel）。由于 IP 数据库将其识别为真实的家庭宽带住宅 IP，能 100% 解锁全套剧库。
+            </li>
+            <li>
+              🌐 <strong>2. DNS 剧集解锁分流 (DNS Unblocker)：</strong><br>
+              在落地方部署 DNS 劫持与 SNI 代理，仅将 Netflix / Disney+ 的媒体流域名流量重定向到原生 IP 上，而普通流量走普通机房，兼顾了成本与流媒体体验。
+            </li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 4K HDR & Dolby Vision 跑分测试
+        </h2>
+        <p style="margin-bottom: 16px;">
+          要享受顶级画质，除了解决区域限制外，还需要带宽达标：
+        </p>
+        <ul style="padding-left: 20px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 8px;">
+          <li>要在电视端（Apple TV / 索尼电视）开启 <strong>4K HDR / 杜比视界 (Dolby Vision)</strong>，实际测试下载速率需稳定在 25Mbps 以上；</li>
+          <li>在 Netflix 播放界面按下键盘 `Ctrl + Alt + Shift + D`（或在电视端开启详细参数），查看 `Playing Bitrate` 码率是否达到了 15.25 Mbps（4K 超高清码率标杆）。</li>
+        </ul>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 总结
+        </h2>
+        <p style="margin-bottom: 16px;">
+          挑选流媒体节点时，优先选择带有“影音全解锁”或“原生 IP”标记的线路。在电视端配合软路由分流，就能轻松躺平享受影院级画质！
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-pink);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-8.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《ChatGPT & Claude 风控问题解决》➔
+          </a>
+          <a href="./article-7.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《软路由 PassWall 影音分流配置》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

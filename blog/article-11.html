@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《为什么网络连接后微信图片发不出去、网页打不开？规则模式 PAC 分流避坑》~ 咻咻小站</title>
+  <meta name="description" content="详解为什么开启网络代理后微信图片发不出去、淘宝国内网页打不开！深入剖析规则模式(Rule)与全局模式(Global)的区别，PAC分流避坑指南。">
+  <meta name="keywords" content="规则模式与全局模式区别, 微信发不出图片, PAC分流失效, 分流规则避坑, 代理模式选择">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-pink);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-pink">🛠️ 规则避坑</span>
+          <span class="tag-badge tag-blue">💬 微信图片发不出</span>
+          <span class="tag-badge tag-green">🌐 PAC 分流机制</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.4;">
+          《为什么网络连接后微信图片发不出去、网页打不开？规则模式 PAC 分流避坑》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：🐱 航线运维喵</span>
+          <span>⏱️ 字数：约 1380 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #FFFBF7; border-left: 4px solid var(--primary);">
+          🛠️ <strong>喵呜导读：</strong> “为什么我一开启代理软件，微信图片和语音就发不出去了？”“为什么淘宝、哔哩哔哩网页加载极其缓慢甚至打不开？”这是绝大多数新手在使用客户端时碰到的最高频体验痛点。本期日记将带你搞懂分流原理！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 核心故障根源：误开启了“全局模式 (Global / Proxy)”
+        </h2>
+        <p style="margin-bottom: 16px;">
+          当你将客户端的路由模式设置为<strong>全局模式（Global）</strong>时，意味着你电脑或手机上的<strong>所有网络流量</strong>都将被强制送入海外代理节点。
+        </p>
+        <p style="margin-bottom: 16px;">
+          这意味着什么？原本微信发送图片可以直接连接到腾讯位于上海或深圳的国内服务器（延迟仅 10ms）；但在全局模式下，图片数据会被强行打包先发往香港、日本或美国的海外节点，然后再由海外节点折返回腾讯机房。
+        </p>
+        <p style="margin-bottom: 16px;">
+          这种巨大的绕路不仅导致上传延迟剧增几百毫秒，而且腾讯的服务器风控系统可能会检测到异常的异地 IP 接入，从而主动中断连接，造成“图片发不出”、“视频加载报错”。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 深入理解三大路由分流模式
+        </h2>
+        
+        <div style="background: #FFFFFF; border-radius: 14px; padding: 18px; border: 1.5px solid var(--border-pink); margin: 18px 0; box-shadow: var(--shadow-soft);">
+          <ul style="padding-left: 18px; display: flex; flex-direction: column; gap: 12px; font-size: 0.93rem;">
+            <li>
+              🌸 <strong>1. 规则分流模式 (Rule / PAC / 智能分流) —— 强烈推荐！</strong><br>
+              客户端内置了 GEOIP 与 Domain 规则数据库。访问 `.cn` 结尾的域名或国内 IP 时，自动走 <strong>Direct（直连）</strong>；访问 `.org`、Telegram、Google 等海外站点时，才自动走 <strong>Proxy（代理）</strong>。
+            </li>
+            <li>
+              🌐 <strong>2. 直连模式 (Direct)</strong><br>
+              相当于关闭了代理功能，所有网络流量全部直接访问，不经过任何海外节点。
+            </li>
+            <li>
+              ⚠️ <strong>3. 全局模式 (Global / Proxy)</strong><br>
+              所有流量硬性走代理，仅适合临时调试少数未被分流规则收录的偏门海外网站。
+            </li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 如何在常见客户端中正确切换为规则模式？
+        </h2>
+        <p style="margin-bottom: 16px;">
+          根据你使用的设备类型，检查并切换设置：
+        </p>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li><strong>iOS 小火箭 (Shadowrocket)：</strong> 在主界面中找到“全局路由”，将其从“代理”修改为 <strong>「配置 (Config)」</strong>。</li>
+          <li><strong>Clash Verge Rev (Windows/Mac)：</strong> 点击左侧「代理 (Proxies)」，顶部标签栏确保选中 <strong>「规则 (Rule)」</strong>。</li>
+          <li><strong>v2rayNG (Android)：</strong> 在设置 ➔ 路由设置 ➔ 域名策略中选择 <strong>「IPIfNonMatch」</strong>，路由模式选择 <strong>「绕过局域网及大陆」</strong>。</li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 14px 0; border-bottom: 2px solid var(--primary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 总结
+        </h2>
+        <p style="margin-bottom: 16px;">
+          正确设置规则分流后，国内微信通信与视频播放将保持最快速度，同时海外学术与影音娱乐顺畅秒开，两者完美兼得！
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-pink);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--primary); margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-4.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《iOS 小火箭保姆级教程》➔
+          </a>
+          <a href="./article-12.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《节点超时与订阅失败排错》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

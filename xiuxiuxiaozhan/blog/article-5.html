@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《Windows / Mac 必备：Clash Verge Rev 现代客户端图文配置与 TUN 模式手帐》~ 咻咻小站</title>
+  <meta name="description" content="Windows与macOS必备Clash Verge Rev客户端图文配置教程！教你一键开启系统代理、配置TUN虚拟网卡模式与解决端口冲突问题。">
+  <meta name="keywords" content="Clash Verge Rev教程, Clash配置订阅, 系统代理开启失败, TUN模式配置, Clash Meta内核">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-blue);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-blue); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-blue">💻 桌面端教程</span>
+          <span class="tag-badge tag-pink">🐱 Clash Verge Rev</span>
+          <span class="tag-badge tag-green">⚡ TUN 网卡模式</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: #2BA0E3; margin-bottom: 12px; line-height: 1.4;">
+          《Windows / Mac 必备：Clash Verge Rev 现代客户端图文配置与 TUN 模式手帐》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：🐱 航线运维喵</span>
+          <span>⏱️ 字数：约 1410 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #EBF7FF; border-left: 4px solid var(--secondary);">
+          🐱 <strong>喵呜导读：</strong> 随着旧版 Clash for Windows 停止维护，**Clash Verge Rev** 成为了目前 Windows 与 macOS 平台颜值最高、内核更新最频繁的开源客户端！本期日记将图文解说如何完成订阅导入、设置 TUN 虚拟网卡模式以及排查系统代理失败问题。
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 客户端安装与语言设置
+        </h2>
+        <p style="margin-bottom: 16px;">
+          首先去官方 GitHub Releases 页面下载适合你系统的安装包（Windows 推荐 `.exe` 格式，Mac 推荐 `.dmg` 格式）。
+        </p>
+        <p style="margin-bottom: 16px;">
+          首次启动时界面可能为英文。点击左侧菜单栏的 <strong>Settings（设置）</strong> ➔ 找到 <strong>Language（语言）</strong> 选项 ➔ 选择 <strong>简体中文</strong>，界面就会瞬间切换为亲切的中文字样。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 订阅配置导入与激活
+        </h2>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li>点击左侧菜单栏的 <strong>「订阅 (Profiles)」</strong>。</li>
+          <li>在顶部的输入框中粘贴你的专属订阅 URL 地址，点击右侧的 <strong>「导入 (Import)」</strong> 按钮。</li>
+          <li>导入成功后，在订阅列表中右键点击刚导入的配置文件，选择 <strong>「使用 (Use)」</strong>（右侧会出现打勾图标）。</li>
+          <li>点击左侧 <strong>「代理 (Proxies)」</strong> 菜单，在这里你可以自由切换具体的节点或路由规则。</li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 开启系统代理与进阶 TUN 模式
+        </h2>
+        <p style="margin-bottom: 16px;">
+          在完成节点选择后，有两种联网接入方式：
+        </p>
+        
+        <div style="background: #FFFFFF; border-radius: 14px; padding: 18px; border: 1.5px solid var(--border-blue); margin: 18px 0; box-shadow: var(--shadow-soft);">
+          <ul style="padding-left: 18px; display: flex; flex-direction: column; gap: 10px; font-size: 0.93rem;">
+            <li>
+              🌐 <strong>方式一：系统代理 (System Proxy)</strong><br>
+              在设置中开启“系统代理”开关。这种方式最简单，能让 Chrome、Edge 等日常浏览器自动走代理，但在部分游戏客户端或命令行工具中可能无法生效。
+            </li>
+            <li>
+              ⚡ <strong>方式二：TUN 模式 (Tun Mode - 强烈推荐！)</strong><br>
+              TUN 模式会在系统中创建一个虚拟网卡，接管整台电脑所有软件（包括 Steam 下载、Epic 游戏、Discord 语音与终端终端）的全部网络流量！<br>
+              <strong>开启方法：</strong> 在设置中点击“Grant Permission（授予管理员权限）”，然后开启“Tun 模式”即可。
+            </li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 常见故障排查：系统代理开启失败与 7890 端口冲突
+        </h2>
+        <p style="margin-bottom: 16px;">
+          如果开启系统代理后依旧无法上网，请进行以下三项排查：
+        </p>
+        <ul style="padding-left: 20px; margin-bottom: 20px; display: flex; flex-direction: column; gap: 8px;">
+          <li><strong>检查端口冲突：</strong> 如果电脑上安装了其他代理软件（如 SSR 或 V2Ray），可能会抢占默认的 7890 端口。可在设置中将混合端口改为 `7897` 等其他未占用端口。</li>
+          <li><strong>重启系统代理服务：</strong> 在 Windows 设置 ➔ 网络和 Internet ➔ 代理中，确认代理服务器开关是否被其他安全软件误关闭。</li>
+          <li><strong>校准系统时间：</strong> 时间不一致会导致节点握手失败，详细排查可参考我们的 <a href="./article-12.html" style="color: #2BA0E3; font-weight: 700; text-decoration: underline;">《节点超时与时间校准指南》</a>。</li>
+        </ul>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-blue);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: #2BA0E3; margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-4.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《iOS 小火箭保姆级教程》➔
+          </a>
+          <a href="./article-6.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《安卓 v2rayNG 与 Sing-box 教程》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

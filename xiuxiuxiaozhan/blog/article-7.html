@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《家庭软路由 OpenWrt / iKuai 科学上网分流与 PassWall / OpenClash 配置心得》~ 咻咻小站</title>
+  <meta name="description" content="家庭软路由OpenWrt与iKuai科学上网PassWall与OpenClash配置心得！全家电视Apple TV、PS5主机与全设备免配置自动分流避坑指南。">
+  <meta name="keywords" content="软路由科学上网, OpenWrt分流配置, PassWall教程, OpenClash配置, 全家设备免配置">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">✈️</span>
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">正文</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-blue);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-blue); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-blue">🏡 软路由极客</span>
+          <span class="tag-badge tag-pink">📺 Apple TV / PS5 免配置</span>
+          <span class="tag-badge tag-green">⚡ PassWall 分流</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: #2BA0E3; margin-bottom: 12px; line-height: 1.4;">
+          《家庭软路由 OpenWrt / iKuai 科学上网分流与 PassWall / OpenClash 配置心得》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap;">
+          <span>📅 发布时间：2026-10-07</span>
+          <span>✍️ 作者：✈️ 机长小助手</span>
+          <span>⏱️ 字数：约 1430 字</span>
+        </div>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-body" style="font-size: 1rem; color: var(--text-main); line-height: 1.85;">
+        
+        <div class="comment-box" style="margin-bottom: 24px; background: #EBF7FF; border-left: 4px solid var(--secondary);">
+          🏠 <strong>喵呜导读：</strong> 如果家中拥有 Apple TV 4K、PS5/Xbox 游戏主机、智能电视以及多台手机电脑，为每个设备单独安装和设置代理软件会非常繁琐。部署一台运行 **OpenWrt** 或 **iKuai** 的家庭软路由，能实现“全家设备接入 Wi-Fi 即享无感无界网络”！
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          一、 软路由的两大主流方案：PassWall vs OpenClash
+        </h2>
+        <p style="margin-bottom: 16px;">
+          在 OpenWrt 系统中，最受欢迎的两个代理插件是 <strong>PassWall</strong> 与 <strong>OpenClash</strong>：
+        </p>
+        
+        <div style="background: #FFFFFF; border-radius: 14px; padding: 18px; border: 1.5px solid var(--border-blue); margin: 18px 0; box-shadow: var(--shadow-soft);">
+          <ul style="padding-left: 18px; display: flex; flex-direction: column; gap: 10px; font-size: 0.93rem;">
+            <li>
+              ⚡ <strong>PassWall：轻量、稳定、低 CPU 占用</strong><br>
+              适合硬件配置较低的 X86 软路由或 ARM 架构路由器（如 N5105、R4S、R2S）。其规则解析速度极快，节点切换顺畅。
+            </li>
+            <li>
+              🐱 <strong>OpenClash：规则精细、可视化看板强</strong><br>
+              基于 Clash 规则内核，支持极为精细的分流策略（例如指定特定电视设备走香港节点、游戏主机走日本节点）。
+            </li>
+          </ul>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          二、 PassWall 关键配置与 DNS 防污染要点
+        </h2>
+        <p style="margin-bottom: 16px;">
+          在使用 PassWall 配置订阅时，有三个影响全家网络体验的关键设置：
+        </p>
+        <ol style="padding-left: 22px; margin-bottom: 18px; display: flex; flex-direction: column; gap: 10px;">
+          <li>
+            <strong>过滤模式选择：</strong> 强烈建议选择 <strong>「中国列表以外 (gfwlist / non-China)」</strong>。这样国内网站直接由国内 DNS 快速解析，不会增加延迟。
+          </li>
+          <li>
+            <strong>防污染 DNS 策略：</strong> 开启 PassWall 的“远程 DNS”功能（如使用 DOH/DOT 加密 DNS 地址 `https://1.1.1.1/dns-query`），防止域名在路由器端遭受污染。
+          </li>
+          <li>
+            <strong>TCP / UDP 节点绑定：</strong> 确保将 TCP 节点与 UDP 节点同时绑定。游戏主机（PS5 / Switch）需要依赖正常的 UDP 转发才能获得 NAT2 网络与流畅联机。
+          </li>
+        </ol>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          三、 iKuai 主路由 + OpenWrt 旁路由拓扑组网心得
+        </h2>
+        <p style="margin-bottom: 16px;">
+          对于追求极致家庭网络稳定性的极客用户，推荐采用 **iKuai 做主路由（负责 PPPoE 拨号与 DHCP 分配）+ OpenWrt 做旁路由（负责网络分流）** 的架构。
+        </p>
+        <p style="margin-bottom: 16px;">
+          这样即使旁路由因为测试插件挂掉，主路由依旧能保障家中父母和长辈的微信、电视盒等国内网络不受丝毫干扰，实现了灵活性与稳定性的完美平衡。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: #2BA0E3; margin: 28px 0 14px 0; border-bottom: 2px solid var(--secondary-light); padding-bottom: 6px; font-weight: 800;">
+          四、 总结
+        </h2>
+        <p style="margin-bottom: 16px;">
+          软路由是提升全家多设备联网品质的终极利器。只要合理配置 DNS 与分流规则，全家便能共同享受顺畅无感的高清影音与快速网络！
+        </p>
+
+      </div>
+
+      <!-- 底部相关文章推荐 -->
+      <div style="margin-top: 36px; padding-top: 24px; border-top: 2px dashed var(--border-blue);">
+        <h3 style="font-size: 1.1rem; font-weight: 800; color: #2BA0E3; margin-bottom: 14px;">📖 更多飞行日记推荐</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+          <a href="./article-5.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-blue);">
+            《Clash Verge Rev 客户端教程》➔
+          </a>
+          <a href="./article-9.html" style="background: var(--bg-color); padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; font-weight: 700; color: var(--text-main); border: 1px solid var(--border-pink);">
+            《Netflix 奈飞与 Disney+ 4K 解锁指南》➔
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      阅读飞行日记，避坑不迷路 📖
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

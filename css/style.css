@@ -117,7 +117,7 @@ a {
   font-weight: 700;
   color: var(--primary);
   background: var(--card-bg);
-  padding: 8px 18px;
+  padding: 6px 18px 6px 14px;
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 15px rgba(255, 142, 167, 0.2);
   border: 2px solid var(--primary-light);
@@ -126,6 +126,19 @@ a {
 .logo:hover {
   transform: translateY(-2px) scale(1.03);
   box-shadow: 0 8px 20px rgba(255, 142, 167, 0.3);
+}
+
+.site-logo {
+  width: 36px;
+  height: 36px;
+  vertical-align: middle;
+  flex-shrink: 0;
+  object-fit: contain;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo:hover .site-logo {
+  transform: rotate(-10deg) scale(1.08);
 }
 
 .logo-icon {

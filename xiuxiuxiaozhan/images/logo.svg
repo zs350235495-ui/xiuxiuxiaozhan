@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <!-- 糖果星球主渐变 -->
+    <linearGradient id="planetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8EA7" />
+      <stop offset="45%" stop-color="#FFB3C6" />
+      <stop offset="75%" stop-color="#A5DBFF" />
+      <stop offset="100%" stop-color="#70CFFF" />
+    </linearGradient>
+
+    <!-- 光晕/阴影渐变 -->
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF8EA7" stop-opacity="0.4" />
+      <stop offset="60%" stop-color="#70CFFF" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#70CFFF" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- 喷气尾迹渐变 -->
+    <linearGradient id="trailGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#70CFFF" stop-opacity="0" />
+      <stop offset="40%" stop-color="#FFB8C6" stop-opacity="0.4" />
+      <stop offset="85%" stop-color="#FF8EA7" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
+    </linearGradient>
+
+    <!-- 星球外光环渐变 -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFEAA7" stop-opacity="0.95" />
+      <stop offset="50%" stop-color="#FF8EA7" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#70CFFF" stop-opacity="0.9" />
+    </linearGradient>
+
+    <!-- 小飞机主体渐变 -->
+    <linearGradient id="planeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FFF3F6" />
+    </linearGradient>
+
+    <!-- 机翼阴影与点缀渐变 -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8EA7" />
+      <stop offset="100%" stop-color="#FF6C8B" />
+    </linearGradient>
+  </defs>
+
+  <!-- 背景软光晕 -->
+  <circle cx="64" cy="68" r="54" fill="url(#glowGrad)" />
+
+  <!-- 喷气虚线与烟雾尾迹 -->
+  <path d="M 20,95 Q 26,72 52,66 T 90,44" fill="none" stroke="url(#trailGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="8 4 4 4" />
+  <path d="M 16,98 Q 24,76 50,68 T 88,46" fill="none" stroke="rgba(255, 255, 255, 0.6)" stroke-width="2" stroke-linecap="round" />
+
+  <!-- 糖果星球主体 -->
+  <circle cx="64" cy="68" r="34" fill="url(#planetGrad)" stroke="#FFFFFF" stroke-width="2.5" />
+
+  <!-- 星球表面的柔和经纬线条纹 -->
+  <path d="M 32,62 A 34,14 0 0,0 96,62" fill="none" stroke="rgba(255, 255, 255, 0.45)" stroke-width="2" stroke-dasharray="5 3" />
+  <path d="M 35,76 A 34,12 0 0,0 93,76" fill="none" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1.8" />
+  <path d="M 52,36 A 14,34 0 0,0 52,100" fill="none" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1.8" />
+
+  <!-- 星球高光区 (粉嫩甜点高光) -->
+  <path d="M 42,44 A 28,28 0 0,1 76,40 A 32,32 0 0,0 42,44" fill="#FFFFFF" opacity="0.4" />
+  <circle cx="48" cy="48" r="4" fill="#FFFFFF" opacity="0.8" />
+  <circle cx="56" cy="44" r="2" fill="#FFFFFF" opacity="0.6" />
+
+  <!-- 立体斜环轨 (Planet Ring) -->
+  <ellipse cx="64" cy="68" rx="48" ry="14" transform="rotate(-18 64 68)" fill="none" stroke="url(#ringGrad)" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="65 25" />
+
+  <!-- 萌系小客机 / 纸飞机 (Flying Airplane) -->
+  <g transform="translate(86, 36) rotate(-15)">
+    <!-- 飞机影子 -->
+    <path d="M -12,4 L 16,-8 L 6,10 L -2,5 Z" fill="rgba(255, 142, 167, 0.3)" />
+
+    <!-- 机身主翼 -->
+    <path d="M -14,2 C -16,-2 -10,-8 18,-12 C 16,4 4,14 -2,8 C -6,6 -10,4 -14,2 Z" fill="url(#planeGrad)" stroke="#FF8EA7" stroke-width="1.8" stroke-linejoin="round" />
+    
+    <!-- 机尾与机翼红粉小点缀 -->
+    <path d="M -10,0 L -15,-8 L -5,-4 Z" fill="url(#accentGrad)" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M -2,4 L 4,14 L 8,10 Z" fill="url(#accentGrad)" stroke="#FFFFFF" stroke-width="1" />
+    
+    <!-- 驾驶舱可爱小蓝窗 -->
+    <ellipse cx="6" cy="-6" rx="3.5" ry="2.2" transform="rotate(-15 6 -6)" fill="#70CFFF" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <!-- 闪烁四角小星芒 ✦ (Top Right) -->
+  <g transform="translate(106, 20)">
+    <path d="M 0,-8 Q 0,0 8,0 Q 0,0 0,8 Q 0,0 -8,0 Q 0,0 0,-8 Z" fill="#FFEAA7" stroke="#FFFFFF" stroke-width="0.8" />
+  </g>
+
+  <!-- 闪烁四角小星芒 ✦ (Bottom Left) -->
+  <g transform="translate(22, 42) scale(0.7)">
+    <path d="M 0,-8 Q 0,0 8,0 Q 0,0 0,8 Q 0,0 -8,0 Q 0,0 0,-8 Z" fill="#FFEAA7" stroke="#FFFFFF" stroke-width="0.8" />
+  </g>
+
+  <!-- 小樱花瓣粉点 -->
+  <circle cx="100" cy="48" r="2" fill="#FF8EA7" opacity="0.8" />
+  <circle cx="28" cy="88" r="2.5" fill="#FFEAA7" opacity="0.9" />
+  <circle cx="114" cy="34" r="1.5" fill="#70CFFF" opacity="0.8" />
+</svg>

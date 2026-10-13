@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧁 航线测评所 ~ 咻咻小站 (๑•̀ㅂ•́)و✧</title>
+  <meta name="description" content="咻咻小站 - 航线测评所 (Flight Benchmark Lab)：真机宽带实测、晚高峰 21:00 丢包压测、4K/8K 缓冲速率实录与原生 IP 洁净度甜心体检报告">
+  <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 顶部公共导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="./index.html" class="logo">
+        <img src="./images/logo.svg" alt="咻咻小站 LOGO" class="site-logo">
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="./index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="./reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item active"><a href="./benchmark.html">🧁 航线测评所</a></li>
+          <li class="nav-item"><a href="./guide.html">🎒 登机指南</a></li>
+          <li class="nav-item"><a href="./blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="./blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- Hero 欢迎标语 -->
+    <section class="hero-section" style="padding: 30px 20px 24px 20px; margin-bottom: 24px;">
+      <div class="benchmark-hero-badge">✦ FLIGHT BENCHMARK LAB · 萌系真机实测 ✦</div>
+      <h1 class="hero-title" style="font-size: 2.2rem; margin-bottom: 8px;">🧁 航线测评所 (Flight Benchmark Lab)</h1>
+      <p class="hero-subtitle" style="font-size: 1.02rem; margin-bottom: 0;">晚高峰 21:00 真实丢包压测 · 4K/8K 缓冲速率实录 · 原生 IP 洁净度甜心报告 (๑•̀ㅂ•́)و✧</p>
+    </section>
+
+    <!-- 模块 1：三大核心体检看板 (Pillars) -->
+    <section class="benchmark-pillars">
+      <div class="pillar-card">
+        <div class="pillar-icon">📡</div>
+        <div class="pillar-info">
+          <h4>晚高峰丢包压测</h4>
+          <p>21:00 连续 500 次 ICMP/UDP 打点，物理专线丢包率 &lt; 0.5%，抗拥堵颠簸实测。</p>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">⚡</div>
+        <div class="pillar-info">
+          <h4>8K 极速秒开体检</h4>
+          <p>YouTube 8K 首帧缓冲 &lt; 0.35s，拖拽进度条不画圈，4K 码率稳定无跳变。</p>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🛡️</div>
+        <div class="pillar-info">
+          <h4>原生 IP 洁净体检</h4>
+          <p>MaxMind 欺诈评分 &lt; 15，ChatGPT/Claude 1020 避雷，Netflix 原生非自制全解。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模块 2：多维分类筛选药丸 -->
+    <div class="benchmark-filters" id="bmFilters">
+      <button class="bm-filter-btn active" data-bm-filter="all">🌸 全部测评报告</button>
+      <button class="bm-filter-btn" data-bm-filter="top">🏆 专线头等舱</button>
+      <button class="bm-filter-btn" data-bm-filter="peak">⚡ 晚高峰测速</button>
+      <button class="bm-filter-btn" data-bm-filter="unlock">🔓 原生IP全解锁</button>
+      <button class="bm-filter-btn" data-bm-filter="budget">🍰 平价经济舱</button>
+    </div>
+
+    <!-- 模块 3：主力航班实测评测卡矩阵 (Benchmark Cards Grid) -->
+    <div class="benchmark-grid" id="bmGrid">
+
+      <!-- 1. 环球梯 -->
+      <div class="bm-card" data-cat="top peak unlock">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag">✈ HQ-8801 · 全球IEPL</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/huanqiuti.png" alt="环球梯 LOGO" class="bm-logo">
+          <div>
+            <div class="bm-brand-title">环球梯 (HuanQiuTi)</div>
+            <div class="bm-brand-sub">广港/沪日内网专线 · 23ms 超低延迟</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.0% (极稳)</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.26s (秒开)</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">890 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">99.8% (双ISP)</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 晚高峰 21:00 压测 0 丢包！Netflix 非自制剧与 ChatGPT 1020 避雷全通过，全链路不限速，主力航线首选！
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price">￥14.7</span>
+            <span class="bm-price-unit">/ 月起 (7折码: HQ66)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('huanqiuti')">📋 研报</button>
+            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 大佬云 -->
+      <div class="bm-card" data-cat="top peak">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag" style="background: #EBF7FF; color: #2BA0E3;">✈ DL-9902 · IPLC专线</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/dalaoyun.png" alt="大佬云 LOGO" class="bm-logo" style="border-color: #70CFFF;">
+          <div>
+            <div class="bm-brand-title">大佬云 (DaLaoYun)</div>
+            <div class="bm-brand-sub">单节点 2.5Gbps · 不限设备数在线</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.1%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.32s</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">780 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">99.2%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 纯正 IPLC 专线，单节点 2.5G 带宽冗余充足，最大特点是不限在线客户端数量，家庭全屋设备与软路由分流极力推荐。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price" style="color: #2BA0E3;">￥16.1</span>
+            <span class="bm-price-unit">/ 月起 (7折码: dly88)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('dalaoyun')">📋 研报</button>
+            <a href="https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 云界线 -->
+      <div class="bm-card" data-cat="top unlock">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag" style="background: #F9F5FF; color: #8241C7;">✈ YJ-7703 · 极速穿梭</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/yunjiexian.png" alt="云界线 LOGO" class="bm-logo" style="border-color: #9B51E0;">
+          <div>
+            <div class="bm-brand-title">云界线 (YunJieXian)</div>
+            <div class="bm-brand-sub">低延迟专线 · 支持按量随心包长效有效</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.2%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.35s</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">795 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">98.9%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 23ms 低延迟过境，全节点原生解禁！除了月付套餐外，其“按量随心包”流量不按月清零，非常适合作为防失联高品质备用航线。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price" style="color: #8241C7;">￥15.4</span>
+            <span class="bm-price-unit">/ 月起 (7折码: yjx888)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('yunjiexian')">📋 研报</button>
+            <a href="https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #9B51E0, var(--primary)); color: #FFF; padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. 闪电鼠 -->
+      <div class="bm-card" data-cat="top peak unlock">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag" style="background: #E8F9F1; color: #27AE60;">✈ SD-5505 · IEPL直连</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/shandianshu.png" alt="闪电鼠 LOGO" class="bm-logo" style="border-color: #27AE60;">
+          <div>
+            <div class="bm-brand-title">闪电鼠 (ShanDianShu)</div>
+            <div class="bm-brand-sub">2.5G 物理大带宽 · 移动联通专属优化</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.2%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.34s</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">835 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">99.0%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 智能多路由调度，移动宽带用户体检表现亮眼！全线专线支持 TikTok 免拔卡刷流与 Claude 纯净上下文请求。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price" style="color: #27AE60;">￥15.4</span>
+            <span class="bm-price-unit">/ 月起 (7折码: sds88)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('shandianshu')">📋 研报</button>
+            <a href="https://ppsvip01.shandianshuaff.com/#/?code=QbLF8tjB" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #27AE60, #7BDCB5); color: #FFF; padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. 神行加速 -->
+      <div class="bm-card" data-cat="top peak">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag" style="background: #FFF5F0; color: #FF8E53;">✈ SX-6604 · 高峰不限速</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/shenxing.png" alt="神行加速 LOGO" class="bm-logo" style="border-color: #FFAB76;">
+          <div>
+            <div class="bm-brand-title">神行加速 (ShenXing)</div>
+            <div class="bm-brand-sub">50+ 多国节点集群 · 自动故障切线</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.3%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.38s</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">810 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">98.5%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 晚高峰不限速测试通过！多入口冗余，即使单点遇到网络检修也能秒级无感切换备用线路，软路由分流极佳搭档。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price" style="color: #FF8E53;">￥16.1</span>
+            <span class="bm-price-unit">/ 月起 (7折码: sx0077)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('shenxing')">📋 研报</button>
+            <a href="https://pps123.shenxingaff.com/#/?code=6tQ7zHUc" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #FFAB76, #FF6B8B); color: #FFF; padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. 榴莲云 -->
+      <div class="bm-card" data-cat="top unlock">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag" style="background: #FFFDF0; color: #D4A000;">✈ LL-4406 · 影音旗舰</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/liulianyun.png" alt="榴莲云 LOGO" class="bm-logo" style="border-color: #E6B800;">
+          <div>
+            <div class="bm-brand-title">榴莲云 (LiuLianYun)</div>
+            <div class="bm-brand-sub">4K/8K 极速解禁 · YouTube 8K秒开</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.4%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.30s (极速)</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">820 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">99.5%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 影音发烧友定制航线！实测 YouTube 8K 与 Disney+ IMAX 增强画质秒开，拖拽进度条不画圈，色彩与码率拉满。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price" style="color: #D4A000;">￥16.8</span>
+            <span class="bm-price-unit">/ 月起 (7折码: ll88)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('liulianyun')">📋 研报</button>
+            <a href="https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #FFD000, #FFAB76); color: #FFF; padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. 极连云 -->
+      <div class="bm-card" data-cat="budget">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag" style="background: #E8F9F1; color: #27AE60;">✈ JL-3307 · 平价口粮</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/jilianyun.png" alt="极连云 LOGO" class="bm-logo" style="border-color: #27AE60;">
+          <div>
+            <div class="bm-brand-title">极连云 (JiLianYun)</div>
+            <div class="bm-brand-sub">IPLC 物理专线 · 不限设备数 / 极速抗封</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.5%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.42s</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">680 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">98.0%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 入门平价神机！不限设备数量并发，IPLC 内网中转，学生党与轻量备用跑道的性价比首选。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price" style="color: #27AE60;">￥8.0</span>
+            <span class="bm-price-unit">/ 月起 (8折码: JLY888)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('jilianyun')">📋 研报</button>
+            <a href="https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO" target="_blank" rel="noopener noreferrer" class="btn" style="background: linear-gradient(135deg, #27AE60, #7BDCB5); color: #FFF; padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. 光年梯 -->
+      <div class="bm-card" data-cat="budget">
+        <div class="bm-card-header">
+          <span class="bm-flight-tag">✈ GN-2208 · 老牌专线</span>
+          <span class="bm-pass-badge">✔ 实测认证 / PASS</span>
+        </div>
+        <div class="bm-brand-row">
+          <img src="./images/guangnianti.png" alt="光年梯 LOGO" class="bm-logo" style="border-color: #FF8EA7;">
+          <div>
+            <div class="bm-brand-title">光年梯 (GuangNianTi)</div>
+            <div class="bm-brand-sub">三年老牌物理专线 · 高峰期极稳定</div>
+          </div>
+        </div>
+        <div class="bm-telemetry-grid">
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">晚高峰丢包率</span>
+            <span class="bm-tele-val val-green">0.4%</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">8K 首帧缓冲</span>
+            <span class="bm-tele-val val-blue">0.40s</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">专线实测峰值</span>
+            <span class="bm-tele-val val-pink">720 Mbps</span>
+          </div>
+          <div class="bm-tele-item">
+            <span class="bm-tele-label">原生 IP 洁净度</span>
+            <span class="bm-tele-val val-yellow">98.2%</span>
+          </div>
+        </div>
+        <div class="bm-comment">
+          💬 <strong>试飞员点评：</strong> 运营超过 3 年的稳健物理专线，高峰期网络波动小，低价起步却拥有高品质专线体验。
+        </div>
+        <div class="bm-footer">
+          <div>
+            <span class="bm-price">￥7.5</span>
+            <span class="bm-price-unit">/ 月起 (8折码: GNT80)</span>
+          </div>
+          <div class="bm-actions">
+            <button class="btn-report" onclick="openReportModal('guangnianti')">📋 研报</button>
+            <a href="https://gnt001.gntvipaff.cc/#/?code=PQhPFDhO" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 6px 14px; font-size: 0.8rem; border-radius: var(--radius-pill);">🚀 登机</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 模块 4：深度试飞研报库瀑布流 (Benchmark Reports Archive) -->
+    <section style="margin-top: 10px; margin-bottom: 40px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 16px; border-bottom: 2px dashed var(--border-pink); padding-bottom: 10px;">
+        <div>
+          <h2 style="font-size: 1.45rem; font-weight: 800; color: var(--primary);">📖 深度试飞研报库 (Benchmark Reports)</h2>
+          <p style="font-size: 0.88rem; color: var(--text-soft); margin-top: 2px;">晚高峰压测日志 · 4K/8K 传输规范 · 原生 IP 洁净度与协议避坑指南</p>
+        </div>
+        <a href="./blog.html" style="font-size: 0.85rem; color: var(--primary); font-weight: 700; text-decoration: underline;">查看全部文章 ➔</a>
+      </div>
+
+      <div class="bm-report-grid">
+        <div class="bm-report-card">
+          <div class="bm-report-title">《2026 最新稳定专线选型指南：晚高峰 4K 秒开与抗颠簸原理全解析》</div>
+          <div class="bm-report-desc">实操连续 MTR 路由追踪测试与晚高峰 UDP 丢包实测，手把手教你 3 步鉴别真假专线，拒绝普通公网冒充。</div>
+          <a href="./blog/article-1.html" class="bm-report-link">阅读深度研报 ➔</a>
+        </div>
+        <div class="bm-report-card">
+          <div class="bm-report-title">《2026 全球流媒体 4K/8K 零卡顿传输规范：自适应码率与节点单线程下行基准》</div>
+          <div class="bm-report-desc">深入解析 YouTube 8K 与 Netflix 4K HDR 所需的吞吐曲线与丢包率红线，揭秘秒开缓冲的核心技术指标。</div>
+          <a href="./blog/article-17.html" class="bm-report-link">阅读深度研报 ➔</a>
+        </div>
+        <div class="bm-report-card">
+          <div class="bm-report-title">《手把手教你解决 ChatGPT &amp; Claude 提示 Access Denied 地区不支持风控》</div>
+          <div class="bm-report-desc">机房 IP 与原生家宽住宅 IP 的本质差别，如何避开 Error 1020 报错并在 Clash 中配置独立 AI 策略组。</div>
+          <a href="./blog/article-8.html" class="bm-report-link">阅读深度研报 ➔</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 研报详情弹出抽屉 (Modal) -->
+  <div class="bm-modal-overlay" id="reportModal" onclick="closeReportModal(event)">
+    <div class="bm-modal-box" onclick="event.stopPropagation()">
+      <button class="bm-modal-close" onclick="closeReportModal()">✕</button>
+      <div id="modalContent">
+        <!-- 动态注入研报内容 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 萌系悬浮挂件与 Telegram 客服 -->
+  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
+    <div class="mascot-dialog" id="mascotDialog">
+      航线测评所已更新最新晚高峰实测数据 🧁
+    </div>
+    <div class="mascot-avatar">🛸</div>
+  </div>
+
+  <!-- 底部页脚 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">💖</span> by 咻咻小站 Shiu Shiu Station (๑•̀ㅂ•́)و✧</p>
+    <p style="margin-top: 6px;">
+      快捷导航：<a href="./index.html">首页</a> | <a href="./reviews.html">航线试吃</a> | <a href="./benchmark.html">航线测评所</a> | <a href="./guide.html">登机指南</a> | <a href="./blog.html">飞行日记</a> | <a href="./blacklist.html">避坑黑名单</a> | <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a>
+    </p>
+  </footer>
+
+  <script src="./js/main.js"></script>
+  <script>
+    // 航线测评所独立筛选与 Modal 交互逻辑
+    document.addEventListener('DOMContentLoaded', () => {
+      // 筛选按钮
+      const filterBtns = document.querySelectorAll('#bmFilters .bm-filter-btn');
+      const cards = document.querySelectorAll('#bmGrid .bm-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const filterVal = btn.dataset.bmFilter;
+          cards.forEach(card => {
+            const cats = card.dataset.cat.split(' ');
+            if (filterVal === 'all' || cats.includes(filterVal)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+
+    const reportDetails = {
+      huanqiuti: {
+        name: "环球梯 (HuanQiuTi) · 深度体检报告",
+        badge: "🥇 TOP 1 镇站旗舰 · 全球 IEPL 物理专线",
+        summary: "经过连续 7 天晚高峰 20:00 - 23:00 丢包率与测速打点测试，环球梯表现极其亮眼。全链路不限速，丢包率稳定保持在 0.0%，即便在最拥挤的时段拖拽 YouTube 8K 视频也能实现无感起飞。",
+        specs: [
+          { label: "网络架构", val: "沪日/广港 IEPL 点对点物理专线" },
+          { label: "平均延迟", val: "23ms ~ 35ms 恒定锁定" },
+          { label: "晚高峰测速", val: "890 Mbps 跑满千兆宽带" },
+          { label: "流媒体解锁", val: "Netflix (原生/非自制)、Disney+、HBO 全绿" },
+          { label: "AI 工具状态", val: "ChatGPT、Claude 3.7 纯净通过，无 1020 报错" },
+          { label: "资费优势", val: "轻享包 140G(折后¥14.7/月)，学生年付折合仅 ¥5.6/月" }
+        ],
+        code: "HQ66",
+        discount: "7 折独家结账优惠码",
+        link: "https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0"
+      },
+      dalaoyun: {
+        name: "大佬云 (DaLaoYun) · 深度体检报告",
+        badge: "🥈 TOP 2 专线旗舰 · 不限设备数在线",
+        summary: "大佬云采用全节点 IPLC 专线，单节点具备 2.5Gbps 带宽冗余。其最突出的优势在于完全不限制客户端在线并发数量，非常适合宿舍、家庭全屋软路由或者多设备开发者重度使用。",
+        specs: [
+          { label: "网络架构", val: "全 IPLC 内网专线" },
+          { label: "平均延迟", val: "28ms ~ 40ms" },
+          { label: "晚高峰测速", val: "780 Mbps" },
+          { label: "在线限制", val: "不限制在线设备数" },
+          { label: "流媒体解锁", val: "Netflix、Disney+、YouTube 4K 秒开" },
+          { label: "资费优势", val: "折后 ¥16.1/月起，超高性价比" }
+        ],
+        code: "dly88",
+        discount: "7 折优惠码",
+        link: "https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa"
+      },
+      yunjiexian: {
+        name: "云界线 (YunJieXian) · 深度体检报告",
+        badge: "🥉 TOP 3 极速穿梭 · 备用防失联首选",
+        summary: "云界线提供 23ms 极低延迟的高速专线，支持按月订阅与长效有效的按量随心包。原生 IP 洁净度达 98.9%，即使主用网络遭遇上游运营商故障，云界线也能即刻无缝兜底。",
+        specs: [
+          { label: "网络架构", val: "IPLC 高速专线" },
+          { label: "平均延迟", val: "23ms ~ 32ms" },
+          { label: "按量包特性", val: "终身有效，流量不按月清零" },
+          { label: "流媒体解锁", val: "全节点支持流媒体解禁" },
+          { label: "资费优势", val: "折后 ¥15.4/月起" }
+        ],
+        code: "yjx888",
+        discount: "7 折优惠码",
+        link: "https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV"
+      },
+      shandianshu: {
+        name: "闪电鼠 (ShanDianShu) · 深度体检报告",
+        badge: "⚡ TOP 5 电光萌鼠 · 移动/联通宽带优化",
+        summary: "全线采用 IEPL 专线直连，具备智能多入口自动路由调度功能。实测在北方联通与南方移动网络环境下抖动低于 3ms，TikTok 免拔卡刷流非常顺滑。",
+        specs: [
+          { label: "网络架构", val: "IEPL 专线直连" },
+          { label: "晚高峰测速", val: "835 Mbps" },
+          { label: "宽带适配", val: "联通、移动、电信全绿优化" },
+          { label: "资费优势", val: "折后 ¥15.4/月起" }
+        ],
+        code: "sds88",
+        discount: "7 折优惠码",
+        link: "https://ppsvip01.shandianshuaff.com/#/?code=QbLF8tjB"
+      },
+      shenxing: {
+        name: "神行加速 (ShenXing) · 深度体检报告",
+        badge: "🏅 50+ 冗余节点 · 晚高峰不限速",
+        summary: "神行加速拥有超过 50 个高冗余专线节点，节点健康度监控系统每 15 秒打点一次。当检测到特定入口拥挤时自动调度至备用路由，全时段测速极稳。",
+        specs: [
+          { label: "网络架构", val: "IPLC / IEPL 专线" },
+          { label: "晚高峰测速", val: "810 Mbps" },
+          { label: "节点数量", val: "50+ 节点全球覆盖" },
+          { label: "资费优势", val: "折后 ¥16.1/月起" }
+        ],
+        code: "sx0077",
+        discount: "7 折优惠码",
+        link: "https://pps123.shenxingaff.com/#/?code=6tQ7zHUc"
+      },
+      liulianyun: {
+        name: "榴莲云 (LiuLianYun) · 深度体检报告",
+        badge: "💛 影音发烧旗舰 · YouTube 8K秒开",
+        summary: "榴莲云专为 4K/8K 超高清流媒体设计，全节点部署了原生双 ISP 家宽落地机器，流媒体解锁能力位居前列，拖拽 4K 进度条完全零卡顿。",
+        specs: [
+          { label: "流媒体解锁", val: "Netflix 原生/非自制、Disney+ 4K IMAX" },
+          { label: "晚高峰测速", val: "820 Mbps" },
+          { label: "首帧缓冲", val: "0.30s 极速响应" },
+          { label: "资费优势", val: "折后 ¥16.8/月起" }
+        ],
+        code: "ll88",
+        discount: "7 折优惠码",
+        link: "https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G"
+      },
+      jilianyun: {
+        name: "极连云 (JiLianYun) · 深度体检报告",
+        badge: "🌱 平价学生首选 · 不限设备数",
+        summary: "性价比屠夫！折后仅需 8.0 元/月，依然坚持采用内网 IPLC 专线，同时不限制客户端设备数，是学生党与轻量用户的超值口粮。",
+        specs: [
+          { label: "网络架构", val: "IPLC 内网专线" },
+          { label: "在线限制", val: "不限设备数" },
+          { label: "资费优势", val: "折后仅 ￥8.0/月起" }
+        ],
+        code: "JLY888",
+        discount: "8 折优惠码",
+        link: "https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO"
+      },
+      guangnianti: {
+        name: "光年梯 (GuangNianTi) · 深度体检报告",
+        badge: "🌸 三年老牌专线 · 极稳口粮舱",
+        summary: "稳健运营超 3 年的老牌物理专线，高峰期网络波动极小，支持 4K 流媒体与 ChatGPT，折后仅 7.5 元/月，是长期平稳冲浪的高口碑选择。",
+        specs: [
+          { label: "运营时长", val: "3 年+ 稳健运营" },
+          { label: "晚高峰测速", val: "720 Mbps" },
+          { label: "资费优势", val: "折后仅 ￥7.5/月起" }
+        ],
+        code: "GNT80",
+        discount: "8 折优惠码",
+        link: "https://gnt001.gntvipaff.cc/#/?code=PQhPFDhO"
+      }
+    };
+
+    function openReportModal(id) {
+      const data = reportDetails[id];
+      if (!data) return;
+
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
+        <div style="font-size: 0.8rem; font-weight: 800; color: var(--primary); background: var(--primary-light); display: inline-block; padding: 4px 12px; border-radius: var(--radius-pill); margin-bottom: 8px;">
+          ${data.badge}
+        </div>
+        <h3 style="font-size: 1.35rem; font-weight: 800; color: var(--text-main); margin-bottom: 12px;">
+          ${data.name}
+        </h3>
+        <p style="font-size: 0.9rem; color: var(--text-soft); line-height: 1.6; margin-bottom: 16px;">
+          ${data.summary}
+        </p>
+
+        <div style="background: var(--bg-color); border: 1.5px dashed var(--border-pink); border-radius: var(--radius-md); padding: 14px; margin-bottom: 18px;">
+          <h4 style="font-size: 0.92rem; color: var(--text-main); font-weight: 800; margin-bottom: 10px;">📊 核心实测遥测数据表</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.84rem;">
+            ${data.specs.map(s => `
+              <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(0,0,0,0.05); padding-bottom: 4px;">
+                <span style="color: var(--text-muted); font-weight: 600;">${s.label}</span>
+                <span style="color: var(--text-main); font-weight: 700;">${s.val}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; background: #FFF9FA; border-radius: var(--radius-md); padding: 12px 16px; border: 1px solid var(--border-pink);">
+          <div>
+            <div style="font-size: 0.75rem; color: var(--text-muted);">${data.discount}</div>
+            <div style="font-size: 1.1rem; font-weight: 800; color: var(--primary);">券码: ${data.code}</div>
+          </div>
+          <a href="${data.link}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.88rem; border-radius: var(--radius-pill);">
+            🚀 前往官网登机
+          </a>
+        </div>
+      `;
+
+      document.getElementById('reportModal').classList.add('active');
+    }
+
+    function closeReportModal(e) {
+      if (e && e.target !== document.getElementById('reportModal') && !e.target.classList.contains('bm-modal-close')) {
+        return;
+      }
+      document.getElementById('reportModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>

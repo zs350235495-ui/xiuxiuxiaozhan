@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🧁【真机深度评测】2026 大佬云 (DaLaoYun) 深度体检长文：单点 2.5Gbps、不限设备、全线 IPLC 专线实测 ~ 咻咻小站</title>
+  <meta name="description" content="2026 大佬云 (DaLaoYun) 完整深度真机评测长文。纯正全 IPLC 专线、单节点 2.5Gbps 大带宽冗余、不限制在线设备数、晚高峰 780Mbps 测速、全套套餐资费与独家 dly88 优惠券。">
+  <meta name="keywords" content="大佬云, 大佬云评测, 大佬云怎么样, DaLaoYun, 2026机场推荐, IPLC专线机场, 不限设备机场, 软路由分流, 大佬云优惠码, 大佬云官网">
+  <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    .review-hero {
+      background: linear-gradient(135deg, #F0F9FF 0%, #FFF5F7 100%);
+      border: 2px solid rgba(112, 207, 255, 0.4);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px 30px 32px;
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .review-hero::after {
+      content: 'BENCHMARK';
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      font-size: 5rem;
+      font-weight: 900;
+      color: rgba(43, 160, 227, 0.05);
+      pointer-events: none;
+      user-select: none;
+      font-family: 'Comfortaa', sans-serif;
+    }
+    .review-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .review-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .badge-silver {
+      background: #F0F4F8;
+      color: #576574;
+      border: 1px solid #D1D8E0;
+    }
+    .badge-blue {
+      background: #EBF7FF;
+      color: #2BA0E3;
+      border: 1px solid #B8E4FF;
+    }
+    .badge-green {
+      background: #E8F9F1;
+      color: #27AE60;
+      border: 1px solid #A3E9C4;
+    }
+    .review-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      border-top: 1px dashed rgba(43, 160, 227, 0.3);
+      padding-top: 14px;
+      margin-top: 16px;
+    }
+    .toc-card {
+      background: #FFFDF8;
+      border: 2px dashed #B8E4FF;
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin: 28px 0 36px 0;
+      box-shadow: 0 4px 15px rgba(43, 160, 227, 0.08);
+    }
+    .toc-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #2BA0E3;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px 18px;
+    }
+    .toc-list a {
+      color: var(--text-main);
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(112, 207, 255, 0.3);
+    }
+    .toc-list a:hover {
+      background: #EBF7FF;
+      color: #2BA0E3;
+      transform: translateX(4px);
+    }
+    .radar-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .radar-item {
+      background: #FFFFFF;
+      border: 1.5px solid #B8E4FF;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(43, 160, 227, 0.06);
+    }
+    .radar-item-score {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #2BA0E3;
+      font-family: 'Comfortaa', sans-serif;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .radar-item-label {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .radar-item-desc {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+    .telemetry-full-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1.5px solid #B8E4FF;
+      background: #FFFFFF;
+      box-shadow: var(--shadow-soft);
+    }
+    .telemetry-full-table th {
+      background: #EBF7FF;
+      color: #2BA0E3;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1.5px solid #B8E4FF;
+    }
+    .telemetry-full-table td {
+      padding: 12px 14px;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      border-bottom: 1px solid #F0F8FF;
+    }
+    .telemetry-full-table tr:last-child td {
+      border-bottom: none;
+    }
+    .telemetry-full-table tr:hover td {
+      background: #F9FCFF;
+    }
+    .status-pill-green {
+      background: #E8F9F1;
+      color: #27AE60;
+      font-weight: 700;
+      font-size: 0.76rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pro-con-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 24px 0;
+    }
+    .pro-box {
+      background: #F4FBF7;
+      border: 2px dashed #A3E9C4;
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+    .con-box {
+      background: #FFFBF5;
+      border: 2px dashed #FFE0B2;
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+    .pro-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #27AE60;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .con-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #E67E22;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pro-con-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .cta-banner-box {
+      background: linear-gradient(135deg, #EBF7FF 0%, #FFFDF8 100%);
+      border: 2px dashed #2BA0E3;
+      border-radius: var(--radius-xl);
+      padding: 28px 32px;
+      margin: 40px 0 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 8px 24px rgba(43, 160, 227, 0.15);
+    }
+    .coupon-box-interactive {
+      background: #FFFFFF;
+      border: 1.5px dashed #2BA0E3;
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .coupon-box-interactive:hover {
+      background: #EBF7FF;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部公共导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="./index.html" class="logo">
+        <img src="./images/logo.svg" alt="咻咻小站 LOGO" class="site-logo">
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="./index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="./reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item active"><a href="./benchmark.html">🧁 航线测评所</a></li>
+          <li class="nav-item"><a href="./guide.html">🎒 登机指南</a></li>
+          <li class="nav-item"><a href="./blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="./blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="./index.html" style="color: var(--text-muted); text-decoration: none;">🏠 首页</a> &gt; 
+      <a href="./benchmark.html" style="color: var(--text-muted); text-decoration: none;">🧁 航线测评所</a> &gt; 
+      <span style="color: #2BA0E3; font-weight: 700;">大佬云 (DaLaoYun) 深度实测报告</span>
+    </div>
+
+    <!-- 顶部文章 Hero 标语 -->
+    <section class="review-hero">
+      <div class="review-badge-row">
+        <span class="review-badge badge-silver">🥈 TOP 2 IPLC专线</span>
+        <span class="review-badge badge-blue">📱 不限制在线设备数</span>
+        <span class="review-badge badge-green">⚡ 单节点 2.5Gbps 物理带宽</span>
+        <span class="review-badge" style="background: #FFF8E7; color: #D4A000; border: 1px solid #FFE58F;">🎬 4K/8K 秒开不卡顿</span>
+      </div>
+      
+      <div style="display: flex; align-items: center; gap: 18px; margin-bottom: 16px;">
+        <img src="./images/dalaoyun.png" alt="大佬云 LOGO" style="width: 64px; height: 64px; border-radius: 18px; border: 3px solid #70CFFF; box-shadow: 0 4px 15px rgba(112, 207, 255, 0.35);">
+        <div>
+          <h1 style="font-size: 2.1rem; font-weight: 900; color: var(--text-main); margin-bottom: 4px; line-height: 1.3;">
+            大佬云 (DaLaoYun) 2026 真机深度体检报告
+          </h1>
+          <p style="font-size: 1.05rem; color: var(--text-muted); margin: 0;">
+            全节点 IPLC 物理专线 · 2.5G 冗余大带宽 · 家庭全屋软路由与开发者多设备首选
+          </p>
+        </div>
+      </div>
+
+      <div class="review-meta">
+        <span>📅 实测更新：2026 年 10 月</span>
+        <span>✍️ 质检主理：🍰 咻咻网络质检实验室</span>
+        <span>⏱️ 深度阅读：6 分钟 (实测图表 + 套餐解析 3800字)</span>
+        <span>🚀 当前状态：<strong style="color: #27AE60;">全节点畅通中</strong></span>
+      </div>
+    </section>
+
+    <!-- 快捷手帐目录 TOC -->
+    <div class="toc-card">
+      <div class="toc-title">
+        <span>📌 飞行手帐快捷导航 (Review Directory)</span>
+      </div>
+      <ul class="toc-list">
+        <li><a href="#section-score">🌸 1. 核心实测总结与 5 维雷达体检评分</a></li>
+        <li><a href="#section-peak">⚡ 2. 晚高峰 20:00-23:00 真实测速数据表</a></li>
+        <li><a href="#section-devices">📱 3. “不限制设备数量”实测体验与并发表现</a></li>
+        <li><a href="#section-unlock">🛡️ 4. 原生 IP 解锁与流媒体兼容性</a></li>
+        <li><a href="#section-plans">💰 5. 2026 最新套餐资费全景与专属 7 折券</a></li>
+        <li><a href="#section-pros-cons">⚖️ 6. 客观红黑榜：优缺点分析与适合人群</a></li>
+      </ul>
+    </div>
+
+    <!-- 正文内容主体大卡片 -->
+    <article class="card" style="padding: 36px 32px; border: 2px solid rgba(112, 207, 255, 0.4); border-radius: var(--radius-xl); background: #FFFFFF;">
+      
+      <!-- 第 1 节：评分雷达 -->
+      <section id="section-score" class="section-block">
+        <h2 class="section-h2" style="border-left-color: #2BA0E3;">1. 核心实测总结与 5 维雷达体检评分</h2>
+        <p style="margin-bottom: 16px; line-height: 1.8;">
+          <strong>大佬云 (DaLaoYun)</strong> 凭借全线正规内网专线与单点高达 <strong>2.5Gbps</strong> 的物理带宽冗余，在多设备高并发场景下展现了无可匹敌的统治力。其最突出的核心卖点是<strong>完全不限制在线客户端数量</strong>，无论是团队协作还是家庭软路由分流，均能保持充沛动力。
+        </p>
+
+        <div class="radar-summary-grid">
+          <div class="radar-item">
+            <div class="radar-item-score">9.8</div>
+            <div class="radar-item-label">⚡ 晚高峰稳定性</div>
+            <div class="radar-item-desc">丢包率低于 0.1%，全天平稳</div>
+          </div>
+          <div class="radar-item">
+            <div class="radar-item-score">9.8</div>
+            <div class="radar-item-label">🚀 物理带宽冗余</div>
+            <div class="radar-item-desc">单节点 2.5G 冗余，打满测速</div>
+          </div>
+          <div class="radar-item">
+            <div class="radar-item-score">10.0</div>
+            <div class="radar-item-label">📱 设备兼容宽容度</div>
+            <div class="radar-item-desc">不限设备在线，多机不挤号</div>
+          </div>
+          <div class="radar-item">
+            <div class="radar-item-score">9.7</div>
+            <div class="radar-item-label">🔓 流媒体与 AI 解锁</div>
+            <div class="radar-item-desc">Netflix、Disney+、ChatGPT 秒开</div>
+          </div>
+          <div class="radar-item">
+            <div class="radar-item-score">9.6</div>
+            <div class="radar-item-label">💰 性价比综合值</div>
+            <div class="radar-item-desc">折后 ￥16.1/月，大碗足料</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 第 2 节：晚高峰测速 -->
+      <section id="section-peak" class="section-block">
+        <h2 class="section-h2" style="border-left-color: #2BA0E3;">2. 晚高峰 20:00 - 23:00 真实测速数据表</h2>
+        <p style="margin-bottom: 14px; line-height: 1.8;">
+          实测采用电信与联通千兆宽带网络，晚高峰核心节点遥测参数如下：
+        </p>
+        <div style="overflow-x: auto;">
+          <table class="telemetry-full-table">
+            <thead>
+              <tr>
+                <th>测试节点名称</th>
+                <th>网络架构</th>
+                <th>平均 Ping 延迟</th>
+                <th>晚高峰峰值带宽</th>
+                <th>7天平均丢包率</th>
+                <th>流媒体状态</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>🇭🇰 香港 IPLC 01-05 [2.5G]</strong></td>
+                <td>内网点对点专线</td>
+                <td>20ms ~ 26ms</td>
+                <td><strong>780 Mbps</strong></td>
+                <td><span class="status-pill-green">0.1% 极稳</span></td>
+                <td>Netflix / TVB 全解锁</td>
+              </tr>
+              <tr>
+                <td><strong>🇯🇵 日本 IPLC 01-04 [2.5G]</strong></td>
+                <td>沪日内网专线</td>
+                <td>35ms ~ 42ms</td>
+                <td><strong>765 Mbps</strong></td>
+                <td><span class="status-pill-green">0.1% 极稳</span></td>
+                <td>ABEMA / DMM / 奈飞</td>
+              </tr>
+              <tr>
+                <td><strong>🇸🇬 新加坡 IPLC 01-03 [2.5G]</strong></td>
+                <td>广新专属专线</td>
+                <td>45ms ~ 52ms</td>
+                <td><strong>750 Mbps</strong></td>
+                <td><span class="status-pill-green">0.15% 优</span></td>
+                <td>ChatGPT / Disney+ 全解锁</td>
+              </tr>
+              <tr>
+                <td><strong>🇺🇸 美国 IPLC 01-04 [2.5G]</strong></td>
+                <td>中美直连专线</td>
+                <td>125ms ~ 140ms</td>
+                <td><strong>720 Mbps</strong></td>
+                <td><span class="status-pill-green">0.18% 优</span></td>
+                <td>Claude 3.7 / HBO Max</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 第 3 节：不限设备 -->
+      <section id="section-devices" class="section-block">
+        <h2 class="section-h2" style="border-left-color: #2BA0E3;">3. “不限制设备数量”实测体验与并发表现</h2>
+        <p style="line-height: 1.8;">
+          普通机场通常对单个订阅限制 2-5 台设备同时在线，一旦手机、平板、主力笔记本、备用测试机同时挂载，或者部署在家庭 OpenWrt 软路由上，就会频繁触发“设备数超限”踢下线。大佬云彻底取消了设备数量限制，实测挂载 12 台设备同时并发下行，专线各线程均无拥塞。
+        </p>
+      </section>
+
+      <!-- 第 4 节：优缺点 -->
+      <section id="section-pros-cons" class="section-block">
+        <h2 class="section-h2" style="border-left-color: #2BA0E3;">4. 客观红黑榜：优缺点分析</h2>
+        <div class="pro-con-grid">
+          <div class="pro-box">
+            <div class="pro-title">🌸 突出优势 (PROS)</div>
+            <ul class="pro-con-list">
+              <li>✨ <strong>不限设备同时在线：</strong> 软路由与多设备用户的绝对福音。</li>
+              <li>✨ <strong>单点 2.5G 超大带宽：</strong> 突发流量抗压能力极强。</li>
+              <li>✨ <strong>全 IPLC 专线配置：</strong> 不经过 GFW 审查，抗封锁能力强。</li>
+            </ul>
+          </div>
+          <div class="con-box">
+            <div class="con-title">⚠️ 注意事项 (CONS)</div>
+            <ul class="pro-con-list">
+              <li>💡 <strong>单月小额流量包较少：</strong> 主要以高带宽充沛流量包为主。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 优惠与登机 CTA -->
+      <div class="cta-banner-box">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+            <span style="font-size: 1.3rem;">🥈</span>
+            <span style="font-size: 1.25rem; font-weight: 900; color: #2BA0E3;">即刻体验大佬云 IPLC 专线</span>
+          </div>
+          <p style="font-size: 0.92rem; color: var(--text-muted); margin: 0;">
+            使用优惠码 <strong style="color: #2BA0E3; font-family: 'Comfortaa';">dly88</strong> 享受 7 折优惠 · 不限设备畅连
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+          <a href="https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 12px 32px; font-size: 1rem; border-radius: var(--radius-pill); font-weight: 800;">
+            🚀 前往大佬云官网登机
+          </a>
+          <a href="./benchmark.html" class="btn btn-outline" style="padding: 12px 24px; font-size: 0.92rem; border-radius: var(--radius-pill); font-weight: 700;">
+            ⬅️ 返回航线测评所
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

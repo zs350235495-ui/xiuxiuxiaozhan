@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《2026 全球流媒体与 AI 服务解锁全方案：原生 IP 判定、DNS 劫持解锁与分流策略深度避坑》~ 咻咻小站</title>
+  <meta name="description" content="深入解析 2026 全球流媒体与 AI 解锁技术底层：剖析 ASN 与 MaxMind/IPinfo 库判定逻辑、DNS 劫持及 SNI Proxy 原理与 ECH 风险，附原生/广播/住宅 IP 对比、开源检测脚本与 Mihomo 客户端高阶分流配置指南。">
+  <meta name="keywords" content="2026流媒体解锁, ChatGPT Claude封锁, 原生IP判定, DNS劫持解锁, SNI Proxy, 住宅IP, 分流规则配置, MaxMind, IPinfo, ECH">
+  <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #FFFFFF;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(255, 143, 171, 0.1);
+      border: 1px solid var(--border-pink);
+    }
+    .benchmark-table th {
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 12px 14px;
+      font-weight: 800;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+    .benchmark-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #FFEBF0;
+      font-size: 0.9rem;
+    }
+    .benchmark-table tr:last-child td {
+      border-bottom: none;
+    }
+    .code-box {
+      background: #282C34;
+      color: #ABB2BF;
+      padding: 16px;
+      border-radius: 12px;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 0.88rem;
+      overflow-x: auto;
+      margin: 16px 0;
+      line-height: 1.6;
+      border: 1px solid #3E4451;
+    }
+    .code-box code {
+      font-family: inherit;
+    }
+    .flow-diagram {
+      background: #FFF9FA;
+      border: 2px dashed var(--primary);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 20px 0;
+      font-family: 'JetBrains Mono', Consolas, monospace;
+      font-size: 0.85rem;
+      color: var(--text-main);
+      overflow-x: auto;
+      line-height: 1.5;
+    }
+    .callout-box {
+      border-left: 4px solid var(--primary);
+      background: #FFFBF7;
+      padding: 16px 20px;
+      border-radius: 0 12px 12px 0;
+      margin: 20px 0;
+      line-height: 1.7;
+      font-size: 0.92rem;
+    }
+    .callout-warning {
+      border-left-color: #E67E22;
+      background: #FFFDF5;
+    }
+    .callout-danger {
+      border-left-color: #E74C3C;
+      background: #FFF5F5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">
+        <img src="../images/logo.svg" alt="咻咻小站 LOGO" class="site-logo">
+        <span>咻咻小站</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li class="nav-item"><a href="../index.html">🏠 首页</a></li>
+          <li class="nav-item"><a href="../reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="../benchmark.html">🧁 航线测评所</a></li>
+          <li class="nav-item"><a href="../guide.html">🎒 登机指南</a></li>
+          <li class="nav-item active"><a href="../blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="../blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主内容区域 -->
+  <main class="main-wrapper">
+    
+    <!-- 面包屑导航 -->
+    <div style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 20px;">
+      <a href="../index.html">🏠 首页</a> &gt; <a href="../blog.html">📖 飞行日记</a> &gt; <span style="color: var(--text-main);">技术白皮书 (WHITEPAPER-26122)</span>
+    </div>
+
+    <!-- 文章卡片主体 -->
+    <article class="card" style="padding: 36px; border: 2px solid var(--border-pink);">
+      
+      <!-- 头部 -->
+      <div style="border-bottom: 2px dashed var(--border-pink); padding-bottom: 20px; margin-bottom: 24px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+          <span class="tag-badge tag-pink">#原生IP判定</span>
+          <span class="tag-badge tag-blue">#流媒体解锁</span>
+          <span class="tag-badge tag-green">#DNS劫持与SNIProxy</span>
+          <span class="tag-badge" style="background: #F3E5F5; color: #7B1FA2; border: 1px solid #CE93D8;">#ChatGPT与Claude风控</span>
+        </div>
+        <h1 style="font-size: 1.85rem; font-weight: 800; color: var(--primary); margin-bottom: 12px; line-height: 1.4;">
+          《2026 全球流媒体与 AI 服务解锁全方案：原生 IP 判定、DNS 劫持解锁与分流策略深度避坑》
+        </h1>
+        <div style="font-size: 0.88rem; color: var(--text-muted); display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 12px;">
+          <span>📅 发布时间：2026-10-16</span>
+          <span>🏛️ 发布机构：咻咻小站·网络拓扑与安全工程实验室</span>
+          <span>⏱️ 字数：约 3200 字</span>
+        </div>
+        <p style="color: var(--text-muted); line-height: 1.8; font-size: 0.95rem;">
+          在当今全球网络拓扑中，以 <strong>Netflix、Disney+</strong> 为代表的流媒体巨头与以 <strong>ChatGPT (OpenAI)、Claude (Anthropic)</strong> 为代表的顶级 AI 基础设施，其风控引擎已完成从“初级 GeoIP 静态封禁”向“多维特征指纹动态评估”的全面进化。本文全面拆解 BGP 广播机制、IP 纯净度判定逻辑、SNI Proxy 解锁底层及现代客户端分流方案。
+        </p>
+      </div>
+
+      <!-- 正文内容 -->
+      <div class="article-content" style="line-height: 1.9; color: var(--text-main); font-size: 0.96rem;">
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 16px 0; border-left: 4px solid var(--primary); padding-left: 10px;">
+          一、 底层原理：流媒体与 AI 服务的判区与风控模型
+        </h2>
+        
+        <h3 style="font-size: 1.15rem; color: var(--text-main); margin: 20px 0 10px 0;">1.1 IP 属性层：ASN 类型与 RIR/WHOIS 静态判定</h3>
+        <p>
+          主流互联网资源分配机构（RIR，如 ARIN、RIPE、APNIC）在分配 IP 地址段时，会在 WHOIS 数据库与 IRR（Internet Routing Registry）中记录其注册主体、自治系统编号（ASN）及其组织类型。风控体系（如 Cloudflare Bot Management、Akamai Bot Manager、Datadome 等）首先依据 IP 的 ASN 属性执行一票否决制：
+        </p>
+        <ul style="padding-left: 20px; margin: 12px 0;">
+          <li><strong>Hosting / DataCenter (IDC)</strong>：AWS、Google Cloud、Azure、DigitalOcean、Linode 等机房所属 IP。绝大多数机房 IP 段在 AI 服务（尤其是 Claude 与 OpenAI 网页端）的风控策略中默认处于高风险层级，极易触发 Turnstile 循环验证或直接封禁。</li>
+          <li><strong>Residential / ISP</strong>：AT&T、Comcast、Verizon、KT、HKT 等当地传统宽带运营商分配的 IP，享有最高的信誉权重。</li>
+          <li><strong>Business / Corporate</strong>：企业专线，信誉介于 IDC 与 ISP 之间。</li>
+        </ul>
+
+        <div class="flow-diagram">
++-------------------+      BGP 宣告      +--------------------+
+|  亚太分配 IP 段   | ----------------> | 洛杉矶 POP 节点    |
+| (APNIC Registered)|                   | (BGP Announce)     |
++-------------------+                   +--------------------+
+          |                                       |
+          v 延迟 2~4 周                           v 真实 RTT 约 5ms
++-------------------+                   +--------------------+
+| MaxMind/IPinfo 库 |                   | 客户端发起访问     |
+| (依然标记为亚太)  |                   | (物理距离极近)     |
++-------------------+                   +--------------------+
+          |                                       |
+          +----------------> 冲突 <---------------+
+                     触发高级别欺诈风控分值
+        </div>
+
+        <h3 style="font-size: 1.15rem; color: var(--text-main); margin: 20px 0 10px 0;">1.2 行为与协议栈层：TCP 握手时延（RTT）与 TLS 指纹探测</h3>
+        <p>
+          现代风控引擎不再孤立地看待 IP 标签，而是将其与网络传输层及传输层安全协议（TLS）的行为指纹深度关联：
+        </p>
+        <ul style="padding-left: 20px; margin: 12px 0;">
+          <li><strong>TCP RTT 物理距离反推</strong>：如果客户端使用的 IP 在地理库中注册为英国伦敦，但与英国边缘 CDN 节点的 TCP 三次握手往返时延（RTT）长期高于 200ms（典型跨大西洋或跨太平洋物理延迟），风控算法即可判定该流量经过了跨区代理、中继隧道或反向代理，判定为“地理欺诈”。</li>
+          <li><strong>TLS 客户端指纹（JA3/JA4 与 HTTP/2 帧特征）</strong>：标准浏览器在发起 <code>Client Hello</code> 时所包含的加密套件支持列表、扩展字段序列、椭圆曲线参数具有特定的哈希指纹。若代理工具修改了 TLS 握手特征，WAF 会在握手阶段直接拦截。</li>
+        </ul>
+
+        <h3 style="font-size: 1.15rem; color: var(--text-main); margin: 20px 0 10px 0;">1.3 业务并发与账号行为画像</h3>
+        <p>
+          <strong>Netflix 锁区与“自制剧”陷阱</strong>：Netflix 对非版权区域的限制并非直接报错，而是通过“只下发全球通用版权的自制剧（Netflix Originals Only）”来实现软封禁。当某机房 IP 突发产生大量向 CDN 边缘节点拉取同一剧集的分片请求时，即便其 IPinfo 识别尚为原生，其 IP 段也会迅速被加入 Netflix 的动态黑名单池。<br>
+          <strong>AI 服务的会话保持与设备风控</strong>：ChatGPT 与 Claude 会在前端注入复杂的指纹 SDK（如 Canvas 指纹、WebAudio 指纹、WebRTC 局域网探测）。若多个不同的账号在极短间隔内通过同一个机房 IP 建立 WebSocket 长连接，平台会直接触发账号级风控联动。
+        </p>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 16px 0; border-left: 4px solid var(--primary); padding-left: 10px;">
+          二、 核心架构辨析：原生 IP vs 广播 IP vs 住宅 IP
+        </h2>
+        <p>不同网络出口资源的底层差异及其实战表现如下表所示：</p>
+
+        <div style="overflow-x: auto;">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>评估维度</th>
+                <th>原生机房 IP (Native IDC)</th>
+                <th>广播机房 IP (Broadcast/BGP)</th>
+                <th>静态住宅 IP (Static Residential)</th>
+                <th>动态住宅代理 (Dynamic Residential)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>IP 归属定义</strong></td>
+                <td>IP 注册地、广播地与物理机房完全一致</td>
+                <td>IP 注册在 A 国，由主机商 BGP 跨区宣告至 B 国</td>
+                <td>宽带运营商（ISP）分配给真实家庭的固定公网 IP</td>
+                <td>真实家庭/移动网络网关通过代理池轮换分配</td>
+              </tr>
+              <tr>
+                <td><strong>ASN 类型标识</strong></td>
+                <td><code>Hosting</code> / <code>DataCenter</code></td>
+                <td><code>Hosting</code> / <code>DataCenter</code></td>
+                <td><code>ISP</code> / <code>Residential</code></td>
+                <td><code>ISP</code> / <code>Residential</code> / <code>MOB</code></td>
+              </tr>
+              <tr>
+                <td><strong>BGP 路由特性</strong></td>
+                <td>单播（Unicast）路由清晰，时延真实稳定</td>
+                <td>Anycast 或异地广播，存在绕路风险</td>
+                <td>本地运营商机房接入，单播直连</td>
+                <td>走 P2P 节点/设备转发，链路时延波动大</td>
+              </tr>
+              <tr>
+                <td><strong>MaxMind 识别</strong></td>
+                <td>本土机房，高可信度</td>
+                <td>极易出现多库判定冲突（国家不一致）</td>
+                <td>识别为纯正本地家庭宽带，极低欺诈分</td>
+                <td>识别为本土家庭宽带，但可能有历史滥用标记</td>
+              </tr>
+              <tr>
+                <td><strong>流媒体解锁</strong></td>
+                <td>良好（易受并发滥用影响降级）</td>
+                <td>极不稳定（易掉解锁、仅看自制剧）</td>
+                <td><strong>卓越</strong>（几乎不被流媒体版权库封锁）</td>
+                <td>良好（但长连接播放可能中途断连）</td>
+              </tr>
+              <tr>
+                <td><strong>顶尖 AI 存活率</strong></td>
+                <td>极易触发人机验证/阻断</td>
+                <td>大概率被阻断（Cloudflare 1020/403）</td>
+                <td><strong>极高存活率</strong>（长期免验证直连）</td>
+                <td>存活率高（但频繁切换 IP 易导致账号风控）</td>
+              </tr>
+              <tr>
+                <td><strong>成本与获取门槛</strong></td>
+                <td>适中（常见海外 VPS 均属此类）</td>
+                <td>极低（低价 VPS 常用的 IP 扩容手段）</td>
+                <td>高昂（按月付费，独享带宽有限）</td>
+                <td>按流量计费（昂贵，适合爬虫/批量任务）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 16px 0; border-left: 4px solid var(--primary); padding-left: 10px;">
+          三、 解锁黑科技原理拆解：DNS 劫持、SNI Proxy 与 IPv6 双栈
+        </h2>
+        <p>
+          当持有的高速专线（如 IPLC、IEPL）由于自身 IP 位于机房而被目标服务封锁时，“DNS 劫持 + SNI Proxy”与“IPv6 隧道迂回”是目前应用最广泛的底层解锁桥接方案。
+        </p>
+
+        <div class="flow-diagram">
++-------------------------------------------------------------------------------------------------------+
+|                                      SNI Proxy 解锁工作流                                              |
++-------------------------------------------------------------------------------------------------------+
+
+ 客户端 (Client)             中继节点 (DNS 劫持)           SNI Proxy (落地机)           Netflix/Claude 源站
+    |                               |                                |                           |
+    | 1. DNS Query (netflix.com)   |                                |                           |
+    |------------------------------>|                                |                           |
+    | 2. DNS Reply (指向落地机 IP)  |                                |                           |
+    |    [198.51.100.2]             |                                |                           |
+    |<------------------------------|                                |                           |
+    |                               |                                |                           |
+    | 3. TCP 握手 (发往 198.51.100.2:443)                           |                           |
+    |--------------------------------------------------------------->|                           |
+    |                                                                |                           |
+    | 4. TLS Client Hello (SNI = netflix.com)                        |                           |
+    |--------------------------------------------------------------->|                           |
+    |                                                                | 5. 嗅探 SNI, 发起真实连接  |
+    |                                                                |-------------------------->|
+    |                                                                |                           |
+    |                                                                | 6. 与源站建立 TCP/TLS 握手 |
+    |                                                                |<--------------------------|
+    |                                                                |                           |
+    | 7. 建立端到端加密透明数据通道 (TCP Passthrough, 落地机不解密数据)                               |
+    |<==============================================================>|<=========================>|
+        </div>
+
+        <div class="callout-box callout-warning">
+          <strong>⚠️ 性能损耗与 ECH 技术绝杀：</strong><br>
+          1. <strong>额外传输延迟（Double RTT）</strong>：客户端与源站之间的往返通信强制经由 SNIProxy 中转，容易形成路由倒灌导致 4K 缓冲卡顿。<br>
+          2. <strong>ECH（Encrypted Client Hello）普及的毁灭性打击</strong>：伴随 TLS 1.3 扩展中 ECH 的推广，客户端 SNI 将被加密传输，SNI Proxy 无法解密获取原始目标域名，这一运行了十余年的经典架构将面临彻底失效。
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 16px 0; border-left: 4px solid var(--primary); padding-left: 10px;">
+          四、 实操分流：生产级客户端分流配置实战
+        </h2>
+        <p>
+          最佳架构始终是：<strong>高速低延迟专线（IPLC/IEPL）承担 90% 的普通外网浏览，专用原生/住宅解锁节点仅接收流媒体与海外 AI 的精准流量</strong>。
+        </p>
+
+        <div class="code-box">
+<pre><code># -------------------------------------------------------------
+# 2026 生产级精准分流配置示范 (Mihomo/Clash.Meta)
+# -------------------------------------------------------------
+port: 7890
+socks-port: 7891
+mode: rule
+log-level: info
+unified-delay: true
+
+# 核心：DNS 防泄漏与 Fake-IP 体系
+dns:
+  enable: true
+  listen: 0.0.0.0:1053
+  ipv6: false                     # 避免 IPv6 导致的风控策略混淆
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 1.1.1.1
+    - 8.8.8.8
+  proxy-server-nameserver:
+    - 223.5.5.5                   # 避免节点域名解析发生解析回环
+
+# 策略组逻辑绑定
+proxy-groups:
+  - name: "AI-Services"
+    type: select
+    proxies:
+      - "住宅-顶级AI专用"
+      - "美区-原生流媒体"
+
+  - name: "Streaming-Global"
+    type: select
+    proxies:
+      - "美区-原生流媒体"
+      - "专线-通用出口"
+
+  - name: "Final-Outbound"
+    type: select
+    proxies:
+      - "专线-通用出口"
+
+# 精准规则路由表
+rules:
+  # 1. 本地回环防护
+  - GEOIP,private,DIRECT,no-resolve
+
+  # 2. 顶级海外 AI 精准命中
+  - DOMAIN-SUFFIX,chatgpt.com,AI-Services
+  - DOMAIN-SUFFIX,oaistatic.com,AI-Services
+  - DOMAIN-SUFFIX,oaiusercontent.com,AI-Services
+  - DOMAIN-KEYWORD,anthropic,AI-Services
+  - DOMAIN-KEYWORD,claude,AI-Services
+
+  # 3. 流媒体流量（域名 + IP 双重兜底）
+  - DOMAIN-SUFFIX,netflix.com,Streaming-Global
+  - DOMAIN-SUFFIX,disneyplus.com,Streaming-Global
+  - DOMAIN-SUFFIX,dssott.com,Streaming-Global
+
+  # 4. 其余普通海外流量走高品质专线
+  - MATCH,Final-Outbound</code></pre>
+        </div>
+
+        <div class="callout-box callout-danger">
+          <strong>🚨 避坑重点：DNS 泄漏与 WebRTC 旁路穿透</strong><br>
+          • <strong>EDNS Client Subnet (ECS) 泄漏</strong>：若本地 DNS 携带国内 /24 网段查询海外域名，CDN 将直接识别你的真实地理位置。必须在客户端强制使用 Fake-IP 模式。<br>
+          • <strong>WebRTC UDP 穿透</strong>：浏览器 WebRTC 在发起 STUN 探测时若未走代理，将通过 UDP 暴露本地真实外网 IP，建议安装插件或配置浏览器策略禁用非代理 UDP。
+        </div>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 16px 0; border-left: 4px solid var(--primary); padding-left: 10px;">
+          五、 自动化检测工具箱与判区报告深度解读
+        </h2>
+        <p>推荐使用以下主流脚本在终端快速执行 IP 欺诈度与流媒体解锁自检：</p>
+
+        <div class="code-box">
+<pre><code># 1. 流媒体全能检测脚本 (支持多国流媒体原生与 DNS 解锁精确识别)
+bash &lt;(curl -L -s https://raw.githubusercontent.com/lmc999/RegionRestrictionCheck/master/check.sh)
+
+# 2. IP 质量检测 (集成 IPQualityScore、Scamalytics 欺诈分及多库归属比对)
+bash &lt;(curl -Ls https://raw.githubusercontent.com/xykt/IPQuality/main/ip.sh)</code></pre>
+        </div>
+
+        <h3 style="font-size: 1.15rem; color: var(--text-main); margin: 20px 0 10px 0;">判读要点：</h3>
+        <ul style="padding-left: 20px; margin: 12px 0;">
+          <li><code>Netflix: Yes (Originals Only)</code>：代表该 IP 为非原生或已被标记为机房，仅能观看全球版权自制剧，不可作为流媒体主力出口。</li>
+          <li><code>Fraud Score &gt; 75 / Type: Hosting</code>：代表纯净度过低，访问 Claude/OpenAI 极易触发人机死循环或账号风控，需更换固定住宅 ISP 节点。</li>
+        </ul>
+
+        <h2 style="font-size: 1.35rem; color: var(--primary); margin: 28px 0 16px 0; border-left: 4px solid var(--primary); padding-left: 10px;">
+          六、 总结与 2026 技术演化趋势
+        </h2>
+        <p>
+          随着风控算法迈入全栈指纹（JA4 + WebRTC + 行为画像）时代，单纯依靠低价广播 IP 的方案已退出舞台。打造一套高可用访问体系，核心在于<strong>动静解耦、分级治理</strong>：基础流量托底于高带宽专线，严风控 AI 流量锚定于纯正住宅 IP，并建立严密的 Fake-IP 防泄漏分流，方能从容应对现代风控体系的频繁迭代。
+        </p>
+
+        <div style="margin-top: 30px; padding: 16px; background: #FFFDF8; border-radius: 12px; border: 1px dashed var(--border-pink);">
+          <span style="font-weight: 700; color: var(--primary);">🏷️ 本文技术标签：</span>
+          <span style="font-size: 0.88rem; color: var(--text-muted); margin-left: 8px;">
+            #网络工程 #原生IP #流媒体解锁 #BGP广播 #SNIProxy #Mihomo分流 #风控反爬 #ChatGPT解封
+          </span>
+        </div>
+
+      </div>
+
+      <!-- 返回与互动 -->
+      <div style="margin-top: 36px; padding-top: 20px; border-top: 2px dashed var(--border-pink); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <a href="../blog.html" class="btn btn-outline" style="border-radius: var(--radius-pill); font-weight: 700;">⬅️ 返回飞行日记目录</a>
+        <a href="../benchmark.html" class="btn btn-primary" style="border-radius: var(--radius-pill); font-weight: 700;">🧁 查看航线实测大厅 ➔</a>
+      </div>
+
+    </article>
+
+  </main>
+
+  <!-- 底部公共版权 -->
+  <footer class="site-footer">
+    <p>Made with <span class="footer-heart">♥</span> by 咻咻小站 Shiu Shiu Station | 免编译纯静态卡哇伊博客 · <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #FF8FAB; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">© 2026 xiuxiuxiaozhan.com All Rights Reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

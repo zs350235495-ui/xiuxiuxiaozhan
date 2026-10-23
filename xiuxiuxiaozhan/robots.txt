@@ -1,4 +1,32 @@
+# robots.txt for xiuxiuxiaozhan.com
+# 允许通用搜索引擎抓取并显式放行渲染静态资源
 User-agent: *
 Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /images/
 
+# 显式放行主流 AI 搜索引擎与大模型检索爬虫
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# 网站地图路径声明
 Sitemap: https://xiuxiuxiaozhan.com/sitemap.xml

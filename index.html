@@ -5,29 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>咻咻小站 - 2026 稳定节点评测与推荐</title>
   <meta name="description" content="咻咻小站 - 软萌二次元手帐风格卡哇伊试吃测评站，提供优质 IPLC 专线节点实测、新手登机指南与避坑黑名单">
-  <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://xiuxiuxiaozhan.com/">
+  <!-- Open Graph / 社交图谱元数据 -->
+  <meta property="og:site_name" content="咻咻小站">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="咻咻小站 - 2026 稳定节点评测与推荐">
+  <meta property="og:description" content="咻咻小站 - 软萌二次元手帐风格卡哇伊试吃测评站，提供优质 IPLC 专线节点实测、新手登机指南与避坑黑名单">
+  <meta property="og:url" content="https://xiuxiuxiaozhan.com/">
+  <meta property="og:image" content="https://xiuxiuxiaozhan.com/images/logo.svg">
+  <!-- Twitter Card 规范元数据 -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="咻咻小站 - 2026 稳定节点评测与推荐">
+  <meta name="twitter:description" content="咻咻小站 - 软萌二次元手帐风格卡哇伊试吃测评站，提供优质 IPLC 专线节点实测、新手登机指南与避坑黑名单">
+  <meta name="twitter:image" content="https://xiuxiuxiaozhan.com/images/logo.svg">
+  <!-- Schema.org 结构化数据 (JSON-LD) -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://xiuxiuxiaozhan.com/#website",
+      "url": "https://xiuxiuxiaozhan.com/",
+      "name": "咻咻小站",
+      "description": "咻咻小站 - 软萌二次元手帐风格卡哇伊试吃测评站，提供优质 IPLC 专线节点实测、新手登机指南与避坑黑名单",
+      "inLanguage": "zh-CN",
+      "publisher": {
+        "@id": "https://xiuxiuxiaozhan.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://xiuxiuxiaozhan.com/#organization",
+      "name": "咻咻小站实验室 (Shiu Shiu Station Lab)",
+      "url": "https://xiuxiuxiaozhan.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://xiuxiuxiaozhan.com/images/logo.svg"
+      },
+      "publishingPrinciples": "https://xiuxiuxiaozhan.com/guide.html"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://xiuxiuxiaozhan.com/#author",
+      "name": "🍓 试吃甜心",
+      "jobTitle": "首席网络测算与体验架构师",
+      "worksFor": {
+        "@id": "https://xiuxiuxiaozhan.com/#organization"
+      },
+      "description": "专注全球骨干网链路抖动压测、晚高峰抗拥塞实测与网络协议深度分析"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://xiuxiuxiaozhan.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "新手如何挑选一条晚高峰不颠簸的稳定专线？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "优先锁定纯内网 IPLC/IEPL 物理专线或具备动态冗余集群的服务商（如环球梯、大佬云），避开晚高峰公网国际出口拥堵；同时关注单节点带宽（建议不低于 500Mbps）与原生住宅 IP 解锁纯净度。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么咻咻小站坚决反对购买超低价年付/永久套餐？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "超低价年付或几十块永久套餐违背了服务器与专线带宽的物理成本，90% 以上在积累一批用户后因资金链断裂跑路失联。建议乘客一律按月或按季订阅，资金更安全。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "日常上网为什么必须坚持使用规则分流模式？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "分流模式（Rule/Bypass Mainland）能自动判断网络请求，国内应用走直连保证极速且不耗费代理流量，仅境外资源走专线加速，避免国内微信、网银等触发异地登录风控。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "遇到所有节点突然超时不可用，应首先排查什么？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "首先检查本地设备（手机/电脑）的系统时间是否精准校准。现代加密协议（如 TLS、VLESS-Reality、Hysteria 2）在握手时对时钟容差通常小于 60 秒，时钟偏差过大会导致握手全部失败。"
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
   <!-- 顶部公共导航栏 (Header) -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="./index.html" class="logo">
-        <img src="./images/logo.svg" alt="咻咻小站 LOGO" class="site-logo">
+      <a href="/" class="logo">
+        <img src="/images/logo.svg" alt="咻咻小站 LOGO" class="site-logo">
         <span>咻咻小站</span>
       </a>
       <nav>
         <ul class="nav-links">
-          <li class="nav-item active"><a href="./index.html">🏠 首页</a></li>
-          <li class="nav-item"><a href="./reviews.html">🍰 航线试吃</a></li>
-          <li class="nav-item"><a href="./benchmark.html">🧁 航线测评所</a></li>
-          <li class="nav-item"><a href="./guide.html">🎒 登机指南</a></li>
-          <li class="nav-item"><a href="./blog.html">📖 飞行日记</a></li>
-          <li class="nav-item nav-item-warning"><a href="./blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
+          <li class="nav-item active"><a href="/">🏠 首页</a></li>
+          <li class="nav-item"><a href="/reviews.html">🍰 航线试吃</a></li>
+          <li class="nav-item"><a href="/benchmark.html">🧁 航线测评所</a></li>
+          <li class="nav-item"><a href="/guide.html">🎒 登机指南</a></li>
+          <li class="nav-item"><a href="/blog.html">📖 飞行日记</a></li>
+          <li class="nav-item nav-item-warning"><a href="/blacklist.html">⚠️ 颠簸黑名单 <span class="nav-warn-badge">避坑</span></a></li>
         </ul>
       </nav>
     </div>
@@ -43,10 +135,10 @@
       <p class="hero-subtitle">准备好你的小登机牌，带你极速起飞～今天也要心情甜甜、网速飞快哦！(｡♥‿♥｡)</p>
       
       <div class="hero-buttons">
-        <a href="./reviews.html" class="btn btn-primary">🍰 挑选精品航线</a>
-        <a href="./benchmark.html" class="btn" style="background: linear-gradient(135deg, #FFD166, #FFAB76); color: #FFF; font-weight: 700; border-radius: var(--radius-pill); box-shadow: 0 4px 15px rgba(255, 171, 118, 0.35);">🧁 航线测评所</a>
-        <a href="./guide.html" class="btn btn-secondary">🎒 新手登机指南</a>
-        <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="btn btn-outline">💬 官方客服</a>
+        <a href="/reviews.html" class="btn btn-primary">🍰 挑选精品航线</a>
+        <a href="/benchmark.html" class="btn" style="background: linear-gradient(135deg, #FFD166, #FFAB76); color: #FFF; font-weight: 700; border-radius: var(--radius-pill); box-shadow: 0 4px 15px rgba(255, 171, 118, 0.35);">🧁 航线测评所</a>
+        <a href="/guide.html" class="btn btn-secondary">🎒 新手登机指南</a>
+        <a href="/guide.html" target="_blank" rel="noopener" class="btn btn-outline">💬 官方客服</a>
       </div>
 
       <!-- 动态小广播跑马灯条 (Ticker) -->
@@ -76,7 +168,7 @@
           
           <!-- 顶部 Header 区 -->
           <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 12px; margin-top: 6px;">
-            <img src="./images/huanqiuti.png" alt="环球梯 LOGO" style="width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 2px solid #FFD166; box-shadow: 0 4px 12px rgba(255, 209, 102, 0.3); flex-shrink: 0;">
+            <img src="/images/huanqiuti.png" alt="环球梯 LOGO" style="width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 2px solid #FFD166; box-shadow: 0 4px 12px rgba(255, 209, 102, 0.3); flex-shrink: 0;">
             <div>
               <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">环球梯 (HuanQiuTi)</h3>
               <div style="font-size: 0.78rem; color: var(--primary); font-weight: 700; margin-top: 2px;">✈️ 环球滑行号</div>
@@ -114,7 +206,7 @@
               <span>🎁 券码: <strong class="flight-coupon-code">HQ66</strong></span>
               <span style="font-size: 0.7rem; opacity: 0.7;">📋 复制</span>
             </div>
-            <a href="https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem; border-radius: var(--radius-pill);">
+            <a href="/review-huanqiuti.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.9rem; border-radius: var(--radius-pill);">
               🚀 直达登机
             </a>
           </div>
@@ -126,7 +218,7 @@
           
           <!-- 顶部 Header 区 -->
           <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 12px; margin-top: 6px;">
-            <img src="./images/dalaoyun.png" alt="大佬云 LOGO" style="width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 2px solid #70CFFF; box-shadow: 0 4px 12px rgba(112, 207, 255, 0.3); flex-shrink: 0;">
+            <img src="/images/dalaoyun.png" alt="大佬云 LOGO" style="width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 2px solid #70CFFF; box-shadow: 0 4px 12px rgba(112, 207, 255, 0.3); flex-shrink: 0;">
             <div>
               <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">大佬云 (DaLaoYun)</h3>
               <div style="font-size: 0.78rem; color: #2BA0E3; font-weight: 700; margin-top: 2px;">✈️ 筋斗云高速号</div>
@@ -164,7 +256,7 @@
               <span>🎁 券码: <strong class="flight-coupon-code" style="color: #2BA0E3;">dly88</strong></span>
               <span style="font-size: 0.7rem; opacity: 0.7;">📋 复制</span>
             </div>
-            <a href="https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 8px 20px; font-size: 0.9rem; border-radius: var(--radius-pill);">
+            <a href="/review-dalaoyun.html" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 8px 20px; font-size: 0.9rem; border-radius: var(--radius-pill);">
               🚀 直达登机
             </a>
           </div>
@@ -176,7 +268,7 @@
           
           <!-- 顶部 Header 区 -->
           <div style="display: flex; gap: 14px; align-items: center; margin-bottom: 12px; margin-top: 6px;">
-            <img src="./images/yunjiexian.png" alt="云界线 LOGO" style="width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 2px solid #9B51E0; box-shadow: 0 4px 12px rgba(155, 81, 224, 0.3); flex-shrink: 0;">
+            <img src="/images/yunjiexian.png" alt="云界线 LOGO" style="width: 48px; height: 48px; border-radius: 14px; object-fit: cover; border: 2px solid #9B51E0; box-shadow: 0 4px 12px rgba(155, 81, 224, 0.3); flex-shrink: 0;">
             <div>
               <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); line-height: 1.2;">云界线 (YunJieXian)</h3>
               <div style="font-size: 0.78rem; color: #8241C7; font-weight: 700; margin-top: 2px;">✈️ 破云穿梭号</div>
@@ -214,7 +306,7 @@
               <span>🎁 券码: <strong class="flight-coupon-code" style="color: #8241C7;">yjx888</strong></span>
               <span style="font-size: 0.7rem; opacity: 0.7;">📋 复制</span>
             </div>
-            <a href="https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 8px 20px; font-size: 0.9rem; border-radius: var(--radius-pill); background: linear-gradient(135deg, #9B51E0, var(--primary)); color: #FFFFFF; box-shadow: 0 4px 14px rgba(155, 81, 224, 0.35);">
+            <a href="/review-yunjiexian.html" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 8px 20px; font-size: 0.9rem; border-radius: var(--radius-pill); background: linear-gradient(135deg, #9B51E0, var(--primary)); color: #FFFFFF; box-shadow: 0 4px 14px rgba(155, 81, 224, 0.35);">
               🚀 直达登机
             </a>
           </div>
@@ -224,7 +316,7 @@
 
       <!-- 底部引导链接 -->
       <div style="text-align: center; margin-top: 24px;">
-        <a href="./reviews.html" style="font-weight: 700; color: var(--primary); font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px;">
+        <a href="/reviews.html" style="font-weight: 700; color: var(--primary); font-size: 0.95rem; display: inline-flex; align-items: center; gap: 6px;">
           👉 查看完整 15 款航线详细评测与时刻表 &gt;
         </a>
       </div>
@@ -269,14 +361,14 @@
             <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary); display: flex; align-items: center; gap: 8px;">
               <span>📖 飞行手帐精选</span>
             </h3>
-            <a href="./blog.html" style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">更多文章 &gt;</a>
+            <a href="/blog.html" style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">更多文章 &gt;</a>
           </div>
 
           <div style="display: flex; flex-direction: column; gap: 14px;">
             <div style="background: var(--bg-color); padding: 12px 16px; border-radius: var(--radius-md); border: 1px dashed var(--border-pink);">
               <span class="blog-tag" style="margin-bottom: 4px; display: inline-block;">#萌新科普</span>
               <h4 style="font-size: 0.98rem; font-weight: 700; margin-bottom: 4px;">
-                <a href="./blog.html" style="color: var(--text-main);">《2026 新手如何挑选一条不颠簸的专线航班？》</a>
+                <a href="/blog.html" style="color: var(--text-main);">《2026 新手如何挑选一条不颠簸的专线航班？》</a>
               </h4>
               <p style="font-size: 0.85rem; color: var(--text-soft);">大白话拆解专线、中转与直连区别，教你轻松避坑~</p>
             </div>
@@ -284,7 +376,7 @@
             <div style="background: #EBF7FF; padding: 12px 16px; border-radius: var(--radius-md); border: 1px dashed var(--border-blue);">
               <span class="blog-tag blog-tag-blue" style="margin-bottom: 4px; display: inline-block;">#排错小贴士</span>
               <h4 style="font-size: 0.98rem; font-weight: 700; margin-bottom: 4px;">
-                <a href="./blog.html" style="color: var(--text-main);">《为什么你的节点总是掉线？三步排查网络气流！》</a>
+                <a href="/blog.html" style="color: var(--text-main);">《为什么你的节点总是掉线？三步排查网络气流！》</a>
               </h4>
               <p style="font-size: 0.85rem; color: var(--text-soft);">三步检查规则模式、校准系统时间与拉取最新订阅。</p>
             </div>
@@ -297,7 +389,7 @@
             <h3 style="font-size: 1.25rem; font-weight: 800; color: #D63031; display: flex; align-items: center; gap: 8px;">
               <span>⚠️ 颠簸气流与避坑小黑板</span>
             </h3>
-            <a href="./blacklist.html" style="font-size: 0.85rem; font-weight: 700; color: #D63031;">查看完整名单 &gt;</a>
+            <a href="/blacklist.html" style="font-size: 0.85rem; font-weight: 700; color: #D63031;">查看完整名单 &gt;</a>
           </div>
 
           <div style="background: #FFF9E6; border-left: 4px solid #FF9F43; padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; color: #856404; font-weight: 600; margin-bottom: 14px;">
@@ -317,7 +409,7 @@
           </div>
 
           <div style="margin-top: 16px; text-align: center;">
-            <a href="./blacklist.html" class="btn btn-outline" style="padding: 6px 18px; font-size: 0.85rem; color: #D63031; border-color: #FF6B6B;">
+            <a href="/blacklist.html" class="btn btn-outline" style="padding: 6px 18px; font-size: 0.85rem; color: #D63031; border-color: #FF6B6B;">
               查看完整避坑黑名单 &gt;
             </a>
           </div>
@@ -329,7 +421,7 @@
   </main>
 
   <!-- 萌系悬浮挂件与 Telegram 客服 -->
-  <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" class="tg-float-btn" title="点击联系 Telegram 官方客服">💬 官方客服</a>
+  <a href="/guide.html" target="_blank" rel="noopener" class="tg-float-btn" title="点击查看新手登机指南与避坑答疑">💬 官方客服</a>
   <div class="mascot-widget" id="mascotWidget" title="点击萌物互动">
     <div class="mascot-dialog" id="mascotDialog">
       今天也要心情甜甜、网速飞快哦 🌸
@@ -340,9 +432,9 @@
   <!-- 5. 软萌页脚 (Footer) -->
   <footer class="site-footer">
     <p>咻咻小站 ~ Shiu Shiu Station (๑•̀ㅂ•́)و✧</p>
-    <p style="margin-top: 6px;">Made with <span class="footer-heart">💖</span> for smooth browsing · 快捷导航：<a href="./reviews.html">航线试吃</a> | <a href="./benchmark.html">航线测评所</a> | <a href="./guide.html">登机指南</a> | <a href="./blog.html">飞行日记</a> | <a href="./blacklist.html">避坑黑名单</a> | <a href="https://t.me/huanqiuti8899" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
+    <p style="margin-top: 6px;">Made with <span class="footer-heart">💖</span> for smooth browsing · 快捷导航：<a href="/reviews.html">航线试吃</a> | <a href="/benchmark.html">航线测评所</a> | <a href="/guide.html">登机指南</a> | <a href="/blog.html">飞行日记</a> | <a href="/blacklist.html">避坑黑名单</a> | <a href="/guide.html" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a></p>
   </footer>
 
-  <script src="./js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>

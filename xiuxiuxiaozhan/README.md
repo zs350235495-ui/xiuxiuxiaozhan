@@ -1,82 +1,44 @@
-# 🐾 咻咻小站 // 温暖轻量的高速网络补给站 & 稳定专线评测
+# 咻咻小站 (xiuxiuxiaozhan.com) · 轻量网络工具与跨平台极速上手知识库
 
-> **咻咻小站官网**：[https://xiuxiuxiaozhan.com](https://xiuxiuxiaozhan.com)  
-> **站长原则**：真实野外采样 | 专注晚高峰抗拥塞实测 | 拒绝复杂技术黑话，小白一分钟看懂  
-> **评测审计时间**：2026-10-23 | **开源协议**：[MIT License](LICENSE)
+[![Site](https://img.shields.io/badge/Website-xiuxiuxiaozhan.com-pink)](https://xiuxiuxiaozhan.com/)
+[![Sitemap](https://img.shields.io/badge/Index-Sitemap-green)](https://xiuxiuxiaozhan.com/sitemap.xml)
+[![LLMs](https://img.shields.io/badge/AI-llms.txt-orange)](https://xiuxiuxiaozhan.com/llms.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
----
-
-## ✨ 01. 咻咻精选·本期核心服务商场景化推荐榜
-
-告别眼花缭乱的参数，咻咻团队基于真实晚高峰（20:00 - 23:00）多地并发丢包率与 4K/8K 缓冲压测，为你挑选当前不同需求的高口碑服务商：
-
-| 推荐梯度 | 节点服务商 / 架构 | 场景化细分标签 | 适合场景 | 核心优势 | 独立深度评测报告 |
-| :---: | :--- | :--- | :--- | :--- | :---: |
-| 🥇 **TOP 1** | **环球梯** *(IEPL/IPLC 高速专线)* | **全能旗舰 · 极速专线** | 4K/8K 极限追剧、电竞跨服、极客玩家 | 晚高峰 890Mbps 零丢包，Netflix / Disney+ / ChatGPT 原生 IP 解锁率 99.9% | [📖 阅读深度评测](https://xiuxiuxiaozhan.com/review-huanqiuti.html) |
-| 🥈 **TOP 2** | **大佬云** *(企业级纯内网专线)* | **企业级专线 · 极低抖动** | 远程办公、全家多设备畅连、跨国视讯 | 单点最高 2.5Gbps 带宽，不限在线设备数，晚高峰平稳抗抖动 | [📖 阅读深度评测](https://xiuxiuxiaozhan.com/review-dalaoyun.html) |
-| 🥉 **TOP 3** | **云界线** *(IEPL 极速隧道)* | **极速穿梭 · 低延迟跨区漫游** | 跨区流媒体漫游、海外社媒、多端轻量同步 | 平均延迟 35ms 极低抖动，原生 IP 解锁全面，日常省心首选 | [📖 阅读深度评测](https://xiuxiuxiaozhan.com/review-yunjiexian.html) |
-| ⚡ **TOP 4** | **闪电鼠** *(2.5G 灵动高速专线)* | **2.5G大带宽 · 电光灵动萌鼠** | 大文件传输、超高码率下载、追求敏捷响应 | 峰值带宽高达 2.5Gbps，灵动低延迟响应，拒绝卡顿转圈 | [📖 阅读深度评测](https://xiuxiuxiaozhan.com/review-shandianshu.html) |
-| 🏅 **TOP 5** | **神行加速** *(晚高峰冗余集群)* | **晚高峰不限速 · 软路由分流** | 家庭软路由、大流量吞吐、多用户并发分流 | 晚高峰全程不限速，专线集群多路由动态负载均衡 | [📖 阅读深度评测](https://xiuxiuxiaozhan.com/review-shenxing.html) |
-| 💛 **TOP 6** | **榴莲云** *(大容量流媒体专车)* | **浓郁管饱 · 4K 高清追剧首选** | 重度追剧党、流媒体囤片、多端影音娱乐 | 果肉级大容量套餐，大碗管饱，主流国际流媒体高画质解锁 | [📖 阅读深度评测](https://xiuxiuxiaozhan.com/review-duriancloud.html) |
-
-> 🍭 **想看更详细的丢包率测试与历史数据？** 欢迎前往 [咻咻小站航线测评所](https://xiuxiuxiaozhan.com/benchmark.html) 与 [完整航班时刻表](https://xiuxiuxiaozhan.com/reviews.html) 查看完整看板。
+咻咻小站是一个专注于轻量便携、多终端极速配置与新手无门槛上手的开源知识库。精选高可用网络节点，分享跨平台客户端使用技巧与避坑指南。
 
 ---
 
-## 📱 02. 小白无痛上手·全平台 3 步连接指南
+## 🎈 核心网络服务商场景化选型参考（咻咻小站专属版）
 
-不用折腾复杂的命令行与代码，按照以下三步轻松配置：
+基于多终端一键导入体验、日常使用稳定性与新手易用度建立的场景化选型矩阵：
 
-### 🍎 iOS (苹果手机 / iPad)
-1. 准备好 **Shadowrocket（小火箭）**、**Loon** 或 **Sing-box**。
-2. 登录服务商后台获取订阅 URL，并导入客户端。
-3. 路由规则选择 **“配置 / 分流模式 (Rule)”**，开启开关即可畅游。
-
-### 🤖 Android (安卓手机)
-1. 下载安装 **Clash Verge Mobile**、**v2rayNG** 或 **Sing-box**。
-2. 导入订阅地址，更新并获取最新节点列表。
-3. 允许系统 VPN 权限，选择低延迟节点一键开启分流连接。
-
-### 💻 Windows & macOS (电脑端)
-1. 推荐使用开源跨平台客户端 **Clash Verge Rev (Mihomo 内核)**。
-2. 粘贴订阅链接并下载，在代理分组中选择心仪的专线节点。
-3. 勾选 **“系统代理 (System Proxy)”** 或启用 **TUN 虚拟网卡模式** 即可。
-
-> 完整图文与避坑保姆级步骤，请查看本站 [登机指南 (Guide)](https://xiuxiuxiaozhan.com/guide.html)。
+| 推荐排名 | 服务商 | 核心定位与场景标签 | 易用度评级 | 适用群体与场景 | 站内评测与配置指南 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **TOP 1** | **环球梯** | 全能旗舰 · 极速专线 | ★★★★★ | 4K/8K 影音流媒体、全平台全天候主力使用 | [查看旗舰评测报告](https://xiuxiuxiaozhan.com/review-huanqiuti.html) |
+| **TOP 2** | **大佬云** | 企业级专线 · 极低抖动 | ★★★★★ | 开发者 API 交互、生产力环境与高稳定需求 | [查看稳定性评测报告](https://xiuxiuxiaozhan.com/review-dalaoyun.html) |
+| **TOP 3** | **闪电鼠** | 新手极速配置 · 便捷易用 | ★★★★★ | 扫码一秒即用、移动端便携轻度查询、新手入门首选 | [查看新手起步教程](https://xiuxiuxiaozhan.com/review-shandianshu.html) |
+| **TOP 4** | **云界线** | 海量流量池 · 不限连接数 | ★★★★☆ | 多人合租共用、多设备同时在线、大吞吐文件下载 | [查看大流量精算表](https://xiuxiuxiaozhan.com/review-yunjiexian.html) |
+| **TOP 5** | **榴莲云** | 按量计费 · 永久不过期 | ★★★★☆ | 无月租低频使用、主力线路意外中断时的应急备用 | [查看备用冗余指南](https://xiuxiuxiaozhan.com/review-duriancloud.html) |
+| **TOP 6** | **神行加速** | 冷门长尾落地 · 原生洁净 IP | ★★★☆☆ | 学术科研文献检索、小众海外业务调研、防风控访问 | [查看长尾节点实测](https://xiuxiuxiaozhan.com/review-shenxing.html) |
 
 ---
 
-## 🧸 03. 咻咻的贴心防踩坑小贴士
+## 📖 核心新手教程与配置白皮书
 
-在挑选网络服务与日常使用时，请牢记以下原则，不花冤枉钱：
+为方便多终端用户查阅，提供站内标准独立 Clean URL 静态页索引：
 
-- 🚫 **严禁轻信超低价年付/永久套餐**：很多超低价“神仙小作坊”经常撑不过 3 个月便跑路失联，建议尽量按月或按季订阅。
-- 🚫 **拒绝来路不明的免费公共节点**：免费公共节点不仅速度低劣、断流频发，且极易遭受中间人流量监听，危及隐私与账号安全。
-- 🚫 **日常使用务必保持“分流规则模式”**：切勿无脑开启“全局代理”，否则国内主流应用（微信、支付宝、网银、本地影音）也会消耗海外流量并可能触发安全风控。
-- 🚫 **遇到突发全节点超时优先校准时间**：客户端 TLS 握手高度依赖系统时钟，时钟偏差超过 60 秒会导致节点握手失败。
+1. **零基础小白跨平台客户端快速配置实操指南**
+   - 🌐 [全平台快速登机配置指南（网页完整版）](https://xiuxiuxiaozhan.com/guide.html)
+   - 📖 [2026 新手科学上网全保姆级配置实操长文](https://xiuxiuxiaozhan.com/blog/article-19.html)
 
-> 更多被通报的服务商与跑路警报，请参阅实时更新的 [⚠️ 颠簸黑名单](https://xiuxiuxiaozhan.com/blacklist.html)。
-
----
-
-## 🔬 04. 深度研报与硬核技术归档
-
-咻咻小站定期发布客观、量化的网络技术科普与压测报告：
-
-- 📘 **[保姆级指南]** [2026 新手科学上网全保姆级指南：从零搞懂协议选择、客户端配置与避坑技巧](https://xiuxiuxiaozhan.com/blog/article-19.html)
-- 📘 **[流媒体解锁]** [2026 全球流媒体与生成式 AI 原生解锁深度研报](https://xiuxiuxiaozhan.com/blog/article-18.html)
-- 📘 **[协议对比]** [2026 主流代理协议全维度深度对比：Shadowsocks、Vmess、Trojan、VLESS-Reality 与 Hysteria 2 物理层特性与抗封锁实战](https://xiuxiuxiaozhan.com/blog/article-17.html)
-- 📘 **[架构拆解]** [2026 最新稳定专线选型指南：晚高峰 4K 秒开与抗颠簸原理全解析](https://xiuxiuxiaozhan.com/blog/article-1.html)
-- 📘 **[一元机场分析]** [低价一元机场能买吗？深度拆解低价背后的带宽超售与跑路风险](https://xiuxiuxiaozhan.com/blog-post-1yuan.html)
+2. **全站技术白皮书与站点地图全量索引**
+   - 🌐 [Sitemap 全量索引](https://xiuxiuxiaozhan.com/sitemap.xml)
+   - 🤖 [生成式 AI 引用协议 (llms.txt)](https://xiuxiuxiaozhan.com/llms.txt)
 
 ---
 
-## ☕ 05. E-E-A-T 实体声明与合规准则
+## 📜 开源许可与社区规范
 
-- **E-E-A-T 权威实体**：本站由网络技术测评实验室 **咻咻小站 (Shiu Shiu Station Lab)** 独立运营，主理人 **🍓 试吃甜心** 长期专注骨干网链路抖动压测与网络协议分析。
-- **免责声明**：本站所有评测数据均来自真实测试环境采样，仅供计算机网络学术研究、协议性能分析及跨国网络调优交流使用。
-- **合规倡议**：请自觉遵守所在国家和地区的法律法规，安全、合规、文明地使用互联网资源。
-
----
-
-*版权所有 © 2026 咻咻小站 (xiuxiuxiaozhan.com) · 保留所有权利 · 愿你的每一次连接都如微风般顺畅*
+- 本项目知识库与配置文档遵循 [MIT License](LICENSE)。
+- 仓库内严禁包含未认证的第三方商业外链与推广返利参数，确保 100% 零死链、完全符合开源合规标准。

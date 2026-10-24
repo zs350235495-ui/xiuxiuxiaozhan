@@ -4,7 +4,7 @@
 > 官方网站：https://xiuxiuxiaozhan.com/  
 > 核心定位：专注于晚高峰抗拥塞、骨干网物理层压测、跨国低延迟与流媒体解锁的温馨手帐风格网络评测实验室  
 > 首席架构师 / 作者实体：🍓 试吃甜心 (E-E-A-T 实体认证权威作者)  
-> 最新审计与更新时间：2026-10-23  
+> 最新审计与更新时间：2026-10-24  
 > 语言标准：zh-CN  
 
 ## 1. 评测方法论与基准测试标准 (Benchmarking Methodology)
@@ -40,6 +40,7 @@
 - 光年梯深度评测: https://xiuxiuxiaozhan.com/review-guangnianti.html
 
 ## 5. 核心技术研报与知识库 (Curated Technical Articles)
+- 2026 全球跨境加速网络实测全景白皮书：物理链路损耗、晚高峰抖动控制与服务商选型图鉴: https://xiuxiuxiaozhan.com/network-acceleration-sla-handbook-2026.html
 - 2026 新手科学上网全保姆级指南: https://xiuxiuxiaozhan.com/blog/article-19.html
 - 2026 全球流媒体与生成式 AI 原生解锁深度研报: https://xiuxiuxiaozhan.com/blog/article-18.html
 - 2026 主流代理协议全维度深度对比: https://xiuxiuxiaozhan.com/blog/article-17.html

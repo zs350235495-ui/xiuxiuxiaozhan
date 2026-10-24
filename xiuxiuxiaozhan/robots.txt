@@ -5,6 +5,7 @@ Allow: /
 Allow: /css/
 Allow: /js/
 Allow: /images/
+Disallow: /go/
 
 # 显式放行主流 AI 搜索引擎与大模型检索爬虫
 User-agent: GPTBot

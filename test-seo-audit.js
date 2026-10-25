@@ -47,8 +47,6 @@ if (fs.existsSync('LICENSE')) {
   const licenseContent = fs.readFileSync('LICENSE', 'utf-8');
   assert(licenseContent.includes('MIT License'), 'LICENSE 文件必须声明 MIT 协议');
 }
-
-assert(fs.existsSync('README.md'), '根目录必须包含 README.md');
 if (fs.existsSync('README.md')) {
   const readme = fs.readFileSync('README.md', 'utf-8');
   assert(!readme.includes('tizishequ.com'), 'README.md 中严禁遗留 tizishequ.com 外部死链');

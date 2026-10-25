@@ -73,23 +73,23 @@ allHtmls.forEach(file => {
   // 1. 悬浮按钮更新
   content = content.replace(
     /<a href="\/guide\.html" target="_blank" rel="noopener" class="tg-float-btn"[^>]*>💬 官方客服<\/a>/g,
-    '<a href="/go/tg/" target="_blank" rel="noopener noreferrer" class="tg-float-btn" title="点击联系官方客服">💬 官方客服</a>'
+    '<a href="/go/tg/" target="_blank" rel="nofollow noopener noreferrer" class="tg-float-btn" title="点击联系官方客服">💬 官方客服</a>'
   );
 
   // 2. 页脚客服链接更新
   content = content.replace(
     /<a href="\/guide\.html" target="_blank" rel="noopener" style="color: #2BA0E3; font-weight: 700;">💬 官方客服<\/a>/g,
-    '<a href="/go/tg/" target="_blank" rel="noopener noreferrer" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a>'
+    '<a href="/go/tg/" target="_blank" rel="nofollow noopener noreferrer" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a>'
   );
   content = content.replace(
     /<a href="\/guide\.html" target="_blank" rel="noopener" style="color: #FF8FAB; font-weight: 700;">💬 官方客服<\/a>/g,
-    '<a href="/go/tg/" target="_blank" rel="noopener noreferrer" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a>'
+    '<a href="/go/tg/" target="_blank" rel="nofollow noopener noreferrer" style="color: #2BA0E3; font-weight: 700;">💬 官方客服</a>'
   );
 
   // 3. Hero 区域客服按钮更新
   content = content.replace(
     /<a href="\/guide\.html" target="_blank" rel="noopener" class="btn btn-outline">💬 官方客服<\/a>/g,
-    '<a href="/go/tg/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-color: #2BA0E3; color: #2BA0E3;">💬 官方客服</a>'
+    '<a href="/go/tg/" target="_blank" rel="nofollow noopener noreferrer" class="btn btn-outline" style="border-color: #2BA0E3; color: #2BA0E3;">💬 官方客服</a>'
   );
 
   if (content !== original) {

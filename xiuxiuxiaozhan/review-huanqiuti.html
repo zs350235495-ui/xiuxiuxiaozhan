@@ -258,69 +258,255 @@
       line-height: 1.6;
     }
 
-    /* 套餐选购大卡片 */
-    .plan-pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      margin: 24px 0;
+    /* 套餐选购分类与网格系统 */
+    .plan-group-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 30px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px dashed var(--border-pink);
+      flex-wrap: wrap;
     }
-    .plan-card {
-      background: #FFFFFF;
-      border: 2px solid var(--border-pink);
-      border-radius: var(--radius-lg);
-      padding: 24px 20px;
-      text-align: center;
-      position: relative;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-soft);
-    }
-    .plan-card.featured {
-      border: 2.5px solid var(--primary);
-      background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
-      transform: scale(1.02);
-    }
-    .plan-card-tag {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
+    .plan-group-badge {
       background: var(--primary);
       color: #FFFFFF;
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       font-weight: 800;
-      padding: 3px 12px;
+      padding: 4px 12px;
       border-radius: var(--radius-pill);
-      white-space: nowrap;
     }
-    .plan-name {
-      font-size: 1.25rem;
+    .plan-group-title {
+      font-size: 1.2rem;
       font-weight: 800;
       color: var(--text-main);
-      margin-bottom: 8px;
-      margin-top: 6px;
+      margin: 0;
     }
-    .plan-price-num {
-      font-size: 2.2rem;
-      font-weight: 900;
+    .plan-group-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-left: auto;
+    }
+
+    .huanqiu-plan-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+      margin-bottom: 26px;
+    }
+    .hq-card {
+      background: #FFFFFF;
+      border: 1.5px solid #FFE4EB;
+      border-radius: 20px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(255, 142, 167, 0.08);
+    }
+    .hq-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(255, 142, 167, 0.18);
+      border-color: var(--primary);
+    }
+    .hq-card.featured {
+      border: 2px solid var(--primary);
+      background: linear-gradient(180deg, #FFFDFC 0%, #FFFFFF 100%);
+      box-shadow: 0 6px 20px rgba(255, 142, 167, 0.16);
+    }
+    .hq-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .hq-plan-name {
+      font-size: 1.18rem;
+      font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin: 0;
+    }
+    .hq-type-tag {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-weight: 700;
+      background: #F3F4F6;
+      color: #6B7280;
+    }
+    .hq-type-tag.hot {
+      background: linear-gradient(135deg, #FF6B8B 0%, #FF8EA7 100%);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(255, 107, 139, 0.3);
+    }
+    .hq-type-tag.recommend {
+      background: #FFF0F3;
+      color: var(--primary);
+      border: 1px solid #FFCCD5;
+    }
+    .hq-cycles {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .hq-cycle-pill {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #F8F9FA;
+      color: #6C757D;
+      border: 1px solid #E9ECEF;
+      font-weight: 500;
+    }
+    .hq-cycle-pill.active {
+      background: #FFF0F3;
+      color: var(--primary);
+      border-color: #FFCCD5;
+      font-weight: 800;
+    }
+    .hq-price-area {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .hq-price-currency {
+      font-size: 1.15rem;
+      font-weight: 800;
       color: var(--primary);
       font-family: 'Comfortaa', sans-serif;
     }
-    .plan-price-unit {
-      font-size: 0.8rem;
+    .hq-price-val {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--primary);
+      font-family: 'Comfortaa', sans-serif;
+      line-height: 1;
+    }
+    .hq-price-unit {
+      font-size: 0.78rem;
       color: var(--text-muted);
       font-weight: 600;
     }
-    .plan-features-list {
-      list-style: none;
-      padding: 0;
-      margin: 18px 0;
+    .hq-discount-tag {
+      font-size: 0.74rem;
+      color: #27AE60;
+      background: #E8F9F1;
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .hq-badges-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .hq-badge-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: #F0FDF4;
+      color: #16A34A;
+      border: 1px solid #DCFCE7;
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+    .hq-badge-pill.traffic {
+      background: #EFF6FF;
+      color: #2563EB;
+      border-color: #DBEAFE;
+    }
+    .hq-badge-pill.purple {
+      background: #FAF5FF;
+      color: #9333EA;
+      border-color: #F3E8FF;
+    }
+    .hq-desc-box {
+      font-size: 0.82rem;
+      color: var(--text-main);
+      background: #FFFDF9;
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      line-height: 1.6;
+      flex-grow: 1;
+      border: 1px solid #FDF0E6;
+    }
+    .hq-desc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 5px;
+    }
+    .hq-desc-item:last-child {
+      margin-bottom: 0;
+    }
+    .hq-reset-fee {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed #F0D9C8;
+      font-size: 0.76rem;
+      color: #E67E22;
+      font-weight: 700;
+    }
+    .hq-card-btn {
+      width: 100%;
+      border-radius: var(--radius-pill);
+      padding: 10px;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-align: center;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(255, 142, 167, 0.25);
+    }
+
+    /* 资费速查横向表格 */
+    .hq-table-wrap {
+      overflow-x: auto;
+      margin: 22px 0 30px 0;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      border: 1.5px solid var(--border-pink);
+    }
+    .hq-table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+      background: #FFFFFF;
       text-align: left;
       font-size: 0.86rem;
+    }
+    .hq-table th {
+      background: #FFF0F3;
+      color: var(--primary);
+      padding: 12px 14px;
+      font-weight: 800;
+      border-bottom: 1.5px solid var(--border-pink);
+      white-space: nowrap;
+    }
+    .hq-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #FFEBF0;
       color: var(--text-main);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    }
+    .hq-table tr:last-child td {
+      border-bottom: none;
+    }
+    .hq-table tr:hover td {
+      background: #FFFDF9;
     }
 
     /* 悬浮购票直达 CTA */
@@ -557,9 +743,9 @@
             <div class="radar-item-desc">TG 客服 7x24h 极速工单响应</div>
           </div>
           <div class="radar-item">
-            <div class="radar-item-score">9.6</div>
+            <div class="radar-item-score">9.8</div>
             <div class="radar-item-label">💰 性价比竞争力</div>
-            <div class="radar-item-desc">折后月均 ￥14.7 / 年付仅 ￥5.6 起</div>
+            <div class="radar-item-desc">微享月付￥12起 (券后￥8.4) · 学生年付折合￥8/月</div>
           </div>
         </div>
 
@@ -680,86 +866,552 @@
 
       <!-- 第 5 节：套餐资费 -->
       <section id="section-plans" class="section-block">
-        <h2 class="section-h2">5. 2026 最新套餐资费全景与专属折扣码</h2>
+        <h2 class="section-h2">5. 2026 最新官方套餐资费全景与专属折扣码</h2>
         <p style="margin-bottom: 16px; line-height: 1.8;">
-          环球梯提供多种容量档位，所有套餐均为<strong>全 IEPL 物理专线架构、不限速率、不限并发连接设备</strong>。目前可配合独家优惠码使用：
+          环球梯目前共提供 <strong>11 款不同梯度的官方专线套餐</strong>，全面涵盖<strong>「周期订阅型（按月/年重置）」</strong>与<strong>「一次性/长效流量包（不过期/365天有效）」</strong>两大体系。所有套餐均基于<strong>全 IEPL 物理专线架构、不限速率、不限制在线设备数</strong>。结账时可配合独家优惠码享折上折优惠：
         </p>
 
-        <!-- 套餐对比卡片 -->
-        <div class="plan-pricing-grid">
-          
-          <!-- 轻享包 -->
-          <div class="plan-card">
-            <div class="plan-name">轻享季付包</div>
-            <div>
-              <span class="plan-price-num">￥14.7</span>
-              <span class="plan-price-unit">/ 月起</span>
-            </div>
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">原价 ￥21/月 · 折扣后</div>
-            <ul class="plan-features-list">
-              <li>✔️ <strong>140G</strong> 高速专线流量 / 周期</li>
-              <li>✔️ 沪日/广港 IEPL 点对点专线</li>
-              <li>✔️ 晚高峰不限速 · 4K/8K 秒开</li>
-              <li>✔️ 原生流媒体 & ChatGPT 解锁</li>
-              <li>✔️ 不限制在线设备数量</li>
-            </ul>
-            <a href="/reviews.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; border-radius: var(--radius-pill); font-weight: 700; padding: 10px;">
-              🎒 查看配置指南
-            </a>
-          </div>
-
-          <!-- 标准包 (推荐) -->
-          <div class="plan-card featured">
-            <div class="plan-card-tag">👑 站长最推荐 · 人气爆款</div>
-            <div class="plan-name">标准专线包</div>
-            <div>
-              <span class="plan-price-num">￥24.5</span>
-              <span class="plan-price-unit">/ 月起</span>
-            </div>
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">高性价比 · 工作追剧主力首选</div>
-            <ul class="plan-features-list">
-              <li>✔️ <strong>300G</strong> 充沛超大专线流量 / 周期</li>
-              <li>✔️ 全球 40+ IEPL 物理极速专线节点</li>
-              <li>✔️ 晚高峰带宽保障 1000Mbps</li>
-              <li>✔️ 原生住宅 IP 解锁 ChatGPT & 奈飞</li>
-              <li>✔️ 尊享优先客服售后工单保障</li>
-            </ul>
-            <a href="/reviews.html" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; border-radius: var(--radius-pill); font-weight: 700; padding: 10px;">
-              🎒 查看配置指南
-            </a>
-          </div>
-
-          <!-- 尊享包 -->
-          <div class="plan-card">
-            <div class="plan-name">尊享大容量包</div>
-            <div>
-              <span class="plan-price-num">￥49.0</span>
-              <span class="plan-price-unit">/ 月起</span>
-            </div>
-            <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">多设备重度下载与团队共用</div>
-            <ul class="plan-features-list">
-              <li>✔️ <strong>700G</strong> 旗舰顶配巨量专线流量</li>
-              <li>✔️ 包含所有专线 + 专属低负载 VIP 线路</li>
-              <li>✔️ 极低网络抖动 & 极客级网络优先</li>
-              <li>✔️ 全场景 8K / 远程办公 / AI 训练</li>
-              <li>✔️ 7x24h 绿色优先通道</li>
-            </ul>
-            <a href="/reviews.html" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; border-radius: var(--radius-pill); font-weight: 700; padding: 10px;">
-              🎒 查看配置指南
-            </a>
-          </div>
-
-        </div>
-
-        <div style="background: #FFFDF8; border: 1.5px dashed var(--primary); border-radius: var(--radius-md); padding: 16px 20px; margin-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+        <!-- 专属优惠码领取条 -->
+        <div style="background: #FFFDF8; border: 1.5px dashed var(--primary); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
           <div>
             <span style="font-size: 0.95rem; font-weight: 800; color: var(--primary);">🎁 咻咻小站读者专属结账折扣券：</span>
-            <span style="font-size: 0.88rem; color: var(--text-muted);">结账时输入立享专属折上折！</span>
+            <span style="font-size: 0.86rem; color: var(--text-muted);">官方结算输入享 7 折专属优惠！</span>
           </div>
           <div class="coupon-box-interactive" onclick="navigator.clipboard.writeText('HQ66'); alert('专属优惠码 HQ66 已复制到剪贴板！');">
             <span>券码: <strong style="font-size: 1.15rem; color: var(--primary); font-family: 'Comfortaa';">HQ66</strong></span>
             <span style="font-size: 0.75rem; background: var(--primary); color: #FFF; padding: 2px 8px; border-radius: 10px;">点击复制 📋</span>
           </div>
+        </div>
+
+        <!-- 分类 1：周期订阅套餐 -->
+        <div class="plan-group-header">
+          <span class="plan-group-badge">周期订阅</span>
+          <h3 class="plan-group-title">一、循环订阅套餐（7 款 · 每月自动重置流量）</h3>
+          <span class="plan-group-desc">适合日常稳定主力使用 · 不限设备 · 不限速</span>
+        </div>
+
+        <div class="huanqiu-plan-grid">
+          
+          <!-- 1. 环球学生套餐 (年付) -->
+          <div class="hq-card featured">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🎓 环球学生套餐</h4>
+              <span class="hq-type-tag hot">🔥 热门</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">年付</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">96.00</span>
+              <span class="hq-price-unit">/ 每年计费</span>
+              <span class="hq-discount-tag">折合 ¥8.0/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 80GB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>适合轻度使用与学生/个人日常用户。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>每月 80GB 高速专线流量，每月自动重置。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>解锁常用流媒体与主流 AI 对话平台。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>多设备同登智能推荐支持。</span></div>
+              <div class="hq-reset-fee">⚡ 流量重置包：¥15 / 次</div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-primary hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 2. 环球微享 (月付) -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🌱 环球微享</h4>
+              <span class="hq-type-tag">套餐</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">月</span>
+              <span class="hq-cycle-pill">季</span>
+              <span class="hq-cycle-pill">半年</span>
+              <span class="hq-cycle-pill">年</span>
+              <span class="hq-cycle-pill">两年</span>
+              <span class="hq-cycle-pill">三年</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">12.00</span>
+              <span class="hq-price-unit">/ 每月计费</span>
+              <span class="hq-discount-tag">7折后约 ¥8.4/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 70GB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>适合个人轻量网络体验与学术查阅需求。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>包含每月 70 GB 全极速专线流量。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>低门槛畅享稳定专线体验，性价比之选。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 3. 环球轻享 (月付) -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🍃 环球轻享</h4>
+              <span class="hq-type-tag">套餐</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">月</span>
+              <span class="hq-cycle-pill">季</span>
+              <span class="hq-cycle-pill">半年</span>
+              <span class="hq-cycle-pill">年</span>
+              <span class="hq-cycle-pill">两年</span>
+              <span class="hq-cycle-pill">三年</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">21.00</span>
+              <span class="hq-price-unit">/ 每月计费</span>
+              <span class="hq-discount-tag">7折后约 ¥14.7/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 140GB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>适合轻度使用与个人高频办公用户。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>每月 140GB 高速流量，每月自动重置。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>解锁常用流媒体与 AI 优先通道。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>多设备同登智能推荐。</span></div>
+              <div class="hq-reset-fee">⚡ 流量重置包：¥21 / 次</div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 4. 环球畅游 (月付 - 推荐爆款) -->
+          <div class="hq-card featured">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🌊 环球畅游</h4>
+              <span class="hq-type-tag recommend">👑 影音主力首选</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">月</span>
+              <span class="hq-cycle-pill">季</span>
+              <span class="hq-cycle-pill">半年</span>
+              <span class="hq-cycle-pill">年</span>
+              <span class="hq-cycle-pill">两年</span>
+              <span class="hq-cycle-pill">三年</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">39.00</span>
+              <span class="hq-price-unit">/ 每月计费</span>
+              <span class="hq-discount-tag">7折后约 ¥27.3/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 280GB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>适合日常高清视频、办公及多设备并发。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>每月 280GB 高速流量，每月自动重置。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>优质线路与高级进阶深度优化。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>原生解锁 4K 流媒体与多台设备并发。</span></div>
+              <div class="hq-reset-fee">⚡ 流量重置包：¥35 / 次</div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-primary hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 5. 环球进阶 (月付) -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🚀 环球进阶</h4>
+              <span class="hq-type-tag">套餐</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">月</span>
+              <span class="hq-cycle-pill">季</span>
+              <span class="hq-cycle-pill">半年</span>
+              <span class="hq-cycle-pill">年</span>
+              <span class="hq-cycle-pill">两年</span>
+              <span class="hq-cycle-pill">三年</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">52.00</span>
+              <span class="hq-price-unit">/ 每月计费</span>
+              <span class="hq-discount-tag">7折后约 ¥36.4/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 420GB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>中度网络用户性价比优选，4K 流媒体与突破下载无忧。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>专为兼顾流媒体与多台后台常开办公打造的黄金容量套餐。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>每月 420 GB 充足流量，全天候极速专线保障，流畅支持 4K/8K。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 6. 环球尊享 (月付) -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">💎 环球尊享</h4>
+              <span class="hq-type-tag">套餐</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">月</span>
+              <span class="hq-cycle-pill">季</span>
+              <span class="hq-cycle-pill">半年</span>
+              <span class="hq-cycle-pill">年</span>
+              <span class="hq-cycle-pill">两年</span>
+              <span class="hq-cycle-pill">三年</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">69.00</span>
+              <span class="hq-price-unit">/ 每月计费</span>
+              <span class="hq-discount-tag">7折后约 ¥48.3/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 600GB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>适合重度用户、家庭共享和高流量需求。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>每月 600GB 高速流量，每月自动重置。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>高优先级体验加速与晚高峰性能深度优化。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>支持 4K/8K 流媒体与多设备全开。</span></div>
+              <div class="hq-reset-fee">⚡ 流量重置包：¥55 / 次</div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 7. 环球极客 (月付) -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">⚡ 环球极客</h4>
+              <span class="hq-type-tag">大户专享</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">月</span>
+              <span class="hq-cycle-pill">季</span>
+              <span class="hq-cycle-pill">半年</span>
+              <span class="hq-cycle-pill">年</span>
+              <span class="hq-cycle-pill">两年</span>
+              <span class="hq-cycle-pill">三年</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">128.00</span>
+              <span class="hq-price-unit">/ 每月计费</span>
+              <span class="hq-discount-tag">7折后约 ¥89.6/月</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 1.2TB/月</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>大户深度专享，多端研发与大流量传输尊崇之选。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>专为深度网络玩家、家庭多端共享及跨国协作工作室定制。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>每月 1200 GB 极速专线大流量，提供最高优先级宽带通道与全网超低延迟。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+        </div>
+
+        <!-- 分类 2：一次性 / 长效流量包 -->
+        <div class="plan-group-header">
+          <span class="plan-group-badge" style="background: #2BA0E3;">一次性流量</span>
+          <h3 class="plan-group-title">二、长效与一次性流量包（4 款 · 不按月清零）</h3>
+          <span class="plan-group-desc">适合轻度差旅 / 备用防失联 / 弹性大额充值</span>
+        </div>
+
+        <div class="huanqiu-plan-grid">
+          
+          <!-- 8. 环球备用包 -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🛡️ 环球备用包</h4>
+              <span class="hq-type-tag" style="background: #EBF8FF; color: #2B6CB0;">永久有效</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">一次</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">39.00</span>
+              <span class="hq-price-unit">/ 一次性计费</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 60GB 永久</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>永不过期应急包，关键时刻稳定防失联。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>不受自然月限制的永久有效流量包。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>包含 60 GB 弹性专线配额，适合备用应急、突发险情或特定短途跨网使用。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 9. 环球随行包 -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">✈️ 环球随行包</h4>
+              <span class="hq-type-tag" style="background: #EBF8FF; color: #2B6CB0;">365天有效</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">一次</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">99.00</span>
+              <span class="hq-price-unit">/ 一次性计费</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 300GB / 1年</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>一次购买，按需使用，不同于月付订阅套餐。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>套餐流量不会按月清零，自购买之日起 365 天内有效。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>包含 300 GB 极速专线配额，差旅出境与日常备用首选。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 10. 环球灵活包 -->
+          <div class="hq-card">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">💼 环球灵活包</h4>
+              <span class="hq-type-tag" style="background: #EBF8FF; color: #2B6CB0;">365天有效</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">一次</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">299.00</span>
+              <span class="hq-price-unit">/ 一次性计费</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 1000GB (1TB)</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>一次购买，按需使用，不同于月付订阅套餐。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>套餐流量不会按月清零，自购买之日起 365 天内有效。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>包含 1000 GB (1TB) 充沛大容量，适合高频差旅与弹性业务。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-outline hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+          <!-- 11. 环球海量包 -->
+          <div class="hq-card featured">
+            <div class="hq-card-top">
+              <h4 class="hq-plan-name">🏔️ 环球海量包</h4>
+              <span class="hq-type-tag recommend">3TB 巨量长效</span>
+            </div>
+            <div class="hq-cycles">
+              <span class="hq-cycle-pill active">一次</span>
+            </div>
+            <div class="hq-price-area">
+              <span class="hq-price-currency">¥</span>
+              <span class="hq-price-val">688.00</span>
+              <span class="hq-price-unit">/ 一次性计费</span>
+            </div>
+            <div class="hq-badges-row">
+              <span class="hq-badge-pill traffic">📦 3000GB (3TB)</span>
+              <span class="hq-badge-pill">👥 不限设备</span>
+              <span class="hq-badge-pill purple">🚀 不限速</span>
+            </div>
+            <div class="hq-desc-box">
+              <div class="hq-desc-item"><span>•</span><span>长效不限时大流量储备，彻底摆脱订阅续费压力。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>适合大额流量充值需求与团队/多端长期备用。</span></div>
+              <div class="hq-desc-item"><span>•</span><span>包含 3000 GB 充沛流量，长效地域调度，突发重载与容灾保障。</span></div>
+            </div>
+            <a href="/go/huanqiuti/" target="_blank" rel="nofollow sponsored noopener noreferrer" class="btn btn-primary hq-card-btn">
+              立即订阅 ➔
+            </a>
+          </div>
+
+        </div>
+
+        <!-- 全量 11 套餐对比速查表 -->
+        <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--text-main); margin: 32px 0 12px 0; display: flex; align-items: center; gap: 8px;">
+          <span>📋 环球梯官方 11 套餐核心参数对照速查表</span>
+        </h3>
+        <div class="hq-table-wrap">
+          <table class="hq-table">
+            <thead>
+              <tr>
+                <th>套餐名称</th>
+                <th>类型体系</th>
+                <th>计费周期</th>
+                <th>官方标价</th>
+                <th>7折券后到手</th>
+                <th>流量配额</th>
+                <th>重置/有效期</th>
+                <th>在线设备</th>
+                <th>推荐适用人群</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: #FFFDF8;">
+                <td><strong>🎓 环球学生套餐</strong></td>
+                <td><span style="color: #FF6B8B; font-weight: 700;">周期订阅 (热门)</span></td>
+                <td>年付专享</td>
+                <td>¥96.00 / 年</td>
+                <td><strong>¥8.00 / 月</strong></td>
+                <td>80 GB / 月</td>
+                <td>每月重置 (¥15/次)</td>
+                <td>不限设备</td>
+                <td>轻度日常、学生党、性价比年付首选</td>
+              </tr>
+              <tr>
+                <td><strong>🌱 环球微享</strong></td>
+                <td>周期订阅</td>
+                <td>月付起</td>
+                <td>¥12.00 / 月</td>
+                <td><strong>¥8.40 / 月</strong></td>
+                <td>70 GB / 月</td>
+                <td>每月自动重置</td>
+                <td>不限设备</td>
+                <td>学术检索、偶尔查资料、轻量尝鲜</td>
+              </tr>
+              <tr>
+                <td><strong>🍃 环球轻享</strong></td>
+                <td>周期订阅</td>
+                <td>月付起</td>
+                <td>¥21.00 / 月</td>
+                <td><strong>¥14.70 / 月</strong></td>
+                <td>140 GB / 月</td>
+                <td>每月重置 (¥21/次)</td>
+                <td>不限设备</td>
+                <td>轻度日常追剧、个人轻量办公</td>
+              </tr>
+              <tr style="background: #FFF9FA;">
+                <td><strong>🌊 环球畅游</strong></td>
+                <td><span style="color: var(--primary); font-weight: 700;">周期订阅 (爆款推荐)</span></td>
+                <td>月付起</td>
+                <td>¥39.00 / 月</td>
+                <td><strong>¥27.30 / 月</strong></td>
+                <td>280 GB / 月</td>
+                <td>每月重置 (¥35/次)</td>
+                <td>不限设备</td>
+                <td>日常 4K 追剧、全功能主力加速首选</td>
+              </tr>
+              <tr>
+                <td><strong>🚀 环球进阶</strong></td>
+                <td>周期订阅</td>
+                <td>月付起</td>
+                <td>¥52.00 / 月</td>
+                <td><strong>¥36.40 / 月</strong></td>
+                <td>420 GB / 月</td>
+                <td>每月自动重置</td>
+                <td>不限设备</td>
+                <td>多台设备常开、4K/8K 影音、大文件下载</td>
+              </tr>
+              <tr>
+                <td><strong>💎 环球尊享</strong></td>
+                <td>周期订阅</td>
+                <td>月付起</td>
+                <td>¥69.00 / 月</td>
+                <td><strong>¥48.30 / 月</strong></td>
+                <td>600 GB / 月</td>
+                <td>每月重置 (¥55/次)</td>
+                <td>不限设备</td>
+                <td>重度流量玩家、家庭共享、多端并发</td>
+              </tr>
+              <tr>
+                <td><strong>⚡ 环球极客</strong></td>
+                <td>周期订阅</td>
+                <td>月付起</td>
+                <td>¥128.00 / 月</td>
+                <td><strong>¥89.60 / 月</strong></td>
+                <td>1.2 TB / 月</td>
+                <td>每月自动重置</td>
+                <td>不限设备</td>
+                <td>工作室、外贸研发团队、极客大户专享</td>
+              </tr>
+              <tr style="background: #F8FBFE;">
+                <td><strong>🛡️ 环球备用包</strong></td>
+                <td><span style="color: #2BA0E3; font-weight: 700;">长效流量包</span></td>
+                <td>一次性</td>
+                <td>¥39.00</td>
+                <td>¥39.00</td>
+                <td>60 GB</td>
+                <td><strong>永久有效</strong> (不按月清零)</td>
+                <td>不限设备</td>
+                <td>防断网应急、备用防失联神器</td>
+              </tr>
+              <tr style="background: #F8FBFE;">
+                <td><strong>✈️ 环球随行包</strong></td>
+                <td><span style="color: #2BA0E3; font-weight: 700;">长效流量包</span></td>
+                <td>一次性</td>
+                <td>¥99.00</td>
+                <td>¥99.00</td>
+                <td>300 GB</td>
+                <td><strong>365 天有效</strong> (不按月清零)</td>
+                <td>不限设备</td>
+                <td>跨国差旅、短期探亲、偶发高频需求</td>
+              </tr>
+              <tr style="background: #F8FBFE;">
+                <td><strong>💼 环球灵活包</strong></td>
+                <td><span style="color: #2BA0E3; font-weight: 700;">长效流量包</span></td>
+                <td>一次性</td>
+                <td>¥299.00</td>
+                <td>¥299.00</td>
+                <td>1000 GB (1TB)</td>
+                <td><strong>365 天有效</strong> (不按月清零)</td>
+                <td>不限设备</td>
+                <td>弹性业务开发、多端长期漫游</td>
+              </tr>
+              <tr style="background: #F8FBFE;">
+                <td><strong>🏔️ 环球海量包</strong></td>
+                <td><span style="color: #2BA0E3; font-weight: 700;">长效流量包 (巨量)</span></td>
+                <td>一次性</td>
+                <td>¥688.00</td>
+                <td>¥688.00</td>
+                <td>3000 GB (3TB)</td>
+                <td><strong>长效有效</strong> (免续费压力)</td>
+                <td>不限设备</td>
+                <td>大额储备用户、团队容灾、长期省心</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

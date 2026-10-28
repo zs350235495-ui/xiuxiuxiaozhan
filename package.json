@@ -4,7 +4,8 @@
   "description": "🐾 咻咻小站 // 温暖轻量的高速网络补给站 & 稳定节点精选",
   "main": "index.html",
   "scripts": {
-    "test": "node test-seo-audit.js"
+    "test": "node test-seo-audit.js",
+    "indexnow": "node submit-indexnow.js"
   },
   "keywords": [
     "xiuxiuxiaozhan",

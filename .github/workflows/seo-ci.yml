@@ -1,0 +1,32 @@
+name: Automated SEO & IndexNow CI
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 配置 Node.js 环境
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 执行全站 SEO 架构与 E-E-A-T 自动化断言审计
+        run: |
+          node test-seo-audit.js
+
+      - name: 向 IndexNow / Bing 提交收录广播
+        run: |
+          node submit-indexnow.js

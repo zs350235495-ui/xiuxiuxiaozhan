@@ -1,11 +1,12 @@
 # robots.txt for xiuxiuxiaozhan.com
-# 允许通用搜索引擎抓取并显式放行渲染静态资源与中转路径（各中转页通过 meta noindex 自主声明不予收录）
+# 允许通用搜索引擎抓取并显式放行渲染静态资源与中转路径（中转承接页通过 meta noindex, nofollow 声明不予收录）
 User-agent: *
 Allow: /
 Allow: /css/
 Allow: /js/
 Allow: /images/
 Allow: /go/
+Allow: /go.html
 
 # 显式放行主流 AI 搜索引擎与大模型检索爬虫
 User-agent: GPTBot

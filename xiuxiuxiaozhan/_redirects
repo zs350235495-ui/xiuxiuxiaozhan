@@ -1,0 +1,74 @@
+# ==============================================================================
+# Cloudflare Pages / Netlify 301 Redirects for xiuxiuxiaozhan.com
+# 全站 AFF 推广与客服链接 301 状态码永久重定向
+# ==============================================================================
+
+# 1. 环球梯
+/go/huanqiuti         https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0 301!
+/go/huanqiuti/        https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0 301!
+
+# 2. 神行加速
+/go/shenxing          https://pps123.shenxingaff.com/#/?code=6tQ7zHUc 301!
+/go/shenxing/         https://pps123.shenxingaff.com/#/?code=6tQ7zHUc 301!
+
+# 3. 榴莲云 (包含别名 duriancloud)
+/go/liulianyun        https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G 301!
+/go/liulianyun/       https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G 301!
+/go/duriancloud       https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G 301!
+/go/duriancloud/      https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G 301!
+
+# 4. 云界线
+/go/yunjiexian        https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV 301!
+/go/yunjiexian/       https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV 301!
+
+# 5. 闪电鼠
+/go/shandianshu       https://ppsvip01.shandianshuaff.com/#/?code=QbLF8tjB 301!
+/go/shandianshu/      https://ppsvip01.shandianshuaff.com/#/?code=QbLF8tjB 301!
+
+# 6. 大佬云
+/go/dalaoyun          https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa 301!
+/go/dalaoyun/         https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa 301!
+
+# 7. 极连云 (包含别名 jiliancloud)
+/go/jilianyun         https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO 301!
+/go/jilianyun/        https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO 301!
+/go/jiliancloud       https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO 301!
+/go/jiliancloud/      https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO 301!
+
+# 8. 光年梯
+/go/guangnianti       https://gnt001.gntvipaff.cc/#/?code=PQhPFDhO 301!
+/go/guangnianti/      https://gnt001.gntvipaff.cc/#/?code=PQhPFDhO 301!
+
+# 9. 可信云
+/go/kexinyun          https://everett7623.kosingaff.com/#/?code=sFKkfEYs 301!
+/go/kexinyun/         https://everett7623.kosingaff.com/#/?code=sFKkfEYs 301!
+
+# 10. 云图机场
+/go/yuntu             https://super.ytjcok.org/#/register?code=poKwFVtv 301!
+/go/yuntu/            https://super.ytjcok.org/#/register?code=poKwFVtv 301!
+
+# 11. 鲲鹏加速
+/go/kunpeng           https://kunpengjiasu.com/#/register?code=WPugVZUe 301!
+/go/kunpeng/          https://kunpengjiasu.com/#/register?code=WPugVZUe 301!
+
+# 12. 速界
+/go/sujie             https://pygllc.speedworldaff.cc/#/?code=kcoensXG 301!
+/go/sujie/            https://pygllc.speedworldaff.cc/#/?code=kcoensXG 301!
+
+# 13. 快狸快狸
+/go/kuaili            https://fanxiaobin.kuailiaff.com/#/?code=e0cAmK7F 301!
+/go/kuaili/           https://fanxiaobin.kuailiaff.com/#/?code=e0cAmK7F 301!
+
+# 14. 边缘节点
+/go/bianyuan          https://wep.edgenovaaff.com/#/?code=mLLL6h6F 301!
+/go/bianyuan/         https://wep.edgenovaaff.com/#/?code=mLLL6h6F 301!
+
+# 15. 瞬云
+/go/shunyun           https://ddd.jichang.best/#/register?code=nldUZaYc 301!
+/go/shunyun/          https://ddd.jichang.best/#/register?code=nldUZaYc 301!
+
+# 16. Telegram 客服通道
+/go/tg                https://t.me/huanqiuti8899 301!
+/go/tg/               https://t.me/huanqiuti8899 301!
+/go/telegram          https://t.me/huanqiuti8899 301!
+/go/telegram/         https://t.me/huanqiuti8899 301!

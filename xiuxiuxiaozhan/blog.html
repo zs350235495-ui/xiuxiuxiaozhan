@@ -96,14 +96,14 @@
     
     <!-- Hero 欢迎标语 -->
     <section class="hero-section" style="margin-bottom: 30px;">
-      <div class="badge-tag">✦ 咻咻小手帐 · 20篇纯干货长文飞行日记 ✦</div>
+      <div class="badge-tag">✦ 咻咻小手帐 · 21篇纯干货长文飞行日记 ✦</div>
       <h1 class="hero-title">📖 飞行日记矩阵 (Shiu Shiu Blog Matrix)</h1>
       <p class="hero-subtitle">每篇 1000-3000 字深度长文，用大白话带你看懂网络原理、设备配置、流媒体解锁与防跑路秘籍 ✈️</p>
     </section>
 
     <!-- 分类筛选 Pill 标签 -->
     <div class="filter-tabs" style="margin-bottom: 32px;">
-      <button class="filter-btn active" data-filter="all">🌸 全部长文 (20篇)</button>
+      <button class="filter-btn active" data-filter="all">🌸 全部长文 (21篇)</button>
       <button class="filter-btn" data-filter="review">🏆 网络原理解析</button>
       <button class="filter-btn" data-filter="tutorial">📱 全平台客户端秘籍</button>
       <button class="filter-btn" data-filter="unlock">🔓 场景 & 流媒体解锁</button>
@@ -112,6 +112,58 @@
 
     <!-- 软萌手帐风格文章列表 (Blog Grid) -->
     <section class="blog-grid" id="blogGrid">
+
+      <!-- 👑 置顶重磅技术白皮书 SLA 2026 -->
+      <article class="blog-card" data-category="review" style="border: 2px solid var(--primary); background: #FFF9FA; grid-column: 1 / -1;">
+        <div class="blog-header">
+          <div class="blog-tags">
+            <span class="blog-tag" style="background: linear-gradient(135deg, #FFE082, #FFB300); color: #5D4037; font-weight: 800;">👑 2026 年度白皮书</span>
+            <span class="blog-tag">#物理链路损耗</span>
+            <span class="blog-tag blog-tag-blue">#晚高峰抗抖动横评</span>
+            <span class="blog-tag" style="background: #E8F5E9; color: #2E7D32; border-color: #A5D6A7;">#服务商实测选型图鉴</span>
+          </div>
+          <span class="blog-date" style="color: var(--primary); font-weight: 800;">🔬 权威工程发布</span>
+        </div>
+        <h2 class="blog-title" style="font-size: 1.3rem;">
+          <a href="/network-acceleration-sla-handbook-2026.html" style="color: var(--primary);">📘《2026 全球跨境加速网络实测全景白皮书：物理链路损耗、晚高峰抖动控制与服务商选型图鉴》</a>
+        </h2>
+        <p class="blog-excerpt">
+          咻咻小站全球网络拓扑实验室重磅出品！从光电物理介质损耗与理论延迟极限，到公网直连与 IPLC/IEPL 内网专线抗抖动架构横评；建立晚高峰连通率、突发吞吐量与平均丢包率工业级评测矩阵，客观呈现环球梯、大佬云等核心服务商实测图鉴与企业/个人选型决策树。
+        </p>
+        <div class="comment-box" style="margin-bottom: 14px; background: #FFFDF8; border-left-color: var(--primary);">
+          📊 <strong>核心看点：</strong> 光速折射率方程与跨国物理极限RTT基准表、排队论Bufferbloat抖动数学模型、BGP多线动态容灾、核心服务商实测矩阵、场景化选型决策树。
+        </div>
+        <div class="blog-footer">
+          <span class="blog-author">🍓 试吃甜心 (资深网络架构巡检组 · 约4500字硬核白皮书)</span>
+          <a href="/network-acceleration-sla-handbook-2026.html" class="btn btn-primary" style="padding: 6px 18px; font-size: 0.85rem; font-weight: 700;">阅读完整白皮书 ➔</a>
+        </div>
+      </article>
+
+      <!-- 🌟 最新重磅 2026跨境链路DPI深度特征识别规避与抗封锁混淆实测 -->
+      <article class="blog-card" data-category="review" style="border: 2px solid var(--primary); background: #FFFDF8;">
+        <div class="blog-header">
+          <div class="blog-tags">
+            <span class="blog-tag">#DPI深度特征识别</span>
+            <span class="blog-tag blog-tag-blue">#包填充Padding实测</span>
+            <span class="blog-tag" style="background: #E8F5E9; color: #2E7D32; border-color: #A5D6A7;">#握手熵值检测对抗</span>
+            <span class="blog-tag" style="background: #F3E5F5; color: #7B1FA2; border-color: #CE93D8;">#抗封锁协议调优</span>
+          </div>
+          <span class="blog-date" style="color: var(--primary); font-weight: 700;">🔥 2026 深度研报</span>
+        </div>
+        <h2 class="blog-title">
+          <a href="/articles/dpi-evasion-traffic-obfuscation-tuning-2026.html" style="color: var(--primary);">🛡️《2026跨境链路DPI深度特征识别规避与抗封锁混淆实测》</a>
+        </h2>
+        <p class="blog-excerpt">
+          高封锁环境下连接频繁断开或遭遇 TCP RST 阻断？网络评测实验室发布2026跨境防DPI特征识别与混淆调优指南。深度解析流式数据包长度分布、握手熵值检测与动态随机填充机制，实测高封锁网络环境下长效稳定连接的最佳伪装配置。
+        </p>
+        <div class="comment-box" style="margin-bottom: 14px; background: #FFFBF7; border-left-color: var(--primary);">
+          💡 <strong>核心看点：</strong> 现代 DPI 行为指纹与时序模型、高熵密文识别原理解析、72小时抗阻断实测数据矩阵表、过度填充(Over-padding)性能陷阱与阶梯式混淆参数推荐。
+        </div>
+        <div class="blog-footer">
+          <span class="blog-author">🍓 试吃甜心 (网络架构巡检组 · 约2300字硬核长文)</span>
+          <a href="/articles/dpi-evasion-traffic-obfuscation-tuning-2026.html" class="btn btn-primary" style="padding: 6px 16px; font-size: 0.82rem;">查看 2300字 实测研报 ➔</a>
+        </div>
+      </article>
 
       <!-- 🌟 最新重磅 IP 风控与纯净度解析 20 -->
       <article class="blog-card" data-category="unlock" style="border: 2px solid var(--primary); background: #FFFDF8;">

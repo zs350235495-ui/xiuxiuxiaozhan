@@ -40,6 +40,7 @@
 - 光年梯深度评测: https://xiuxiuxiaozhan.com/review-guangnianti.html
 
 ## 5. 核心技术研报与知识库 (Curated Technical Articles)
+- 2026 跨境链路DPI深度特征识别规避与抗封锁混淆实测: https://xiuxiuxiaozhan.com/articles/dpi-evasion-traffic-obfuscation-tuning-2026.html
 - 2026 全球跨境加速网络实测全景白皮书：物理链路损耗、晚高峰抖动控制与服务商选型图鉴: https://xiuxiuxiaozhan.com/network-acceleration-sla-handbook-2026.html
 - 2026 深度拆解 IP 纯净度与反欺诈风控体系（原生住宅与机房 IP 差异及流媒体 AI 封锁策略）: https://xiuxiuxiaozhan.com/blog/article-20.html
 - 2026 新手科学上网全保姆级指南: https://xiuxiuxiaozhan.com/blog/article-19.html

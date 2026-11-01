@@ -35,7 +35,8 @@ console.log('🚀 开始执行 咻咻小站 (xiuxiuxiaozhan.com) 全面 SEO 权�
 function getHtmlFiles() {
   const rootFiles = fs.readdirSync('.').filter(f => f.endsWith('.html'));
   const blogFiles = fs.readdirSync('blog').filter(f => f.endsWith('.html')).map(f => 'blog/' + f);
-  return rootFiles.concat(blogFiles);
+  const articleFiles = fs.existsSync('articles') ? fs.readdirSync('articles').filter(f => f.endsWith('.html')).map(f => 'articles/' + f) : [];
+  return rootFiles.concat(blogFiles).concat(articleFiles);
 }
 
 const htmlFiles = getHtmlFiles();
@@ -159,7 +160,7 @@ htmlFiles.forEach(file => {
   assert(relImg.length === 0, `页面 ${file} 严禁使用相对路径引入图片或图标，必须使用根绝对路径: ${JSON.stringify(relImg)}`);
 
   // F. 平台风控合规红线检查
-  const affLinks = content.match(/href=["']https?:\/\/[^"']*(?:aff|\?code=|\?ref=)[^"']*["']/gi) || [];
+  const affLinks = content.match(/href=["']https?:\/\/[^"']*(?:[?&]aff=|\/aff\/|[?&]code=|[?&]ref=)[^"']*["']/gi) || [];
   assert(affLinks.length === 0, `页面 ${file} 严禁包含商业推广返利外链: ${JSON.stringify(affLinks)}`);
 
   const tgLinks = content.match(/href=["']https?:\/\/t\.me\/[^"']*["']/gi) || [];

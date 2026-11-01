@@ -223,4 +223,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://xiuxiuxiaozhan.com/articles/dpi-evasion-traffic-obfuscation-tuning-2026.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
 </urlset>

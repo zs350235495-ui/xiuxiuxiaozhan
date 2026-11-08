@@ -188,7 +188,8 @@ htmlFiles.forEach(file => {
       let clean = internalPath.split('#')[0].split('?')[0];
       if (!clean || clean === '/') clean = '/index.html';
       const targetDiskFile = path.join('.', clean);
-      assert(fs.existsSync(targetDiskFile), `内链死链检测失败！在 ${file} 中的链接 ${href} (映射为 ${targetDiskFile}) 本地不存在`);
+      const exists = fs.existsSync(targetDiskFile) || (!path.extname(clean) && fs.existsSync(targetDiskFile + '.html'));
+      assert(exists, `内链死链检测失败！在 ${file} 中的链接 ${href} (映射为 ${targetDiskFile}) 本地不存在`);
     }
   });
 });

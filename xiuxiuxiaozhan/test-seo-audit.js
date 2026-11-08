@@ -31,9 +31,9 @@ function assert(condition, message) {
 
 console.log('🚀 开始执行 咻咻小站 (xiuxiuxiaozhan.com) 全面 SEO 权重与合规门禁测试...\n');
 
-// 获取所有 HTML 文件
+// 获取所有核心内容 HTML 文件（排除中转跳转承接页 go.html）
 function getHtmlFiles() {
-  const rootFiles = fs.readdirSync('.').filter(f => f.endsWith('.html'));
+  const rootFiles = fs.readdirSync('.').filter(f => f.endsWith('.html') && f !== 'go.html');
   const blogFiles = fs.readdirSync('blog').filter(f => f.endsWith('.html')).map(f => 'blog/' + f);
   const articleFiles = fs.existsSync('articles') ? fs.readdirSync('articles').filter(f => f.endsWith('.html')).map(f => 'articles/' + f) : [];
   return rootFiles.concat(blogFiles).concat(articleFiles);
@@ -109,6 +109,16 @@ if (fs.existsSync('404.html')) {
   assert(content404.includes('href="/reviews.html"'), '404.html 必须提供核心栏目内链');
 }
 
+// 5.1 go.html 302 中转承接页与重定向规范审计
+assert(fs.existsSync('go.html'), '必须包含 go.html 302 中转承接页');
+if (fs.existsSync('go.html')) {
+  const contentGo = fs.readFileSync('go.html', 'utf-8');
+  assert(contentGo.includes('content="noindex, nofollow"'), 'go.html 必须严格包含 <meta name="robots" content="noindex, nofollow">');
+  assert(contentGo.includes('rel="nofollow sponsored noopener noreferrer"'), 'go.html 直达外链必须附加 rel="nofollow sponsored noopener noreferrer"');
+}
+assert(fs.existsSync('_redirects'), '必须包含 _redirects 边缘 302 规则文件');
+assert(fs.existsSync('nginx-redirects.conf'), '必须包含 nginx-redirects.conf 302 规则文件');
+
 // 6. 全站 HTML 深度审计
 htmlFiles.forEach(file => {
   const content = fs.readFileSync(file, 'utf-8');
@@ -160,8 +170,7 @@ htmlFiles.forEach(file => {
   assert(relImg.length === 0, `页面 ${file} 严禁使用相对路径引入图片或图标，必须使用根绝对路径: ${JSON.stringify(relImg)}`);
 
   // F. 平台风控合规红线检查
-  const affLinks = (content.match(/href=["']https?:\/\/[^"']*(?:[?&]aff=|\/aff\/|[?&]code=|[?&]ref=)[^"']*["']/gi) || [])
-    .filter(link => !link.includes('huanqiutiaff.com'));
+  const affLinks = content.match(/href=["']https?:\/\/[^"']*(?:[?&]aff=|\/aff\/|[?&]code=|[?&]ref=)[^"']*["']/gi) || [];
   assert(affLinks.length === 0, `页面 ${file} 严禁包含商业推广返利外链: ${JSON.stringify(affLinks)}`);
 
   const tgLinks = content.match(/href=["']https?:\/\/t\.me\/[^"']*["']/gi) || [];

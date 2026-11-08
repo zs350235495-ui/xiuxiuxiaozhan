@@ -4,40 +4,7 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="咻咻小站安全中转通道 - 正在为您分配专属安全加速线路并跳转至服务商官网。">
-  <title>正在安全跳转中 - 咻咻小站</title>
-  <link rel="canonical" href="https://xiuxiuxiaozhan.com/go.html">
-  <link rel="icon" type="image/svg+xml" href="/images/logo.svg">
-  
-  <!-- Open Graph / 社交图谱元数据 -->
-  <meta property="og:site_name" content="咻咻小站">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="正在安全跳转中 - 咻咻小站">
-  <meta property="og:description" content="咻咻小站安全中转通道 - 正在为您分配专属安全加速线路并跳转至服务商官网。">
-  <meta property="og:url" content="https://xiuxiuxiaozhan.com/go.html">
-  <meta property="og:image" content="https://xiuxiuxiaozhan.com/images/logo.svg">
-  
-  <!-- Twitter Card 规范元数据 -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="正在安全跳转中 - 咻咻小站">
-  <meta name="twitter:description" content="咻咻小站安全中转通道 - 正在为您分配专属安全加速线路并跳转至服务商官网。">
-  <meta name="twitter:image" content="https://xiuxiuxiaozhan.com/images/logo.svg">
-
-  <!-- Schema.org 结构化数据 (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "安全中转通道",
-    "description": "咻咻小站安全中转通道 - 正在为您分配专属安全加速线路并跳转至服务商官网。",
-    "url": "https://xiuxiuxiaozhan.com/go.html",
-    "inLanguage": "zh-CN"
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <title>正在安全跳转 ~ 咻咻小站</title>
   <style>
     :root {
       --primary: #FF8EA7;
@@ -46,279 +13,163 @@
       --card-bg: #FFFFFF;
       --text-main: #0F172A;
       --text-muted: #64748B;
-      --border: #FFD6E0;
+      --border-pink: #FFD6E0;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
-      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text-main);
       padding: 20px;
     }
     .redirect-card {
+      text-align: center;
+      padding: 36px 32px;
       background: var(--card-bg);
-      border: 2px dashed var(--border);
       border-radius: 24px;
-      padding: 36px 30px;
+      box-shadow: 0 10px 35px rgba(255, 142, 167, 0.2);
       max-width: 460px;
       width: 100%;
-      text-align: center;
-      box-shadow: 0 12px 36px rgba(255, 142, 167, 0.18);
-      position: relative;
+      border: 2px dashed var(--border-pink);
+      animation: popIn 0.3s ease-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.95); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
     .icon {
       font-size: 2.8rem;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: inline-block;
-      animation: float 2.5s ease-in-out infinite;
+      animation: bounce 1.8s infinite;
     }
-    @keyframes float {
+    @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
     h1 {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       font-weight: 800;
-      margin-bottom: 12px;
       color: var(--text-main);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
     }
     p {
       font-size: 0.92rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-    .coupon-box {
-      background: #FFF0F4;
-      border: 1px solid #FFD6E0;
-      border-radius: 12px;
-      padding: 10px 16px;
-      font-size: 0.88rem;
-      color: #D81B60;
-      font-weight: 700;
+      line-height: 1.65;
       margin-bottom: 22px;
-      display: inline-block;
     }
-    .btn-redirect {
+    .btn {
       display: inline-block;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #FFFFFF;
       text-decoration: none;
       padding: 12px 32px;
       border-radius: 999px;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 0.98rem;
-      box-shadow: 0 6px 18px rgba(255, 107, 139, 0.35);
-      transition: all 0.25s ease;
+      box-shadow: 0 6px 20px rgba(255, 107, 139, 0.38);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
     }
-    .btn-redirect:hover {
+    .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(255, 107, 139, 0.45);
+      box-shadow: 0 8px 25px rgba(255, 107, 139, 0.5);
+    }
+    .meta-note {
+      font-size: 0.78rem;
+      color: #94A3B8;
+      margin-top: 18px;
     }
     .spinner {
-      margin: 18px auto 0;
-      width: 28px;
-      height: 28px;
-      border: 3px solid #FFE4EC;
+      width: 22px;
+      height: 22px;
+      border: 3px solid rgba(255, 142, 167, 0.3);
       border-top-color: var(--primary-dark);
       border-radius: 50%;
+      display: inline-block;
       animation: spin 0.8s linear infinite;
+      vertical-align: middle;
+      margin-right: 8px;
     }
     @keyframes spin {
       to { transform: rotate(360deg); }
-    }
-    .footer-note {
-      margin-top: 24px;
-      font-size: 0.8rem;
-      color: #94A3B8;
-    }
-    .footer-note a {
-      color: var(--primary-dark);
-      text-decoration: none;
-      font-weight: 600;
     }
   </style>
 </head>
 <body>
   <div class="redirect-card">
     <div class="icon">✈️</div>
-    <h1 id="redirect-title">正在安全前往服务商官网...</h1>
-    <p id="redirect-desc">咻咻小站正在为您分配专属安全加密通道。如浏览器未在 3 秒内自动跳转，请点击下方直达按钮：</p>
-    <div class="coupon-box" id="coupon-area" style="display: none;">
-      专属优惠码：<span id="coupon-code"></span>（享 <span id="coupon-discount"></span> 优惠）
-    </div>
-    <div>
-      <a id="redirect-btn" href="/" rel="nofollow sponsored noopener noreferrer" class="btn-redirect">立即直达官网 ↗</a>
-    </div>
-    <div class="spinner" id="spinner"></div>
-    <div class="footer-note">
-      咻咻小站 · 真实测评与安全导航 | <a href="/reviews.html">返回评测列表</a>
-    </div>
+    <h1 id="jump-title">正在安全分配加速通道...</h1>
+    <p id="jump-desc">咻咻小站正在为您分配专属安全直达通道。如浏览器未在 2 秒内自动跳转，请点击下方按钮直达：</p>
+    <a id="jump-btn" href="/" rel="nofollow sponsored noopener noreferrer" class="btn">
+      <span class="spinner"></span> 立即前往官网 ↗
+    </a>
+    <div class="meta-note">🛡️ 咻咻小站安全合规中转网关 · 隐私防溯源隔离</div>
   </div>
 
   <script>
-    // 统一服务商导航字典与 301 映射表
-    const PROVIDERS = {
-      'huanqiuti': {
-        name: '环球梯',
-        url: 'https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0',
-        coupon: 'HQ66',
-        discount: '7折'
-      },
-      'shenxing': {
-        name: '神行加速',
-        url: 'https://pps123.shenxingaff.com/#/?code=6tQ7zHUc',
-        coupon: 'sx0077',
-        discount: '7折'
-      },
-      'liulianyun': {
-        name: '榴莲云',
-        url: 'https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G',
-        coupon: 'll88',
-        discount: '7折'
-      },
-      'duriancloud': {
-        name: '榴莲云',
-        url: 'https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G',
-        coupon: 'll88',
-        discount: '7折'
-      },
-      'yunjiexian': {
-        name: '云界线',
-        url: 'https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV',
-        coupon: 'yjx888',
-        discount: '7折'
-      },
-      'shandianshu': {
-        name: '闪电鼠',
-        url: 'https://ppsvip01.shandianshuaff.com/#/?code=QbLF8tjB',
-        coupon: 'sds88',
-        discount: '7折'
-      },
-      'dalaoyun': {
-        name: '大佬云',
-        url: 'https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa',
-        coupon: 'dly88',
-        discount: '7折'
-      },
-      'jilianyun': {
-        name: '极连云',
-        url: 'https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO',
-        coupon: 'JLY888',
-        discount: '8折'
-      },
-      'jiliancloud': {
-        name: '极连云',
-        url: 'https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO',
-        coupon: 'JLY888',
-        discount: '8折'
-      },
-      'guangnianti': {
-        name: '光年梯',
-        url: 'https://gnt001.gntvipaff.cc/#/?code=PQhPFDhO',
-        coupon: 'GNT80',
-        discount: '8折'
-      },
-      'kexinyun': {
-        name: '可信云',
-        url: 'https://everett7623.kosingaff.com/#/?code=sFKkfEYs',
-        coupon: 'kxy80',
-        discount: '8折'
-      },
-      'yuntu': {
-        name: '云图机场',
-        url: 'https://super.ytjcok.org/#/register?code=poKwFVtv',
-        coupon: 'yt88',
-        discount: '8折'
-      },
-      'kunpeng': {
-        name: '鲲鹏加速',
-        url: 'https://kunpengjiasu.com/#/register?code=WPugVZUe',
-        coupon: 'WPugVZUe',
-        discount: '专属'
-      },
-      'sujie': {
-        name: '速界',
-        url: 'https://pygllc.speedworldaff.cc/#/?code=kcoensXG',
-        coupon: 'sujie888',
-        discount: '专属'
-      },
-      'kuaili': {
-        name: '快狸快狸',
-        url: 'https://fanxiaobin.kuailiaff.com/#/?code=e0cAmK7F',
-        coupon: 'kl888',
-        discount: '专属'
-      },
-      'bianyuan': {
-        name: '边缘节点',
-        url: 'https://wep.edgenovaaff.com/#/?code=mLLL6h6F',
-        coupon: 'xk808',
-        discount: '专属'
-      },
-      'shunyun': {
-        name: '瞬云',
-        url: 'https://ddd.jichang.best/#/register?code=nldUZaYc',
-        coupon: 'nldUZaYc',
-        discount: '官网'
-      },
-      'tg': {
-        name: 'Telegram 官方客服',
-        url: 'https://t.me/huanqiuti8899',
-        coupon: '',
-        discount: ''
-      },
-      'telegram': {
-        name: 'Telegram 官方客服',
-        url: 'https://t.me/huanqiuti8899',
-        coupon: '',
-        discount: ''
+    (function() {
+      var ROUTES = {
+        'huanqiuti': { name: '环球梯', url: 'https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0', note: '（结账输入专属优惠码 HQ66 享7折优惠）' },
+        'huanqiu': { name: '环球梯', url: 'https://123pps01.huanqiutiaff.com/#/?code=j5VBUvw0', note: '（结账输入专属优惠码 HQ66 享7折优惠）' },
+        'pinghaolian': { name: '拼好连', url: 'https://pinghaolian.cc/a/6urgqa32', note: '（免费轻量体验专用备用通道）' },
+        'dalaoyun': { name: '大佬云', url: 'https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa', note: '（全专线高可用冗余通道）' },
+        'dalao': { name: '大佬云', url: 'https://ppsvip01.dalaoyunaff.com/#/?code=Iz1GlCVa', note: '（全专线高可用冗余通道）' },
+        'shandianshu': { name: '闪电鼠', url: 'https://ppsvip01.shandianshuaff.com/#/?code=QbLF8tjB', note: '（萌新起步高性价比通道）' },
+        'yunjiexian': { name: '云界线', url: 'https://pp01.yunjiexianaff.com/#/?code=bp0ZSKBV', note: '（大流量高吞吐流媒体通道）' },
+        'shenxing': { name: '神行', url: 'https://pps123.shenxingaff.com/#/?code=6tQ7zHUc', note: '（低延迟多长尾节点通道）' },
+        'liulianyun': { name: '榴莲云', url: 'https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G', note: '（备用冗余灾备通道）' },
+        'duriancloud': { name: '榴莲云', url: 'https://123pp01.liulianyunaff.com/#/?code=MsZP3u7G', note: '（备用冗余灾备通道）' },
+        'jilianyun': { name: '极联云', url: 'https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO', note: '（企业团队协同通道）' },
+        'jiliancloud': { name: '极联云', url: 'https://haozevpn.jlyvipaff.com/#/?code=jwCMOvQO', note: '（企业团队协同通道）' },
+        'guangnianti': { name: '光年梯', url: 'https://gnt001.gntvipaff.cc/#/?code=PQhPFDhO', note: '（长效稳定低抖动专线）' },
+        'kexinyun': { name: '可信云', url: 'https://everett7623.kosingaff.com/#/?code=sFKkfEYs', note: '（轻量纯净节点通道）' },
+        'yuntu': { name: '云图', url: 'https://super.ytjcok.org/#/register?code=poKwFVtv', note: '（多协议兼容自适应专线）' },
+        'kunpeng': { name: '鲲鹏加速', url: 'https://kunpengjiasu.com/#/register?code=WPugVZUe', note: '（全天候测速达标航班）' },
+        'sujie': { name: '速界', url: 'https://pygllc.speedworldaff.cc/#/?code=kcoensXG', note: '（高性价比多终端通道）' },
+        'kuaili': { name: '快狸', url: 'https://fanxiaobin.kuailiaff.com/#/?code=e0cAmK7F', note: '（小巧灵动轻便航班）' },
+        'bianyuan': { name: '边缘', url: 'https://wep.edgenovaaff.com/#/?code=mLLL6h6F', note: '（海外边缘计算专用专线）' },
+        'shunyun': { name: '瞬云', url: 'https://ddd.jichang.best/#/register?code=nldUZaYc', note: '（极速起跑闪充通道）' },
+        'tg': { name: '官方客服 Telegram', url: 'https://t.me/huanqiuti8899', note: '（24小时在线值班客服）' },
+        'telegram': { name: '官方客服 Telegram', url: 'https://t.me/huanqiuti8899', note: '（24小时在线值班客服）' }
+      };
+
+      var params = new URLSearchParams(window.location.search);
+      var targetId = (params.get('id') || params.get('to') || '').toLowerCase().trim();
+      var target = ROUTES[targetId];
+
+      var titleEl = document.getElementById('jump-title');
+      var descEl = document.getElementById('jump-desc');
+      var btnEl = document.getElementById('jump-btn');
+
+      if (target) {
+        document.title = '正在安全前往 ' + target.name + ' 官网...';
+        titleEl.textContent = '正在安全前往 ' + target.name + ' 官网...';
+        descEl.innerHTML = '咻咻小站正在为您分配专属安全直达通道' + (target.note || '') + '。如浏览器未自动跳转，请点击下方粉色按钮直达：';
+        btnEl.href = target.url;
+        btnEl.innerHTML = '立即前往 ' + target.name + ' 官网 ↗';
+        
+        // 自动极速跳转
+        try {
+          window.location.replace(target.url);
+        } catch (e) {
+          window.location.href = target.url;
+        }
+      } else {
+        document.title = '未找到指定航线 ~ 咻咻小站';
+        titleEl.textContent = '未找到指定的航线或节点编号';
+        descEl.textContent = '该中转编号可能已调整或下线。您可以直接返回咻咻小站主站查看最新稳定节点横评推荐。';
+        btnEl.href = '/reviews.html';
+        btnEl.innerHTML = '返回 航线试吃精选榜 ➔';
       }
-    };
-
-    // 获取目标 ID (支持 ?id=xxx, ?target=xxx, ?to=xxx)
-    const params = new URLSearchParams(window.location.search);
-    const targetKey = (params.get('id') || params.get('target') || params.get('to') || '').toLowerCase().trim();
-
-    const titleEl = document.getElementById('redirect-title');
-    const descEl = document.getElementById('redirect-desc');
-    const btnEl = document.getElementById('redirect-btn');
-    const couponArea = document.getElementById('coupon-area');
-    const couponCode = document.getElementById('coupon-code');
-    const couponDiscount = document.getElementById('coupon-discount');
-    const spinner = document.getElementById('spinner');
-
-    if (targetKey && PROVIDERS[targetKey]) {
-      const item = PROVIDERS[targetKey];
-      document.title = '正在安全跳转至 ' + item.name + ' 官网...';
-      titleEl.textContent = '正在安全前往 ' + item.name + ' 官网...';
-      descEl.textContent = '咻咻小站正在为您分配专属安全通道，正在带您前往 ' + item.name + ' 官方页面。如未自动跳转请点击下方按钮：';
-      btnEl.href = item.url;
-      btnEl.textContent = '立即前往 ' + item.name + ' 官网 ↗';
-
-      if (item.coupon) {
-        couponCode.textContent = item.coupon;
-        couponDiscount.textContent = item.discount;
-        couponArea.style.display = 'inline-block';
-      }
-
-      // 执行无痕替换跳转
-      window.location.replace(item.url);
-    } else {
-      document.title = '目标不存在 - 咻咻小站';
-      titleEl.textContent = '未能识别指定的目标服务商';
-      descEl.textContent = '该中转链接参数有误或已被更新，您可以返回首页或机场评测专栏查阅最新推荐。';
-      btnEl.href = '/reviews.html';
-      btnEl.textContent = '查看机场推荐列表 ↗';
-      spinner.style.display = 'none';
-    }
+    })();
   </script>
 </body>
 </html>

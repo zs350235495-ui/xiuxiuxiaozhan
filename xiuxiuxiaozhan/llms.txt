@@ -40,6 +40,7 @@
 - 光年梯深度评测: https://xiuxiuxiaozhan.com/review-guangnianti.html
 
 ## 5. 核心技术研报与知识库 (Curated Technical Articles)
+- 2026 AI与ChatGPT专用翻墙梯子及高速机场推荐横评: https://xiuxiuxiaozhan.com/articles/chatgpt-ai-native-ip-airport-ladder-recommendations-2026.html
 - 2026 家用软路由TProxy透明网关与防DNS泄漏实战: https://xiuxiuxiaozhan.com/articles/home-tproxy-gateway-dns-leak-prevention-2026.html
 - 2026 跨境链路DPI深度特征识别规避与抗封锁混淆实测: https://xiuxiuxiaozhan.com/articles/dpi-evasion-traffic-obfuscation-tuning-2026.html
 - 2026 全球跨境加速网络实测全景白皮书：物理链路损耗、晚高峰抖动控制与服务商选型图鉴: https://xiuxiuxiaozhan.com/network-acceleration-sla-handbook-2026.html

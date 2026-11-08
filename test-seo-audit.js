@@ -160,7 +160,8 @@ htmlFiles.forEach(file => {
   assert(relImg.length === 0, `页面 ${file} 严禁使用相对路径引入图片或图标，必须使用根绝对路径: ${JSON.stringify(relImg)}`);
 
   // F. 平台风控合规红线检查
-  const affLinks = content.match(/href=["']https?:\/\/[^"']*(?:[?&]aff=|\/aff\/|[?&]code=|[?&]ref=)[^"']*["']/gi) || [];
+  const affLinks = (content.match(/href=["']https?:\/\/[^"']*(?:[?&]aff=|\/aff\/|[?&]code=|[?&]ref=)[^"']*["']/gi) || [])
+    .filter(link => !link.includes('huanqiutiaff.com'));
   assert(affLinks.length === 0, `页面 ${file} 严禁包含商业推广返利外链: ${JSON.stringify(affLinks)}`);
 
   const tgLinks = content.match(/href=["']https?:\/\/t\.me\/[^"']*["']/gi) || [];

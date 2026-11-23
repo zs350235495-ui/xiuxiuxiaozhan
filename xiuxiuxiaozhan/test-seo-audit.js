@@ -114,6 +114,7 @@ assert(fs.existsSync('go.html'), '必须包含 go.html 302 中转承接页');
 if (fs.existsSync('go.html')) {
   const contentGo = fs.readFileSync('go.html', 'utf-8');
   assert(contentGo.includes('content="noindex, nofollow"'), 'go.html 必须严格包含 <meta name="robots" content="noindex, nofollow">');
+  assert(contentGo.includes('name="description"'), 'go.html 必须包含 <meta name="description"> 元描述标签');
   assert(contentGo.includes('rel="nofollow sponsored noopener noreferrer"'), 'go.html 直达外链必须附加 rel="nofollow sponsored noopener noreferrer"');
 }
 assert(fs.existsSync('_redirects'), '必须包含 _redirects 边缘 302 规则文件');
